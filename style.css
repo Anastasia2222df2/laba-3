@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.header{
+    align-items: center;
+    padding: 33px 0 20px 0;
+}
+body {
+    font-family: sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+}
+.header__nav{
+    display: flex;
+    gap: 20px
+}
+.header__auth{
+    display: flex;
+    gap: 20px
+}
+.header__logo{
+    padding-left: 20px;
+    display: flex;
+    gap: 20px;
+    font-weight: 700;
+    
+}
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.btn-black{
+    background-color:#000;
+    color:#ffffff;
+    padding: 1px 20px;
+    border-radius: 70px;
+}
