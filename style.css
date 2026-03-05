@@ -23,6 +23,7 @@ body {
     font-weight: 20;
     line-height: 14.7px; /* 105% */
     letter-spacing: 0.048px;
+    cursor: pointer;
 }
 .header__auth{
     display: flex;
@@ -75,3 +76,79 @@ body {
     font-size: 13px;
     cursor: pointer;
 }
+.hero__container{
+    background-color:#BDD5FF;
+    padding: 80px 45px;
+    height: 335px;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 5px;
+    justify-content: center;
+    gap: 53px;
+}
+.hero h1{
+    color: #000;
+    font-family: Roboto;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 55px; /* 114.583% */
+    margin-top: 3px;
+    margin-left: 0px;
+}
+.hero__image{
+    margin-top: -19px;
+    width: auto;
+    height: 295px;
+}
+.hero__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: -80px;
+    gap: 34px;
+    
+}
+.search-box{
+  border-radius: 500px;
+  background-color: #fff; 
+  height: 55px;
+  width: 420px;
+  max-width: 800px;
+  display: flex;
+  align-items: center;
+}
+.text{
+    border: none;
+    outline: none;
+    margin-left: 60px;
+    margin-right: 60px;
+    font-size: 14px;
+    width: 100%;
+    max-width: 800px;
+    color: #000;
+    font-family: Roboto;
+}
+.search-btn-icon{
+    padding: 0 15px;
+background: none;
+border: none;
+cursor: pointer;
+outline: none;
+background: transparent;
+}
+.search-btn-arrow{
+    padding: 0 15px;
+    cursor: pointer;
+border: none;
+width: 41px;
+height: 41px;
+border-radius: 50%;
+background-color:#FFB3C7;
+margin-right: 5px;
+margin-top: 4px;
+display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
