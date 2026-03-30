@@ -285,41 +285,84 @@ margin-top: 40px;
 
 /*------------БЛОК 4-------------*/
 
+.hero_4 {
+    background-color: #ffffff; /* Светлый фон секции, чтобы белые карточки выделялись */
+    padding: 90px 0;
+}
+
 .columns_hero_4 {
     display: flex;
-    max-width: 1440px;      /* Используем max-width вместо width */
-    margin: 0 auto;         /* Центрируем сам контейнер на странице */
-    padding: 60px 20px;     /* Уменьшил огромный паддинг для аккуратности */
-    justify-content: center; /* Центрируем карточки внутри */
-    align-items: flex-start;
-    gap: 30px;              /* Увеличил расстояние между карточками, как в макете */
+    max-width: 1440px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Расстояние между карточками из макета */
 }
 
 .columns_1_hero_4 {
     display: flex;
     flex-direction: column;
-    width: 350px;           /* Задаем ширину карточки как в Figma */
-    gap: 15px;
+    width: 457px;
+    height: 368px;        /* УМЕНЬШИЛИ: подгоняем высоту под срез текста */
+    padding: 4px;
+    background: #FFFFFF;
+    border: 1px solid #EAEAEA;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    border-radius: 10px;
+    justify-content: flex-start; /* Прижимаем контент к верху */
+}
+
+.pictire_1_hero_4 {
+    position: relative;
+    width: 100%;
+    height: 327px;        /* ТВОЯ ВЫСОТА: оставляем без изменений */
+    overflow: hidden;
 }
 
 .pictire_1_hero_4 img {
-    width: 423px;
-height: 317px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    /* Чтобы фото заполняло блок без искажений */
     display: block;
+    margin-top: 5px;
+}
+
+/* Тег In-store поверх картинки */
+.tag_in_store {
+    position: absolute;
+    top: 8px;
+    right: 4px;
+    background: #F0EEEB;
+    padding: 3px 13px;
+    border-radius: 18px;
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #171717;
+}
+
+.Learn_more_vector_hero_4 {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    align-items: flex-end;     /* Занимает ровно столько, сколько осталось до края */
 }
 
 .text_hero_4 {
     color: #000;
     font-family: Roboto, sans-serif;
     font-size: 16px;
+    font-weight: 400;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     cursor: pointer;
-    margin-top: 10px;
+    margin: 0;            /* УБИРАЕМ ОТСТУП: это схлопнет лишнюю высоту снизу */
+    line-height: 1.2;     /* Контролируем высоту строки */
 }
 
 .vector_hero4 {
-    width: 12px;
+    width: 10px;
     height: auto;
 }
