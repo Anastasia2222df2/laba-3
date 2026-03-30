@@ -31,13 +31,12 @@ body {
 
 .header__nav {
     color: #0E0E0F;
-
     font-family: Roboto;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     display: flex;
-    gap: 24px;
+    gap: 25px;
     margin-top: 5px;
 }
 
