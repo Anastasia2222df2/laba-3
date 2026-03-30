@@ -1,3 +1,4 @@
+/*------------HEADER-------------*/
 * {
     margin: 0;
     padding: 0;
@@ -183,6 +184,7 @@ body {
     margin-top: 30px;
     text-align: center;
 }
+
 .Shop,
 .Pay,
 .Manage {
@@ -196,7 +198,97 @@ body {
     font-family: Roboto;
     font-size: 16px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 40;
     line-height: 25px; /* 156.25% */
 }
 
+/*------------БЛОК 3-------------*/
+.hero_3{
+    margin-top: 2px;
+}
+.cntr_text_hero_3{
+    color: #000;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px; /* 125% */
+    margin-top: 40px;
+}
+
+.columns_hero_3 {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Растягиваем колонки до одной высоты */
+    gap: 130px;
+    margin-top: 30px;
+}
+
+.heading_1_column_1_hero_3,
+.heading_2_column_1_hero_3,
+.heading_3_column_1_hero_3 {
+    color: #000;
+    font-family: Roboto, sans-serif;
+    font-size: 16px; /* Чуть увеличил для отличия от текста */
+    font-weight: 300; 
+    line-height: 1.2;
+}
+.description_1_column_1_hero_3,
+.description_2_column_1_hero_3,
+.description_3_column_1_hero_3 {
+    color: #000;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+}
+.columns_1_hero_3,
+.columns_2_hero_3,
+.columns_3_hero_3 {
+    width: 267px;
+    display: flex;
+    flex-direction: column; /* Элементы внутри встают друг под друга */
+}
+.text_column_1_hero_3,
+.text_column_2_hero_3,
+.text_column_3_hero_3 {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    margin-top: 31px;
+    flex-grow: 1; /* КЛЮЧ: этот блок забирает всё свободное место и толкает ссылку вниз */
+}
+
+
+
+.text_hero_3 {
+    color: #487B94;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 21px; /* Расстояние между текстом и стрелочкой */
+    cursor: pointer;
+}
+.Learn_more_vector_hero_3{
+display: inline-flex;
+align-items: center;
+gap: 277px;
+margin-top: 40px;
+}
+
+.vector_hero3 {
+    width: 18px; /* Подбери размер иконки */
+    height: auto;
+}
+
+/*------------БЛОК 4-------------*/
+.columns_hero_4{
+display: flex;
+width: 1440px;
+padding: 98px 0;
+justify-content: center;
+align-items: center;
+gap: 10px; 
+}
