@@ -284,11 +284,42 @@ margin-top: 40px;
 }
 
 /*------------БЛОК 4-------------*/
-.columns_hero_4{
-display: flex;
-width: 1440px;
-padding: 98px 0;
-justify-content: center;
-align-items: center;
-gap: 10px; 
+
+.columns_hero_4 {
+    display: flex;
+    max-width: 1440px;      /* Используем max-width вместо width */
+    margin: 0 auto;         /* Центрируем сам контейнер на странице */
+    padding: 60px 20px;     /* Уменьшил огромный паддинг для аккуратности */
+    justify-content: center; /* Центрируем карточки внутри */
+    align-items: flex-start;
+    gap: 30px;              /* Увеличил расстояние между карточками, как в макете */
+}
+
+.columns_1_hero_4 {
+    display: flex;
+    flex-direction: column;
+    width: 350px;           /* Задаем ширину карточки как в Figma */
+    gap: 15px;
+}
+
+.pictire_1_hero_4 img {
+    width: 423px;
+height: 317px;
+    display: block;
+}
+
+.text_hero_4 {
+    color: #000;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.vector_hero4 {
+    width: 12px;
+    height: auto;
 }
