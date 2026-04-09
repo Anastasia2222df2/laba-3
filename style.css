@@ -86,25 +86,25 @@ body {
     text-align: center;
 }
 .hero {
-    background-color: #BDD5FF; /* */
-    width: 100%;               /* Растягиваем до краев браузера */
+    background-color: #BDD5FF;
+    width: 100%;
     display: flex;
-    justify-content: center;   /* Центрируем внутренний контейнер по горизонтали */
+    justify-content: center;
     overflow: hidden; 
-    margin-top: 10px;         /* На всякий случай, чтобы ничего не вылезло */
+    margin-top: 10px;
 }
 
 .hero__container {
-    max-width: 1440px;         /* Ограничиваем контент по ширине макета */
-    width: 100%;               /* Позволяет контейнеру сужаться на маленьких экранах */
-    padding: 0 150px 0 283px;  /* Твои оригинальные отступы */
+    max-width: 1440px;
+    width: 100%;
+    padding: 0 150px 0 283px;
     display: flex;
     justify-content: flex-start; 
     align-items: center;
     height: 415px;
     gap: 38px;
     box-sizing: border-box;
-    margin-top: 0;             /* Убрали 10px, чтобы приподнять к верхнему блоку */
+    margin-top: 0;
 }
 .hero h1{
     color: #000;
@@ -193,9 +193,9 @@ body {
 .Shop,
 .Pay,
 .Manage {
-    margin-top: -10px;    /* Расстояние от иконки до заголовка */
-    margin-bottom: 9px;  /* Расстояние от заголовка до описания */
-    display: block;      /* Чтобы маргины работали корректно */
+    margin-top: -10px;
+    margin-bottom: 9px;
+    display: block;
 }
 .benefit-backet__content p:not([class]) { 
     color: #000;
@@ -204,7 +204,7 @@ body {
     font-size: 16px;
     font-style: normal;
     font-weight: 40;
-    line-height: 25px; /* 156.25% */
+    line-height: 25px;
 }
 
 /*------------БЛОК 3-------------*/
@@ -218,14 +218,14 @@ body {
     font-size: 32px;
     font-style: normal;
     font-weight: 400;
-    line-height: 40px; /* 125% */
+    line-height: 40px;
     margin-top: 40px;
 }
 
 .columns_hero_3 {
     display: flex;
     justify-content: center;
-    align-items: stretch; /* Растягиваем колонки до одной высоты */
+    align-items: stretch;
     gap: 130px;
     margin-top: 30px;
 }
@@ -235,7 +235,7 @@ body {
 .heading_3_column_1_hero_3 {
     color: #000;
     font-family: Roboto, sans-serif;
-    font-size: 16px; /* Чуть увеличил для отличия от текста */
+    font-size: 16px;
     font-weight: 300; 
     line-height: 1.2;
 }
@@ -253,7 +253,7 @@ body {
 .columns_3_hero_3 {
     width: 267px;
     display: flex;
-    flex-direction: column; /* Элементы внутри встают друг под друга */
+    flex-direction: column;
 }
 .text_column_1_hero_3,
 .text_column_2_hero_3,
@@ -262,7 +262,7 @@ body {
     flex-direction: column;
     gap: 13px;
     margin-top: 31px;
-    flex-grow: 1; /* КЛЮЧ: этот блок забирает всё свободное место и толкает ссылку вниз */
+    flex-grow: 1;
 }
 
 
@@ -273,7 +273,7 @@ body {
     font-size: 16px;
     display: flex;
     align-items: center;
-    gap: 21px; /* Расстояние между текстом и стрелочкой */
+    gap: 21px;
     cursor: pointer;
 }
 .Learn_more_vector_hero_3{
@@ -284,14 +284,14 @@ margin-top: 40px;
 }
 
 .vector_hero3 {
-    width: 18px; /* Подбери размер иконки */
+    width: 18px; 
     height: auto;
 }
 
 /*------------БЛОК 4-------------*/
 
 .hero_4 {
-    background-color: #ffffff; /* Светлый фон секции, чтобы белые карточки выделялись */
+    background-color: #ffffff;
     padding: 90px 0;
 }
 
@@ -301,39 +301,38 @@ margin-top: 40px;
     margin: 0 auto;
     justify-content: center;
     align-items: center;
-    gap: 10px; /* Расстояние между карточками из макета */
+    gap: 10px;
 }
 
 .columns_1_hero_4 {
     display: flex;
     flex-direction: column;
     width: 457px;
-    height: 368px;        /* УМЕНЬШИЛИ: подгоняем высоту под срез текста */
+    height: 368px;       
     padding: 4px;
     background: #FFFFFF;
     border: 1px solid #EAEAEA;
     box-sizing: border-box;
     flex-shrink: 0;
     border-radius: 10px;
-    justify-content: flex-start; /* Прижимаем контент к верху */
+    justify-content: flex-start;
 }
 
 .pictire_1_hero_4 {
     position: relative;
     width: 100%;
-    height: 327px;        /* ТВОЯ ВЫСОТА: оставляем без изменений */
+    height: 327px;       
     overflow: hidden;
 }
 
 .pictire_1_hero_4 img {
     width: 100%;
     height: 100%;
-    object-fit: cover;    /* Чтобы фото заполняло блок без искажений */
+    object-fit: cover;
     display: block;
     margin-top: 5px;
 }
 
-/* Тег In-store поверх картинки */
 .tag_in_store {
     position: absolute;
     top: 8px;
@@ -351,7 +350,7 @@ margin-top: 40px;
     display: flex;
     align-items: center;
     flex-grow: 1;
-    align-items: flex-end;   /* Занимает ровно столько, сколько осталось до края */
+    align-items: flex-end;
 }
 
 .text_hero_4 {
@@ -363,8 +362,8 @@ margin-top: 40px;
     align-items: center;
     gap: 8px;
     cursor: pointer;
-    margin: 0;            /* УБИРАЕМ ОТСТУП: это схлопнет лишнюю высоту снизу */
-    line-height: 1.2;     /* Контролируем высоту строки */
+    margin: 0;           
+    line-height: 1.2;    
 }
 
 .vector_hero4 {
@@ -411,7 +410,7 @@ font-family: Roboto;
 font-size: 16px;
 font-style: normal;
 font-weight: 400;
-line-height: 35px; /* 218.75% */
+line-height: 35px;
 }
 .text_2_column_1_hero_5{
     color: #FFF;
@@ -419,7 +418,7 @@ font-family: Roboto;
 font-size: 48px;
 font-style: normal;
 font-weight: 400;
-line-height: 55px; /* 114.583% */
+line-height: 55px;
 align-self: stretch;
 }
 .text_3_column_1_hero_5{
@@ -428,7 +427,7 @@ font-family: Roboto;
 font-size: 20px;
 font-style: normal;
 font-weight: 400;
-line-height: 30px; /* 150% */
+line-height: 30px;
 }
 .button_background_hero_5{
 display: flex;
@@ -449,7 +448,7 @@ font-family: Roboto;
 font-size: 20px;
 font-style: normal;
 font-weight: 400;
-line-height: 20px; /* 100% */
+line-height: 20px;
 width: 102px;   
 }
 
@@ -459,17 +458,17 @@ width: 102px;
     justify-content: center;
     align-items: center;
     align-self: stretch;
-    background-color: rgb(255, 255, 255); /* Твой цвет */
+    background-color: rgb(255, 255, 255);
     width: 100%;
     height: 475px;
 }
 
 .hug_hero_6 {
     display: flex;
-    flex-direction: row;     /* Ставим в ряд */
-    width: 908px;            /* Твоя ширина */
-    height: 425px;           /* Твоя высота */
-    justify-content: space-between; /* Распределяем: картинка слева, текст справа */
+    flex-direction: row;    
+    width: 908px;         
+    height: 425px;        
+    justify-content: space-between; 
     align-items: center;
     flex-wrap: nowrap;
     box-sizing: border-box;
@@ -488,15 +487,15 @@ width: 102px;
 
 .column_2_hero_6 {
     display: flex;
-    flex-direction: column;  /* Текст и кнопка друг под другом */
-    align-items: flex-start; /* ПРИЖИМАЕМ ВЛЕВО, как на макете */
+    flex-direction: column; 
+    align-items: flex-start;
     justify-content: center;
     height: auto;
-    gap: 30px;               /* Расстояние между текстами и кнопкой */
+    gap: 30px;               
     margin-top: 0px;
 }
 
-/* ТВОИ НАСТРОЙКИ ТЕКСТА (БЕЗ ИЗМЕНЕНИЙ) */
+
 .text_1_column_2_hero_6 {
     color: #000;
     font-family: Roboto;
@@ -517,7 +516,7 @@ width: 102px;
 .button_background_hero_6 {
     display: flex;
     width: 116px;
-height: 20px;          /* Сделал высоту кнопкой */
+height: 20px;       
     justify-content: center;
     align-items: center;
     border-radius: 50px;
@@ -530,10 +529,57 @@ font-family: Roboto;
 font-size: 16px;
 font-style: normal;
 font-weight: 400;
-line-height: 20px; /* 125% */
+line-height: 20px;
+}
+.column_2_hero_6 p {
+    margin: 0;
+}
+/*------------БЛОК 7-------------*/
+
+.catalog__grid {
+    display: grid; 
+    grid-template-columns: repeat(3, 265px); 
+    gap: 30px; 
+    justify-content: center; 
+    padding: 40px 0; 
 }
 
-/* Обнуляем отступы p, чтобы не ломали центровку */
-.column_2_hero_6 p {
+.catalog__card {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+
+.catalog__image-wrapper {
+    position: relative;     
+    width: 265px;
+    height: 331px;
+    border-radius: 8px; 
+    overflow: hidden; 
+}
+
+.catalog__image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.catalog__overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.catalog__title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #171717;
     margin: 0;
 }
