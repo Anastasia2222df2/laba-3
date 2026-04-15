@@ -537,49 +537,573 @@ line-height: 20px;
 /*------------БЛОК 7-------------*/
 
 .catalog__grid {
-    display: grid; 
-    grid-template-columns: repeat(3, 265px); 
-    gap: 30px; 
-    justify-content: center; 
-    padding: 40px 0; 
+    display: grid;
+    margin: 0 auto; 
+    max-width: 1000px; 
+    
+    grid-template-columns: repeat(3, 265px);
+    row-gap: 70px;
+    column-gap: 70px;
+    
+    justify-content: center;
+    align-items: start;
+    
+    padding: 30px 0;
+    margin-top: 0px;
+    margin-bottom: 2px;
 }
-
+.hero_7{
+    margin-top: 20px;
+}
 .catalog__card {
     display: flex;
     flex-direction: column;
     gap: 15px; 
 }
 
-.catalog__image-wrapper {
-    position: relative;     
-    width: 265px;
-    height: 331px;
-    border-radius: 8px; 
-    overflow: hidden; 
-}
-
-.catalog__image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-}
-
-.catalog__overlay-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); 
-    color: #FFFFFF;
-    font-family: 'Roboto', sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    text-align: center;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
 .catalog__title {
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
+    color: #0E0E0F;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    width: auto;
+    margin-top: 12px;
+    margin-left: 15px;
+    padding: 0px;
+}
+
+.img_1_hero_7.svg,
+.img_2_hero_7.svg,
+.img_3_hero_7.svg,
+.img_4_hero_7.svg,
+.img_5_hero_7.svg,
+.img_6_hero_7.svg,
+.img_7_hero_7.svg,
+.img_8_hero_7.svg,
+.img_9_hero_7.svg{
+width: 265px;
+height: 331px;
+}
+
+.card_1_hero_7,
+.card_2_hero_7,
+.card_3_hero_7,
+.card_4_hero_7,
+.card_5_hero_7,
+.card_6_hero_7,
+.card_7_hero_7,
+.card_8_hero_7,
+.card_9_hero_7{
+    background: #FFFFFF;
+    border-radius: 16px;
+    border: 1px solid rgba(2, 14, 15, 0.06);
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.03);
+    padding: 0px 0px;
+    padding-bottom: 15px
+    
+}
+
+/*------------БЛОК 8-------------*/
+.hero_8{
+    display: flex;
+height: 460px;
+padding: 60px 250px;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-top: 21px;
+flex: 1 0 0;
+background: #BDBDBD;
+}
+
+
+.text_hero_8{
+    color: #000;
+font-family: Roboto;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 100% */
+
+}
+.categories__grid {
+    display: grid;
+    /* Создаем ровно 5 колонок по 150px (твоя ширина карточки) */
+    grid-template-columns: repeat(5, 150px); 
+    
+    /* Расстояние между карточками */
+    gap: 30px; 
+    
+    /* Центрируем всю сетку по горизонтали */
+    justify-content: center; 
+    
+    /* Убираем flex-свойства, они больше не нужны */
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 33px;
+}
+
+.category__card {
+    background: #FFF;
+    border-radius: 16px;
+    height: 123px;
+    width: 150px; /* Оставляем твою фиксированную ширину */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    
+    /* Убираем flex-grow, чтобы карточки не раздувались */
+}
+
+.category__icon-wrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.text_hero_8{
+    color: #000;
+font-family: Roboto;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 100% */
+margin-top: 30px;
+}
+.category__name{
     color: #171717;
+text-align: center;
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 16.8px; /* 105% */
+width: 90px;
+}
+.countauner_hero_8{
+    display: flex;
+padding: 30px 0;
+flex-direction: column;
+align-items: center;
+gap: 10px;
+align-self: stretch;
+}
+
+/*------------БЛОК 9-------------*/
+.hero_9{
+    display: flex;
+height: 500px;
+justify-content: space-between;
+align-items: center;
+align-self: stretch;
+}
+.deals__grid {
+    display: grid;
+    /* 3 колонки по 1 части пространства и 1 колонка под размер текста */
+    grid-template-columns: repeat(3, 1fr) auto;
+    max-width: 1130px;
+    width: 100%;
+    margin: 0 auto;
+    align-items: center;
+    margin-bottom: 25px;
+    
+}
+.deal-card__content{
+    width: 170px;
+    margin-left: 10px;
+    color: #000;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; /* 137.5% */
+}
+.deal-card__label{
+    margin-bottom: 8px;
+}
+.view-all-link{
+    color: #487B94;
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 25px; /* 156.25% */
+text-decoration: none;
+}
+.deals__view-all{
+    display: flex;
+justify-content: center;
+align-items: center;
+gap: 13px;
+}
+
+/*------------БЛОК 10-------------*/
+.hero_10{
+  display: flex;
+height: 600px;
+justify-content: center;
+align-items: center;
+align-self: stretch;
+}
+.carousel-container {
+    display: flex;
+justify-content: center;
+align-items: center;
+gap: 50px;
+margin-top: -30px;
+    
+    /* Включаем горизонтальный скролл */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; /* Магнитный эффект */
+    
+    /* Прячем полосу прокрутки */
+    scrollbar-width: none; 
+}
+
+.carousel-container::-webkit-scrollbar {
+    display: none; /* Для Chrome и Safari */
+}
+
+.carousel-item {
+    display: flex;
+justify-content: center;
+align-items: center;
+gap: 50px;
+margin-top: 15px;
+}
+
+
+
+.carousel-image-box img {
+    width: 437px;
+height: 546px;
+}
+
+.carousel-text {
+display: flex;
+width: 306px;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+gap: 40px;
+margin-top: 23px;
+}
+.text_hero_10{
+    color: #000;
+font-family: Roboto;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 27px; /* 135% */
+align-self: stretch;
+}
+.h3_hero_10{
+color: #000;
+font-family: Roboto;
+font-size: 32px;
+font-style: normal;
+font-weight: 400;
+line-height: 60px; /* 125% */
+align-self: stretch;
+}
+.links_hero_10{
+display: flex;
+width: 120px;
+justify-content: center;
+align-items: center;
+gap: 18px;
+}
+.learn_more{
+    text-decoration: none;
+    color: #487B94;
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 25px; /* 156.25% */
+}
+.text_hero_10{
+    display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+align-self: stretch;
+gap:5px;
+}
+/*------------БЛОК 11-------------*/
+.background-color_11{
+    display: flex;
+height: 531px;
+justify-content: center;
+align-items: center;
+align-self: stretch;
+background: #FFE7D0;
+}
+.text_1_column_1_hero_11{
+    color: #000;
+font-family: Roboto;
+font-size: 48px;
+font-style: normal;
+font-weight: 400;
+line-height: 55px; /* 114.583% */
+}
+.text_2_column_1_hero_11{
+   color: #171717;
+font-family: Roboto;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 30px; /* 150% */ 
+width: 394px;
+margin-top: 9px;
+}
+
+.buttons_hero_11 {
+    display: flex; /* Выстраиваем кнопки в ряд */
+    gap: 25px;     /* Расстояние между кнопками */
+    margin-top: 20px;
+}
+/* Общий стиль для обеих кнопок — задает размер и форму */
+.button_hero_11 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;          /* Фиксированная высота для обеих */
+    padding: 0 27px;       /* Одинаковые отступы внутри */
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+    white-space: nowrap;   /* Чтобы текст не прыгал на новую строку */
+}
+
+/* Стили только для цвета черной кнопки */
+.button_black_11 {
+    background: #000;
+    color: #ffffff;
+}
+
+/* Стили только для цвета белой кнопки */
+.button_white_11 {
+    background: #FFF;
+    color: #000;
+}
+
+/* Эффект при наведении (опционально) */
+.button_hero_11:hover {
+    opacity: 0.8;
+}
+.column_1_hero_11{
+    display: flex;
+width: 420px;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+gap: 10px;
+margin-left: -3px;
+
+}
+.text_button_1{
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 125% */
+}
+.text_button_2{
+    color: #17120F;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 125% */
+}
+
+/*------------БЛОК 12-------------*/
+.footer_12 {
+    background-color: #000;
+    color: #fff;
+    padding: 35px 80px 0px; /* Немного увеличим отступы сверху */
+    font-family: 'Roboto', sans-serif;
+}
+
+.footer__container {
+    display: grid;
+    /* Создаем 4 равные колонки */
+    grid-template-columns: repeat(4, 1fr);  
+    max-width: 1034px;
+    margin: 0 200px;
+    /* Выравниваем всё содержимое колонок по левому краю */
+    justify-items: start; 
+    align-items: start;
+    gap: 70px;
+}
+
+.footer__logo {
+    font-size: 32px;
+    font-weight: 100;
+    margin-bottom: -5px;
+    color: #606060;
+    margin-top: -13px;
+}
+
+.footer__col h3 {
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16.8px; /* 105% */
+    letter-spacing: 0.048px; 
+    margin-bottom: 2px;
+}
+
+.footer__col ul {
+    list-style: none;
+    padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+    margin-left: 15px;
+}
+
+.footer__col li {
+    margin-bottom: 0; /* Обнуляем старый отступ, если используем gap */
+    line-height: 1.2; /* Устанавливаем одинаковую высоту строки для всего текста */
+}
+
+.footer__col a {
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16.8px; /* 105% */
+    letter-spacing: 0.048px;
+    text-decoration: none;
+}
+
+.footer__socials {
+    display: flex;
+    gap: 15px; /* Расстояние между иконками */
+    align-items: center; /* Центрируем по вертикали */
+}
+
+/* Стили для белого дива вокруг иконки */
+.social-wrap {
+    display: flex;
+    justify-content: center; /* Центрируем иконку по горизонтали */
+    align-items: center;      /* Центрируем иконку по вертикали */
+    background-color: #FFF;  /* Белый фон */
+    border-radius: 4px;      /* Скругление углов (можно больше/меньше) */
+    
+    /* Задаем фиксированный размер белого блока, как на макете */
+    width: 40px;
+    height: 20px;
+    
+    /* Добавляем легкое свечение при наведении (опционально, но красиво) */
+    transition: box-shadow 0.3s ease;
+    text-decoration: none; /* Убираем подчеркивание у ссылки */
+}
+
+.social-wrap:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Размер самой иконки внутри белого блока */
+.social-wrap img {
+    width: 40px;
+    height: 20px;
+}
+
+.footer__bottom {
+    margin-top: 60px;
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.footer__brand {
+    display: flex;
+    width: 208px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 49px;
+    margin: 8px 0;
+}
+.footer__country {
+    display: flex;
+    align-items: center;      /* Центрируем флаг, текст и линию по вертикали */
+    justify-content: space-between; /* Текст влево, стрелка вправо */
+    width: 100%;             /* Растягиваем на всю ширину колонки (208px) */
+    cursor: pointer;
+}
+
+.icon_text_1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;               /* Расстояние между флагом и словом United States */
+}
+
+.line {
+    display: flex;
+    align-items: center;
+}
+
+.line_icon {
+    /* Если стрелка кажется маленькой или большой, можно подправить тут */
+    display: block;
+    margin-right: 15px;
+}
+.footer__legal-text{
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 10.5px; /* 105% */
+    letter-spacing: 0.048px;
+    width: 690px;
+    flex-shrink: 0;
+}
+.footer__extra-links {
+    display: flex;
+    width: 365px;         /* Твое значение из Dev Mode */
+    height: 11px;        /* Твое значение из Dev Mode */
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;           /* Твое значение из Dev Mode */
+    flex-shrink: 0;
+}
+
+.footer__extra-links a {
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;     /* Настройка из предыдущего шага */
+    font-weight: 400;
+    line-height: 10.5px; 
+    letter-spacing: 0.048px;
+    text-decoration: none;
+    white-space: nowrap; /* Чтобы ссылки не переносились внутри маленького контейнера */
+}
+.footer__bottom {
+    margin-top: 10px;
+    padding: 30px 0; /* Отступы сверху и снизу */
+    display: flex;
+    /* justify-content: center ставит дочерние элементы в центр по горизонтали */
+    justify-content: center; 
+    align-items: center;
+    width: 100%;
+    gap: 40px;
 }
