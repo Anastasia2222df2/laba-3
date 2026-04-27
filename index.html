@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Klarna</title>
   </head>
@@ -17,7 +17,7 @@
       <div class="container">
         <div class="header__main-nav">
           <div class="header__logo">
-            <img src="img/logo.svg" alt="Klarna Logo" />
+            <img src="public/header/logo_header.svg" alt="Klarna Logo" />
           </div>
           <nav class="header__nav">
             <div>Shopping categories</div>
@@ -33,31 +33,46 @@
         </div>
       </div>
     </header>
-
     <main>
-      <section class="hero">
+      <!--------------БЛОК 1------------->
+      <section class="hero_1">
         <div class="hero__container">
           <div class="hero__left">
             <h1>Find it. Compare it.<br />And pay how you like.</h1>
             <div class="search-box">
               <button class="search-btn-icon">
-                <img src="img/Vector.svg" alt="search" class="search_button" />
+                <img
+                  src="public/section_1/magnifier_hero_1.svg"
+                  alt="search"
+                  class="search_button"
+                />
               </button>
-              <input type="text" placeholder="" class="text" />
+              <input type="text" placeholder="Search" class="text" />
               <button class="search-btn-arrow">
-                <img src="img/Frame (2).svg" alt="go" class="go_button" />
+                <img
+                  src="public/section_1/line_hero_1.svg"
+                  alt="go"
+                  class="go_button"
+                />
               </button>
             </div>
           </div>
-
-          <img src="img/style_girl.jpg" alt="Girl" class="hero__image" />
+          <img
+            src="public/section_1/style_girl.jpg"
+            alt="Girl"
+            class="hero__image"
+          />
         </div>
       </section>
-
-      <section class="hero_2">
+      <!--------------БЛОК 2------------->
+      <div class="hero_2">
         <div class="benefits">
           <div class="benefit-backet">
-            <img src="img/basket.svg" alt="search" class="search_button" />
+            <img
+              src="public/section_2/basket_hero_2.svg"
+              alt="basket"
+              class="search_button"
+            />
             <div class="benefit-backet__content">
               <p class="Shop">Shop what you love</p>
               <p>
@@ -68,7 +83,11 @@
             </div>
           </div>
           <div class="benefit-card">
-            <img src="img/card.svg" alt="search" class="search_button" />
+            <img
+              src="public/section_2/card_hero_2.svg"
+              alt="card"
+              class="search_button"
+            />
             <div class="benefit-backet__content">
               <p class="Pay">Pay how you like</p>
               <p>
@@ -79,7 +98,11 @@
             </div>
           </div>
           <div class="benefit-temple">
-            <img src="img/temple.svg" alt="search" class="search_button" />
+            <img
+              src="public/section_2/temple_hero_2.svg"
+              alt="temple"
+              class="search_button"
+            />
             <div class="benefit-backet__content">
               <p class="Manage">Manage your budget</p>
               <p>
@@ -90,480 +113,714 @@
             </div>
           </div>
         </div>
-      </section>
-
-      <section class="hero_3">
+      </div>
+      <!--------------БЛОК 3------------->
+      <div class="hero_3">
         <div class="text_columns">
           <div class="cntr_text_hero_3">
             <p>Pay with Klarna.</p>
           </div>
           <div class="columns_hero_3">
-
-            <!--ПЕРВАЯ КОЛОНКА-->
             <div class="columns_1_hero_3">
-            <div class="pictire_1_hero_3">
-              <img src="img_1_hero_3.svg" alt="teapot" class="img_1_hero_3"/>
-            </div>
-            
-            <div class="text_column_1_hero_3">
-            <p class="heading_1_column_1_hero_3">Flex your payments</p>
-            <p class="description_1_column_1_hero_3">Enjoy the flexibility to shop what you love and split your purchase into 4 interest-free payments. No credit impact to apply.</p>
-            </div>
-            <div class="Learn_more_vector_hero_3">
-                <p class="text_hero_3">Learn more <img src="vector_hero3.svg" alt="vector" class="vector_hero3"></p>
-              </div>
-            
-            
-          </div>
-
-          <!--ВТОРАЯ КОЛОНКА-->
-          <div class="columns_2_hero_3">
-            <div class="pictire_2_hero_3">
-              <img
-                src="img_2_hero_3.svg"
-                alt="telephone"
-                class="img_2_hero_3"/>
-            </div>
-            <div class="text_column_2_hero_3">
-            <p class="heading_2_column_1_hero_3">Never miss a payment</p>
-            <p class="description_2_column_1_hero_3">Get more time to pay when you need it. Extend your due date easily in the app. Report returns in the app and we'll pause your payments.</p>
-            </div>
-            <div class="Learn_more_vector_hero_3">
-                <p class="text_hero_3">Learn more <img src="vector_hero3.svg" alt="vector" class="vector_hero3"></p>
-              </div>
-          </div>
-          <!--ТРЕТЬЯ КОЛОНКА-->
-          <div class="columns_3_hero_3">
-              <div class="pictire_3_hero_3">
+              <div class="pictire_1_hero_3">
                 <img
-                  src="img_3_hero_3.svg"
-                  alt="telephone_hand"
-                  class="img_3_hero_3"/>
+                  src="public/section_3/img_1_hero_3.svg"
+                  alt="teapot"
+                  class="img_1_hero_3"
+                />
               </div>
-              <div class="text_column_3_hero_3">
-              <p class="heading_3_column_1_hero_3">Pay wherever, whenever</p>
-              <p class="description_3_column_1_hero_3">Pay however you like, wherever you want to shop—and do it directly from your desktop, phone or in-store.</p>
+              <div class="text_column_1_hero_3">
+                <p class="heading_1_column_1_hero_3">Flex your payments</p>
+                <p class="description_1_column_1_hero_3">
+                  Enjoy the flexibility to shop what you love and split your
+                  purchase into 4 interest-free payments. No credit impact to
+                  apply.
+                </p>
               </div>
               <div class="Learn_more_vector_hero_3">
-                <p class="text_hero_3">Learn more <img src="vector_hero3.svg" alt="vector" class="vector_hero3"></p>
+                <p class="text_hero_3">
+                  Learn more
+                  <img
+                    src="public/section_3/vector_hero3.svg"
+                    alt=""
+                    class="vector_hero3"
+                  />
+                </p>
               </div>
+            </div>
+
+            <div class="columns_2_hero_3">
+              <div class="pictire_2_hero_3">
+                <img
+                  src="public/section_3/img_2_hero_3.svg"
+                  alt="telephone"
+                  class="img_2_hero_3"
+                />
+              </div>
+              <div class="text_column_2_hero_3">
+                <p class="heading_2_column_1_hero_3">Never miss a payment</p>
+                <p class="description_2_column_1_hero_3">
+                  Get more time to pay when you need it. Extend your due date
+                  easily in the app. Report returns in the app and we'll pause
+                  your payments.
+                </p>
+              </div>
+              <div class="Learn_more_vector_hero_3">
+                <p class="text_hero_3">
+                  Learn more
+                  <img
+                    src="public/section_3/vector_hero3.svg"
+                    alt=""
+                    class="vector_hero3"
+                  />
+                </p>
+              </div>
+            </div>
+
+            <div class="columns_3_hero_3">
+              <div class="pictire_3_hero_3">
+                <img
+                  src="public/section_3/img_3_hero_3.svg"
+                  alt="telephone_hand"
+                  class="img_3_hero_3"
+                />
+              </div>
+              <div class="text_column_3_hero_3">
+                <p class="heading_3_column_1_hero_3">Pay wherever, whenever</p>
+                <p class="description_3_column_1_hero_3">
+                  Pay however you like, wherever you want to shop—and do it
+                  directly from your desktop, phone or in-store.
+                </p>
+              </div>
+              <div class="Learn_more_vector_hero_3">
+                <p class="text_hero_3">
+                  Learn more
+                  <img
+                    src="public/section_3/vector_hero3.svg"
+                    alt=""
+                    class="vector_hero3"
+                  />
+                </p>
+              </div>
+            </div>
           </div>
+        </div>
+      </div>
+      <!--------------БЛОК 4------------->
+      <div class="hero_4">
+        <div class="columns_hero_4">
+          <div class="columns_1_hero_4">
+            <div class="pictire_1_hero_4">
+              <img src="public/section_4/img_1_hero_4.svg" alt="Etsy" />
+              <span class="tag_in_store">In-store</span>
+            </div>
+            <div class="Learn_more_vector_hero_4">
+              <p class="text_hero_4">
+                Etsy
+                <img
+                  src="public/section_4/vector_hero_4.svg"
+                  alt=""
+                  class="vector_hero4"
+                />
+              </p>
+            </div>
           </div>
+          <div class="columns_1_hero_4">
+            <div class="pictire_1_hero_4">
+              <img
+                src="public/section_4/img_2_hero_4.svg"
+                alt="Bed Bath &amp; Beyond"
+              />
+              <span class="tag_in_store">In-store</span>
+            </div>
+            <div class="Learn_more_vector_hero_4">
+              <p class="text_hero_4">
+                Bed Bath &amp; Beyond
+                <img
+                  src="public/section_4/vector_hero_4.svg"
+                  alt=""
+                  class="vector_hero4"
+                />
+              </p>
+            </div>
           </div>
+          <div class="columns_1_hero_4">
+            <div class="pictire_1_hero_4">
+              <img src="public/section_4/img_3_hero_4.svg" alt="Macy's" />
+              <span class="tag_in_store">In-store</span>
+            </div>
+            <div class="Learn_more_vector_hero_4">
+              <p class="text_hero_4">
+                Macy's
+                <img
+                  src="public/section_4/vector_hero_4.svg"
+                  alt=""
+                  class="vector_hero4"
+                />
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--------------БЛОК 5------------->
+      <div class="hero_5">
+        <div class="background-color_5">
+          <div class="hug_hero_5">
+            <div class="column_1_hero_5">
+              <div class="text_1_column_1_hero_5">
+                <p>Klarna Card</p>
+              </div>
+              <div class="text_2_column_1_hero_5">
+                <p>
+                  Pay anywhere that<br />
+                  accepts Visa.
+                </p>
+              </div>
+              <div class="text_3_column_1_hero_5">
+                <p>
+                  More time to pay is what we do. Charging interest? Not our
+                  thing. The Klarna Card has a<br />
+                  0% APR. Your credit score won’t be affected<br />
+                  when you apply for or use the Klarna Card.
+                </p>
+              </div>
+              <div class="button_background_hero_5">
+                <div class="text_button_hero_5">
+                  <p>Learn more</p>
+                </div>
+              </div>
+            </div>
+            <div class="column_2_hero_5">
+              <img
+                src="public/section_5/image_column_2_hero_5.svg"
+                alt="cards"
+                class="image_column_2_hero_5"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--------------БЛОК 6------------->
+      <div class="hero_6">
+        <div class="background-color_6">
+          <div class="hug_hero_6">
+            <div class="column_1_hero_6">
+              <img
+                src="public/section_6/img_1_hero_6.svg"
+                alt="cards"
+                class="image_column_1_hero_6"
+              />
+            </div>
+            <div class="column_2_hero_6">
+              <div class="text_1_column_2_hero_6">
+                <p>Get inspired.</p>
+              </div>
+              <div class="text_2_column_2_hero_6">
+                <p>
+                  Explore our curated lists of products and stores<br />
+                  for more inspo. Find something to love in<br />
+                  electronics, fashion, beauty and more.
+                </p>
+              </div>
+              <div class="button_background_hero_6">
+                <div class="text_button_hero_6">
+                  <p>Discover trends</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--------------БЛОК 7------------->
+      <div class="hero_7">
+        <div class="catalog__grid">
+          <div class="card_1_hero_7">
+            <img src="public/section_7/img_1_hero_7.svg" alt="Dresses" />
+            <p class="catalog__title">Shop Dresses</p>
+          </div>
+          <div class="card_2_hero_7">
+            <div class="catalog__image-wrapper">
+              <img src="public/section_7/img_2_hero_7.svg" alt="Shoes" />
+            </div>
+            <p class="catalog__title">Lift and tone</p>
+          </div>
+          <div class="card_3_hero_7">
+            <div class="catalog__image-wrapper">
+              <img
+                src="public/section_7/img_3_hero_7.svg"
+                alt="Roses are red"
+              />
+            </div>
+            <p class="catalog__title">Roses are red</p>
+          </div>
+          <div class="card_4_hero_7">
+            <div class="catalog__image-wrapper">
+              <img src="public/section_7/img_4_hero_7.svg" alt="Outerwear" />
+            </div>
+            <p class="catalog__title">Shop Outerwear</p>
+          </div>
+          <div class="card_5_hero_7">
+            <div class="catalog__image-wrapper">
+              <img src="public/section_7/img_5_hero_7.svg" alt="Dresses" />
+            </div>
+            <p class="catalog__title">Go the distance</p>
+          </div>
+          <div class="card_6_hero_7">
+            <div class="catalog__image-wrapper">
+              <img src="public/section_7/img_6_hero_7.svg" alt="Activewear" />
+            </div>
+            <p class="catalog__title">Shop Activewear</p>
+          </div>
+          <div class="card_7_hero_7">
+            <div class="catalog__image-wrapper">
+              <img src="public/section_7/img_7_hero_7.svg" alt="Pets" />
+            </div>
+            <p class="catalog__title">Furry friend faves</p>
+          </div>
+          <div class="card_8_hero_7">
+            <div class="catalog__image-wrapper">
+              <img src="public/section_7/img_8_hero_7.svg" alt="Jewelry" />
+            </div>
+            <p class="catalog__title">Shop Jewelry</p>
+          </div>
+          <div class="card_9_hero_7">
+            <div class="catalog__image-wrapper">
+              <img src="public/section_7/img_9_hero_7.svg" alt="Tech" />
+            </div>
+            <p class="catalog__title">Affordable tech</p>
+          </div>
+        </div>
+      </div>
+      <!--------------БЛОК 8------------->
+      <section class="hero_8">
+        <div class="countauner_hero_8">
+          <h2 class="text_hero_8">Shop by category.</h2>
+          <div class="categories__grid">
+            <div class="category__card">
+              <div
+                class="category__icon-wrapper"
+                style="background-color: #e7d6fd"
+              >
+                <img src="public/section_8/icon_makep.svg" alt="Makeup" />
+              </div>
+              <p class="category__name">Clothing &amp; Accessories</p>
+            </div>
+            <div class="category__card">
+              <div
+                class="category__icon-wrapper"
+                style="background-color: #ffdaed"
+              >
+                <img src="public/section_8/icon_clother.svg" alt="Clothing" />
+              </div>
+              <p class="category__name">Clothing &amp; Accessories</p>
+            </div>
+            <div class="category__card">
+              <div
+                class="category__icon-wrapper"
+                style="background-color: #c9faf9"
+              >
+                <img src="public/section_8/icon_books.svg" alt="Toys" />
+              </div>
+              <p class="category__name">Toys &amp; Hobbies</p>
+            </div>
+            <div class="category__card">
+              <div
+                class="category__icon-wrapper"
+                style="background-color: #dddeff"
+              >
+                <img src="public/section_8/icon_house.svg" alt="Home" />
+              </div>
+              <p class="category__name">Home &amp; Appliances</p>
+            </div>
+            <div class="category__card">
+              <div
+                class="category__icon-wrapper"
+                style="background-color: #e7d6fd"
+              >
+                <img src="public/section_8/icon_line.svg" alt="TV" />
+              </div>
+              <p class="category__name">TV &amp; Audio</p>
+            </div>
+            <div class="category__card">
+              <div
+                class="category__icon-wrapper"
+                style="background-color: #cdfae4"
+              >
+                <img src="public/section_8/icon_ball.svg" alt="Sports" />
+              </div>
+              <p class="category__name">Sports &amp; Outdoor</p>
+            </div>
+            <div class="category__card">
+              <div
+                class="category__icon-wrapper"
+                style="background-color: #fdf6bc"
+              >
+                <img src="public/section_8/icon_monitor.svg" alt="Computers" />
+              </div>
+              <p class="category__name">Computers &amp; Tablets</p>
+            </div>
+            <div class="category__card">
+              <div
+                class="category__icon-wrapper"
+                style="background-color: #f9d4ff"
+              >
+                <img
+                  src="public/section_8/icon_screwdriver.svg"
+                  alt="Improvement"
+                />
+              </div>
+              <p class="category__name">Home Improvement</p>
+            </div>
+            <div class="category__card">
+              <div
+                class="category__icon-wrapper"
+                style="background-color: #ffdede"
+              >
+                <img src="public/section_8/icon_camera.svg" alt="Photography" />
+              </div>
+              <p class="category__name">Photography</p>
+            </div>
+            <div class="category__card">
+              <div
+                class="category__icon-wrapper"
+                style="background-color: #ffe2b2"
+              >
+                <img src="public/section_8/icon_joystick.svg" alt="Games" />
+              </div>
+              <p class="category__name">Video Games</p>
+            </div>
+            <div class="category__card">
+              <div
+                class="category__icon-wrapper"
+                style="background-color: #ffe09d"
+              >
+                <img src="public/section_8/icon_telephone.svg" alt="Phones" />
+              </div>
+              <p class="category__name">Phones &amp; Smartwatches</p>
+            </div>
+            <div class="category__card">
+              <div
+                class="category__icon-wrapper"
+                style="background-color: #beebfc"
+              >
+                <img src="public/section_8/icon_baby_car.svg" alt="Kids" />
+              </div>
+              <p class="category__name">Kids &amp; Family</p>
+            </div>
+            <div class="category__card">
+              <div
+                class="category__icon-wrapper"
+                style="background-color: #e4f9b2"
+              >
+                <img src="public/section_8/icon_car.svg" alt="Automotive" />
+              </div>
+              <p class="category__name">Automotive</p>
+            </div>
+            <div class="category__card">
+              <div
+                class="category__icon-wrapper"
+                style="background-color: #dddeff"
+              >
+                <img src="public/section_8/icon_placec.svg" alt="Garden" />
+              </div>
+              <p class="category__name">Garden &amp; Patio</p>
+            </div>
           </div>
         </div>
       </section>
+      <!--------------БЛОК 9------------->
+      <div class="hero_9">
+        <div class="deals__grid">
+          <div class="deal-card">
+            <div class="deal-card__image">
+              <img
+                src="public/section_9/img_1_hero_9.svg"
+                alt="Oneida product"
+              />
+            </div>
+            <div class="deal-card__content">
+              <p class="deal-card__label">Promo code</p>
+              <p class="deal-card__title">Oneida</p>
+            </div>
+          </div>
 
+          <div class="deal-card">
+            <div class="deal-card__image">
+              <img
+                src="public/section_9/img_2_hero_9.svg"
+                alt="Burt's Bees product"
+              />
+            </div>
+            <div class="deal-card__content">
+              <p class="deal-card__label">Promo code</p>
+              <p class="deal-card__title">Burt's Bees Baby</p>
+            </div>
+          </div>
 
-      <section class="hero_4">
-  <div class="columns_hero_4">
-    <div class="columns_1_hero_4">
-      <div class="pictire_1_hero_4">
-        <img src="img_1_hero_4.svg" alt="Etsy" />
-        <span class="tag_in_store">In-store</span>
-      </div>
-      <div class="Learn_more_vector_hero_4">
-        <p class="text_hero_4">Etsy <img src="vector_hero4.svg" alt="vector" class="vector_hero4"></p>
-      </div>
-    </div>
+          <div class="deal-card">
+            <div class="deal-card__image">
+              <img
+                src="public/section_9/img_3_hero_9.svg"
+                alt="Senreve product"
+              />
+            </div>
+            <div class="deal-card__content">
+              <p class="deal-card__label">Promo code</p>
+              <p class="deal-card__title">Senreve</p>
+            </div>
+          </div>
 
-    <div class="columns_1_hero_4">
-      <div class="pictire_1_hero_4">
-        <img src="img_2_hero_4.svg" alt="Bed Bath & Beyond" />
-        <span class="tag_in_store">In-store</span>
-      </div>
-      <div class="Learn_more_vector_hero_4">
-        <p class="text_hero_4">Bed Bath & Beyond <img src="vector_hero4.svg" alt="vector" class="vector_hero4"></p>
-      </div>
-    </div>
-
-    <div class="columns_1_hero_4">
-      <div class="pictire_1_hero_4">
-        <img src="img_3_hero_4.svg" alt="Macy's" />
-        <span class="tag_in_store">In-store</span>
-      </div>
-      <div class="Learn_more_vector_hero_4">
-        <p class="text_hero_4">Macy's <img src="vector_hero4.svg" alt="vector" class="vector_hero4"></p>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="hero_5">
-  <div class="background-color_5">
-    <div class="hug_hero_5">
-      <div class="column_1_hero_5" >
-        <div class="text_1_column_1_hero_5">
-            <p>Klarna Card</p>
-        </div>
-        <div class="text_2_column_1_hero_5">
-           <p>Pay anywhere that<br> accepts Visa.</p>
-        </div>
-        <div class="text_3_column_1_hero_5">
-        <p>More time to pay is what we do. Charging<br> interest? Not our thing. The Klarna Card has a<br> 0% APR. Your credit score won’t be affected<br> when you apply for or use the Klarna Card.</p>
-      </div>
-      <div class="button_background_hero_5">
-        <div class="text_button_hero_5">
-           <p>Learn more</p> 
-        </div>
-      </div>
-      </div>
-      <div class="column_2_hero_5">
-        <img  src="image_column_2_hero_5.svg" alt="cards" class="image_column_2_hero_5"/>
-      </div>
-      
-    </div>
-  </div>
-</section>
-<section class="hero_6">
-  <div class="background-color_6">
-    <div class="hug_hero_6">
-      
-      <div class="column_1_hero_6">
-        <img src="image_column_1_hero_6.svg" alt="cards" class="image_column_1_hero_6"/>
-      </div>
-
-      <div class="column_2_hero_6">
-        <div class="text_1_column_2_hero_6">
-            <p>Get inspired.</p>
-        </div>
-        <div class="text_2_column_2_hero_6">
-            <p>Explore our curated lists of products and stores<br> for more inspo. Find something to love in<br> electronics, fashion, beauty and more.</p>
-        </div>
-        <div class="button_background_hero_6">
-          <div class="text_button_hero_6">
-             <p>Discover trends</p> 
+          <div class="deals__view-all">
+            <a href="#" class="view-all-link">View all deals</a>
+            <img
+              class="icon_hero_9"
+              src="public/section_9/icon_hero_9.svg"
+              alt=""
+            />
           </div>
         </div>
       </div>
+      <!--------------БЛОК 10------------->
+      <section class="hero_10">
+        <div class="carousel-viewport">
+          <div class="carousel-track">
+            <div class="carousel-slide slide-purple">
+              <div class="slide-image">
+                <img
+                  src="public/section_10/img_1_hero_10.svg"
+                  alt="Price drops"
+                />
+              </div>
+              <div class="slide-content">
+                <h3>Price drops.</h3>
+                <p>
+                  Save products in your wishlist and get notified when the price
+                  drops. Never overpay again.
+                </p>
+                <a href="#" class="learn-more">
+                  Learn more
+                  <img src="public/section_9/icon_hero_9.svg" alt="" />
+                </a>
+              </div>
+            </div>
 
-    </div>
-  </div>
-</section>
-<section class="hero_7">
-  <div class="catalog__grid"> 
-    <div class="card_1_hero_7">
-        <img src="img_1_hero_7.svg" alt="Dresses">
-      <p class="catalog__title">Shop Dresses</p>
-    </div> 
-    <div class="card_2_hero_7">
-      <div class="catalog__image-wrapper">
-        <img src="img_2_hero_7.svg" alt="Shoes">
-      </div>
-      <p class="catalog__title">Lift and tone</p>
-    </div>
-    <div class="card_3_hero_7">
-      <div class="catalog__image-wrapper">
-        <img src="img_3_hero_7.svg" alt="Roses are red">
-      </div>
-      <p class="catalog__title">Roses are red</p>
-    </div>
-    <div class="card_4_hero_7">
-      <div class="catalog__image-wrapper"></div>
-        <img src="img_4_hero_7.svg" alt="Roses are red">
-      <p class="catalog__title">Shop Outerwear</p>
-    </div>
-    <div class="card_5_hero_7">
-      <div class="catalog__image-wrapper"></div>
-        <img src="img_5_hero_7.svg" alt="Dresses">
-      <p class="catalog__title">Go the distance</p>
-    </div> 
-    <div class="card_6_hero_7">
-      <div class="catalog__image-wrapper"></div>
-        <img src="img_6_hero_7.svg" alt="Dresses">
-      <p class="catalog__title">Shop Activewear</p>
-    </div> 
-    <div class="card_7_hero_7">
-      <div class="catalog__image-wrapper"></div>
-        <img src="img_7_hero_7.svg" alt="Dresses">
-      <p class="catalog__title">Furry friend faves</p>
-    </div> 
-    <div class="card_8_hero_7">
-      <div class="catalog__image-wrapper"></div>
-        <img src="img_8_hero_7.svg" alt="Dresses">
-      <p class="catalog__title">Shop Jewelry</p>
-    </div>
-    <div class="card_9_hero_7">
-      <div class="catalog__image-wrapper"></div>
-        <img src="img_9_hero_7.svg" alt="Dresses">
-      <p class="catalog__title">Affordable tech</p>
-    </div>  
-  </div>
-</section>
-<section class="hero_8">
-  <div class="countauner_hero_8">
-    <h2 class="text_hero_8">Shop by category.</h2>
-    <div class="categories__grid">
-    <div class="category__card">
-      <div class="category__icon-wrapper" style="background-color: #E7D6FD;">
-         <img src="icon_makep.svg" alt="icon_makep">
-      </div>
-      <p class="category__name">Clothing & Accessories</p>
-    </div>
-    <div class="category__card">
-      <div class="category__icon-wrapper" style="background-color: #FFDAED;">
-         <img src="icon_clother.svg" alt="icon_clother">
-      </div>
-      <p class="category__name">Clothing & Accessories</p>
-    </div>
-    <div class="category__card">
-      <div class="category__icon-wrapper" style="background-color: #C9FAF9;">
-         <img src="icon_books.svg" alt="icon_books">
-      </div>
-      <p class="category__name">Toys & Hobbies</p>
-    </div>
-    <div class="category__card">
-      <div class="category__icon-wrapper" style="background-color: #DDDEFF;">
-         <img src="icon_house.svg" alt="icon_house">
-      </div>
-      <p class="category__name">Home & Appliances</p>
-    </div>
-    <div class="category__card">
-      <div class="category__icon-wrapper" style="background-color: #E7D6FD;">
-         <img src="icon_line.svg" alt="icon_line">
-      </div>
-      <p class="category__name">TV & Audio</p>
-    </div>
-    <div class="category__card">
-      <div class="category__icon-wrapper" style="background-color: #CDFAE4;">
-         <img src="icon_ball.svg" alt="icon_ball">
-      </div>
-      <p class="category__name">Sports & Outdoor</p>
-    </div>
-    <div class="category__card">
-      <div class="category__icon-wrapper" style="background-color: #FDF6BC;">
-         <img src="icon_monitor.svg" alt="icon_monitor">
-      </div>
-      <p class="category__name">Computers & Tablets</p>
-    </div>
-    <div class="category__card">
-      <div class="category__icon-wrapper" style="background-color: #F9D4FF;">
-         <img src="icon_screwdriver.svg" alt="icon_screwdriver">
-      </div>
-      <p class="category__name">Home Improvement</p>
-    </div>
-    <div class="category__card">
-      <div class="category__icon-wrapper" style="background-color: #FFDEDE;">
-         <img src="icon_camera.svg" alt="icon_camera">
-      </div>
-      <p class="category__name">Photography</p>
-    </div>
-    <div class="category__card">
-      <div class="category__icon-wrapper" style="background-color: #FFE2B2;">
-         <img src="icon_joystick.svg" alt="icon_joystick">
-      </div>
-      <p class="category__name">Video Games</p>
-    </div>
-    <div class="category__card">
-      <div class="category__icon-wrapper" style="background-color: #FFE09D;">
-         <img src="icon_telephone.svg" alt="icon_telephone">
-      </div>
-      <p class="category__name">Phones & Smartwatches</p>
-    </div>
-    <div class="category__card">
-      <div class="category__icon-wrapper" style="background-color: #BEEBFC;">
-         <img src="icon_baby_car.svg" alt="icon_baby_car.svg">
-      </div>
-      <p class="category__name">Kids & Family</p>
-    </div>
-    <div class="category__card">
-      <div class="category__icon-wrapper" style="background-color: #E4F9B2;">
-         <img src="icon_car.svg" alt="icon_car.svg">
-      </div>
-      <p class="category__name">Automotive</p>
-    </div>
-    <div class="category__card">
-      <div class="category__icon-wrapper" style="background-color: #DDDEFF;">
-         <img src="icon_placec.svg" alt="icon_placec">
-      </div>
-      <p class="category__name">Garden & Patio</p>
-    </div>
-    </div>
-  </div>  
-</section>
-<section class="hero_9">
-  <div class="deals__grid">
-    <div class="deal-card">
-      <div class="deal-card__image">
-        <img src="img_1_hero_9.svg" alt="Oneida">
-        <div class="deal-card__logo"><img src="oneida-logo.svg" alt=""></div>
-      </div>
-      <div class="deal-card__content">
-        <p class="deal-card__label">Promo code</p>
-        <p class="deal-card__title">Oneida</p>
-      </div>
-    </div>
-    <div class="deal-card">
-      <div class="deal-card__image">
-        <img src="img_2_hero_9.svg" alt="Oneida">
-        <div class="deal-card__logo"><img src="oneida-logo.svg" alt=""></div>
-      </div>
-      <div class="deal-card__content">
-        <p class="deal-card__label">Promo code</p>
-        <p class="deal-card__title">Burt's Bees Baby</p>
-      </div>
-    </div>
-    <div class="deal-card">
-      <div class="deal-card__image">
-        <img src="img_3_hero_9.svg" alt="Oneida">
-        <div class="deal-card__logo"><img src="oneida-logo.svg" alt=""></div>
-      </div>
-      <div class="deal-card__content">
-        <p class="deal-card__label">Promo code</p>
-        <p class="deal-card__title">Senreve</p>
-      </div>
-    </div>
+            <div class="carousel-slide slide-purple">
+              <div class="slide-image">
+                <img src="public/section_10/img_1_hero_10.svg" alt="Returns" />
+              </div>
+              <div class="slide-content">
+                <h3>Returns.</h3>
+                <p>
+                  Report hassle-free returns in the app and we'll pause your
+                  payments. Only pay for what you keep.
+                </p>
+                <a href="#" class="learn-more">
+                  Learn more
+                  <img src="public/section_9/icon_hero_9.svg" alt="" />
+                </a>
+              </div>
+            </div>
 
-    <div class="deals__view-all">
-      <a href="#" class="view-all-link">
-        View all deals
-      </a>
-        <img class="icon_hero_9" src="icon_hero_9.svg">
-      
-    </div>
+            <div class="carousel-slide slide-purple">
+              <div class="slide-image">
+                <img
+                  src="public/section_10/img_1_hero_10.svg"
+                  alt="Delivery tracking"
+                />
+              </div>
+              <div class="slide-content">
+                <h3>Delivery tracking.</h3>
+                <p>
+                  Auto-track and get updates about all your online orders in one
+                  app. No more digging in your inbox.
+                </p>
+                <a href="#" class="learn-more">
+                  Learn more
+                  <img src="public/section_9/icon_hero_9.svg" alt="" />
+                </a>
+              </div>
+            </div>
 
-  </div>
-</section>
+            <div class="carousel-slide slide-white">
+              <div class="slide-image">
+                <img src="public/section_10/img_1_hero_10.svg" alt="Rewards" />
+              </div>
+              <div class="slide-content">
+                <h3>Rewards.</h3>
+                <p>
+                  Join our Rewards club and earn points when shopping. Turn your
+                  points into rewards from world-class brands.
+                </p>
+                <a href="#" class="learn-more">
+                  Learn more
+                  <img src="public/section_9/icon_hero_9.svg" alt="" />
+                </a>
+              </div>
+            </div>
 
-<section class="hero_10">
-  <div class="carousel-container">
-        <img class="carousel-item" src="img_1_hero_10.svg" alt="Returns">
-      <div class="carousel-text">
-        <div class="text_hero_10">
-          <h3 class="h3_hero_10">Returns.</h3>
-        <p class="text_hero_10">Report hassle-free returns in the app and we'll pause your payments. Only pay for what you keep.</p>
+            <div class="carousel-slide slide-purple">
+              <div class="slide-image">
+                <img
+                  src="public/section_10/img_1_hero_10.svg"
+                  alt="Loyalty cards"
+                />
+              </div>
+              <div class="slide-content">
+                <h3>Loyalty cards.</h3>
+                <p>
+                  Keep all your loyalty cards in one place and never miss a
+                  point with quick access via the Klarna app.
+                </p>
+                <a href="#" class="learn-more">
+                  Learn more
+                  <img src="public/section_9/icon_hero_9.svg" alt="" />
+                </a>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-btn prev" onclick="moveSlide(-1)">❮</button>
+          <button class="carousel-btn next" onclick="moveSlide(1)">❯</button>
         </div>
-        
-        <div class="links_hero_10">
-           <a href="#" class="learn_more">Learn more </a>
-        <img class="icon_hero_9" src="icon_hero_9.svg">
+      </section>
+      <!--------------БЛОК 11------------->
+      <div class="hero_11">
+        <div class="background-color_11">
+          <div class="hug_hero_5">
+            <div class="column_1_hero_11">
+              <div class="text_1_column_1_hero_11">
+                <p>Save time and money with Klarna.</p>
+              </div>
+              <div class="text_2_column_1_hero_11">
+                <p>
+                  Shop and split your payments with Klarna. Sign up now to pay
+                  via our app, browser extension or in-store with the Klarna
+                  Card.
+                </p>
+              </div>
+              <div class="buttons_hero_11">
+                <button class="button_hero_11 button_black_11">
+                  <span class="text_button_1">Get Klarna for Chrome</span>
+                </button>
+                <button class="button_hero_11 button_white_11">
+                  <span class="text_button_2">Get the app</span>
+                </button>
+              </div>
+            </div>
+            <div class="column_2_hero_5">
+              <img
+                src="public/section_11/img_hero_11.svg"
+                alt="App preview"
+                class="image_column_2_hero_5"
+              />
+            </div>
+          </div>
         </div>
-       
       </div>
-    </div>
-
-    <div class="carousel-container">
-        <img class="carousel-item" src="img_1_hero_10.svg" alt="Returns">
-      <div class="carousel-text">
-        <div class="text_hero_10">
-          <h3 class="h3_hero_10">Delivery tracking.</h3>
-        <p class="text_hero_10">Auto-track and get updates about all your online orders in one app. No more digging in your inbox.</p>
-        </div>
-        
-        <div class="links_hero_10">
-           <a href="#" class="learn_more">Learn more </a>
-        <img class="icon_hero_9" src="icon_hero_9.svg">
-        </div>
-       
-      </div>
-    </div>
-
-    </div>
-</section>
-
-<section class="hero_11">
-  <div class="background-color_11">
-    <div class="hug_hero_5">
-      <div class="column_1_hero_11" >
-        <div class="text_1_column_1_hero_11">
-           <p>Save time and money with Klarna.</p>
-        </div>
-        <div class="text_2_column_1_hero_11">
-        <p>Shop and split your payments with Klarna. Sign up now to pay via our app, browser extension or in-store with the Klarna Card.</p>
-      </div>
-        <div class="buttons_hero_11">
-    <button class="button_hero_11 button_black_11">
-        <p class="text_button_1">Get Klarna for Chrome</p>
-    </button>
-    <button class="button_hero_11 button_white_11">
-        <p class="text_button_2">Get the app</p>
-    </button>
-</div>
-      </div>
-      <div class="column_2_hero_5">
-        <img  src="img_hero_11.svg" alt="cards" class="image_column_2_hero_5"/>
-      </div>
-      
-    </div>
-  </div>
-</section>
     </main>
+    <!--------------БЛОК 12 ФУТЕР------------->
     <footer class="footer_12">
-    <div class="footer__container">
-        <div class="footer__brand">
-            <img src="vector_logo.svg" alt="US Flag" class="footer__logo">
+      <div class="footer__content-wrapper">
+        <div class="footer__container">
+          <div class="footer__brand">
+            <img
+              src="public/footer/logo.svg"
+              alt="Klarna Logo"
+              class="footer__logo"
+            />
             <div class="footer__country">
               <div class="icon_text_1">
-                <img src="icon_flag_footer.svg" alt="US Flag" class="flag_icon">
+                <img
+                  src="public/footer/icon_flag_footer.svg"
+                  alt="US Flag"
+                  class="flag_icon"
+                />
                 <span>United States</span>
               </div>
-                <div class="line">
-                  <img src="vector_line_footer.svg" alt="line" class="line_icon">
-                </div>
+              <div class="line">
+                <img
+                  src="public/footer/vector_line_footer.svg"
+                  alt="arrow"
+                  class="line_icon"
+                />
+              </div>
             </div>
             <div class="footer__socials">
-    <a href="#" class="social-wrap"><img src="icon_1_footer.svg" alt="Facebook"></a>
-    <a href="#" class="social-wrap"><img src="icon_2_footer.svg" alt="LinkedIn"></a>
-    <a href="#" class="social-wrap"><img src="icon_3_footer.svg" alt="Twitter"></a>
-    <a href="#" class="social-wrap"><img src="icon_4_footer.svg" alt="Instagram"></a>
-</div>
-        </div>
+              <a href="#" class="social-wrap">
+                <img src="public/footer/icon_1_footer.svg" alt="Facebook" />
+              </a>
+              <a href="#" class="social-wrap">
+                <img src="public/footer/icon_2_footer.svg" alt="LinkedIn" />
+              </a>
+              <a href="#" class="social-wrap">
+                <img src="public/footer/icon_3_footer.svg" alt="Twitter" />
+              </a>
+              <a href="#" class="social-wrap">
+                <img src="public/footer/icon_4_footer.svg" alt="Instagram" />
+              </a>
+            </div>
+          </div>
 
-        <div class="footer__col">
+          <div class="footer__col">
             <ul>
-                <li><a href="#">Klarna</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Careers</a></li>
-                <li><a href="#">Legal</a></li>
-                <li><a href="#">Press</a></li>
-                <li><a href="#">Extra O blog</a></li>
-                <li><a href="#">Privacy</a></li>
-                <li><a href="#">Auto-import / Magic import</a></li>
-                <li><a href="#">Sustainability</a></li>
+              <li><a href="#">Klarna</a></li>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Legal</a></li>
+              <li><a href="#">Press</a></li>
+              <li><a href="#">Extra O blog</a></li>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Auto-import / Magic import</a></li>
+              <li><a href="#">Sustainability</a></li>
             </ul>
-        </div>
+          </div>
 
-        <div class="footer__col">
+          <div class="footer__col">
             <ul>
-                <li><a href="#">Customer</a></li>
-                <li><a href="#">Buy now pay later</a></li>
-                <li><a href="#">Contact us via app</a></li>
-                <li><a href="#">Customer service</a></li>
-                <li><a href="#">Partner stores</a></li>
-                <li><a href="#">Shopping app</a></li>
-                <li><a href="#">Rewards club</a></li>
-                <li><a href="#">Buyer Protection Policy</a></li>
-                <li><a href="#">Feedback and complaints</a></li>
-                <li><a href="#">Your California Privacy <br> Choices</a></li>
+              <li><a href="#">Customer</a></li>
+              <li><a href="#">Your California Privacy Choices</a></li>
+              <li><a href="#">Feedback and complaints</a></li>
+              <li><a href="#">Buyer Protection Policy</a></li>
+              <li><a href="#">Rewards club</a></li>
+              <li><a href="#">Shopping app</a></li>
+              <li><a href="#">Partner stores</a></li>
+              <li><a href="#">Customer service</a></li>
+              <li><a href="#">Contact us via app</a></li>
+              <li><a href="#">Buy now pay later</a></li>
             </ul>
-        </div>
+          </div>
 
-        <div class="footer__col">
+          <div class="footer__col">
             <ul>
-                <li><a href="#">Business</a></li>
-                <li><a href="#">Sell with Klarna</a></li>
-                <li><a href="#">Payment methods</a></li>
-                <li><a href="#">Platforms and partners</a></li>
-                <li><a href="#">Partner program</a></li>
-                <li><a href="#">Affiliate program</a></li>
-                <li><a href="#">Business login</a></li>
-                <li><a href="#">Business support</a></li>
-                <li><a href="#">Operational status</a></li>
+              <li><a href="#">Business</a></li>
+              <li><a href="#">Sell with Klarna</a></li>
+              <li><a href="#">Payment methods</a></li>
+              <li><a href="#">Platforms and partners</a></li>
+              <li><a href="#">Partner program</a></li>
+              <li><a href="#">Affiliate program</a></li>
+              <li><a href="#">Business login</a></li>
+              <li><a href="#">Business support</a></li>
+              <li><a href="#">Operational status</a></li>
             </ul>
+          </div>
         </div>
-    </div>
 
-    <div class="footer__bottom">
-        <p class="footer__legal-text">
-Monthly financing through Klarna is issued by WebBank, member FDIC. Copyright © 2005-2022 Klarna Inc. NMLS #1353190, 629 N. High Street, Third Floor, Columbus, OH 43215. Other CA resident loans made or arranged pursuant to a California Financing Law license.        </p>
-        <div class="footer__extra-links">
-    <a href="#">Legal</a>
-    <a href="#">Terms</a>
-    <a href="#">Privacy policy</a>
-    <a href="#">Cookies</a>
-    <a href="#">Sitemap</a>
-    <a href="#">Klarna.com</a>
-</div>
-    </div>
-</footer>
+        <div class="footer__bottom">
+          <p class="footer__legal-text">
+            Monthly financing through Klarna is issued by WebBank, member FDIC.
+            Copyright © 2005-2022 Klarna Inc. NMLS #1353190, 629 N. High Street,
+            Third Floor, Columbus, OH 43215. Other CA resident loans made or
+            arranged pursuant to a California Financing Law license.
+          </p>
+          <div class="footer__extra-links">
+            <a href="#">Legal</a>
+            <a href="#">Terms</a>
+            <a href="#">Privacy policy</a>
+            <a href="#">Cookies</a>
+            <a href="#">Sitemap</a>
+            <a href="#">Klarna.com</a>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

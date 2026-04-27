@@ -1,3 +1,5 @@
+
+
 /*------------HEADER-------------*/
 * {
     margin: 0;
@@ -62,7 +64,7 @@ body {
 }
 
 .header__logo::before {
-  content: "";
+
   display: block;
   width: 85px;
   height: 2px;
@@ -85,7 +87,8 @@ body {
     display: inline-block; 
     text-align: center;
 }
-.hero {
+/*------------БЛОК 1-------------*/
+.hero_1 {
     background-color: #BDD5FF;
     width: 100%;
     display: flex;
@@ -95,18 +98,21 @@ body {
 }
 
 .hero__container {
-    max-width: 1440px;
-    width: 100%;
-    padding: 0 150px 0 283px;
     display: flex;
-    justify-content: flex-start; 
-    align-items: center;
-    height: 415px;
-    gap: 38px;
-    box-sizing: border-box;
-    margin-top: 0;
+padding: 60px 160px;
+justify-content: space-between;
+align-items: center;
+flex: 1 0 0;
+display: flex;
+width: 1440px;
+justify-content: center;
+align-items: center;
+align-content: space-between;
+align-self: stretch;
+flex-wrap: wrap;
+gap: 50px;
 }
-.hero h1{
+.hero_1 h1{
     color: #000;
     font-family: Roboto;
     font-size: 48px;
@@ -125,7 +131,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 43px;
+    gap: 40px;
     
 }
 .search-box {
@@ -133,7 +139,7 @@ body {
     align-items: center;
     background-color: #fff;
     border-radius: 500px;
-    width: 410px;
+    width: 395px;
     height: 45px;
     padding-right: 5px;
 }
@@ -153,18 +159,14 @@ body {
     padding-left: 20px;
 }
 .search-btn-arrow{
-    padding: 0 15px;
-    cursor: pointer;
-    border: none;
-    width: 41px;
-    height: 41px;
-    border-radius: 50%;
-    background-color:#FFB3C7;
-    margin-right: 5px;
-    margin-top: 4px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+padding: 13px 17px;
+justify-content: center;
+align-items: center;
+border-radius: 100px;
+background: #FFB3C7;
+border: none;
+/*------------БЛОК 2-------------*/
 }
 .benefits {
     max-width: 1440px;
@@ -264,8 +266,6 @@ body {
     margin-top: 31px;
     flex-grow: 1;
 }
-
-
 
 .text_hero_3 {
     color: #487B94;
@@ -491,8 +491,7 @@ width: 102px;
     align-items: flex-start;
     justify-content: center;
     height: auto;
-    gap: 30px;               
-    margin-top: 0px;
+    gap: 30px;
 }
 
 
@@ -535,30 +534,25 @@ line-height: 20px;
     margin: 0;
 }
 /*------------БЛОК 7-------------*/
-
+.hero_7{
+    margin-top: 20px;
+    margin-left: -30px;
+}
 .catalog__grid {
     display: grid;
     margin: 0 auto; 
-    max-width: 1000px; 
-    
+    max-width: 1440px; 
     grid-template-columns: repeat(3, 265px);
-    row-gap: 70px;
-    column-gap: 70px;
-    
+    row-gap: 49px;
+    column-gap: 105px;
     justify-content: center;
-    align-items: start;
-    
-    padding: 30px 0;
-    margin-top: 0px;
-    margin-bottom: 2px;
+    padding: 20px 0;
 }
-.hero_7{
-    margin-top: 20px;
-}
+
 .catalog__card {
     display: flex;
     flex-direction: column;
-    gap: 15px; 
+    gap: 15px;
 }
 
 .catalog__title {
@@ -569,9 +563,8 @@ line-height: 20px;
     font-weight: 400;
     line-height: 25px;
     width: auto;
-    margin-top: 12px;
-    margin-left: 15px;
-    padding: 0px;
+    margin-left: 12px;
+    margin-top: 7px;
 }
 
 .img_1_hero_7.svg,
@@ -597,13 +590,13 @@ height: 331px;
 .card_8_hero_7,
 .card_9_hero_7{
     background: #FFFFFF;
-    border-radius: 16px;
     border: 1px solid rgba(2, 14, 15, 0.06);
     overflow: hidden;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.03);
     padding: 0px 0px;
-    padding-bottom: 15px
-    
+    padding-bottom: 28px;
+    border-radius: 16px;
+    margin-top: 13px;
 }
 
 /*------------БЛОК 8-------------*/
@@ -614,7 +607,7 @@ padding: 60px 250px;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-margin-top: 21px;
+margin-top: 20px;
 flex: 1 0 0;
 background: #BDBDBD;
 }
@@ -630,20 +623,13 @@ line-height: 20px; /* 100% */
 
 }
 .categories__grid {
-    display: grid;
-    /* Создаем ровно 5 колонок по 150px (твоя ширина карточки) */
-    grid-template-columns: repeat(5, 150px); 
+    display: flex;          /* Меняем grid на flex */
+    flex-wrap: wrap;        /* Позволяем карточкам переноситься на новые строки */
+    gap: 30px;              /* Расстояние между карточками */
+    justify-content: center; /* ЭТО ГЛАВНОЕ: центрирует все ряды, включая последний */
     
-    /* Расстояние между карточками */
-    gap: 30px; 
-    
-    /* Центрируем всю сетку по горизонтали */
-    justify-content: center; 
-    
-    /* Убираем flex-свойства, они больше не нужны */
-    width: 100%;
-    margin: 0 auto;
-    margin-top: 33px;
+    max-width: 900px;       /* Ограничиваем ширину, чтобы в ряду было ровно 5 штук (150*5 + 30*4) */
+    margin: 33px auto 0;
 }
 
 .category__card {
@@ -698,146 +684,195 @@ align-self: stretch;
 }
 
 /*------------БЛОК 9-------------*/
-.hero_9{
+/* Общий контейнер секции */
+.hero_9 {
     display: flex;
-height: 500px;
-justify-content: space-between;
-align-items: center;
-align-self: stretch;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0;
+    background-color: #fff; /* Или прозрачный, если фон страницы серый */
 }
+
 .deals__grid {
-    display: grid;
-    /* 3 колонки по 1 части пространства и 1 колонка под размер текста */
-    grid-template-columns: repeat(3, 1fr) auto;
-    max-width: 1130px;
+    display: flex; /* Переходим на flex для более точного контроля */
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1140px;
     width: 100%;
     margin: 0 auto;
-    align-items: center;
-    margin-bottom: 25px;
-    
+    gap: 70px;
+    margin-top: 25px;
 }
-.deal-card__content{
-    width: 170px;
-    margin-left: 10px;
-    color: #000;
+
+/* Стили самой карточки */
+.deal-card {
+    background: #FFF;
+    border-radius: 16px;
+    border: 1px solid #F2F2F2; /* Тонкая рамка как на фото */
+    overflow: hidden;
+    width: 270px; /* Подберите под макет */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s;
+}
+
+/* Контейнер картинки для позиционирования логотипа */
+.deal-card__image {
+    position: relative;
+    width: 100%;
+    height: 270px; /* Делаем квадратную область для фото */
+}
+
+.deal-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Чтобы фото заполняло блок без искажений */
+}
+
+/* Контент под картинкой */
+.deal-card__content {
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.deal-card__label {
+    margin: 0;
+    color: #171717;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.deal-card__title {
+    margin: 0;
+    color: #171717;
+    font-size: 16px;
+    font-weight: 500; /* Немного жирнее */
+}
+
+/* Блок "View all deals" */
+.deals__view-all {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: auto;
+    white-space: nowrap;
+}
+
+.view-all-link {
+    color: #487B94;
     font-family: Roboto;
     font-size: 16px;
-    font-style: normal;
     font-weight: 400;
-    line-height: 22px; /* 137.5% */
+    text-decoration: none;
 }
-.deal-card__label{
-    margin-bottom: 8px;
-}
-.view-all-link{
-    color: #487B94;
-font-family: Roboto;
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: 25px; /* 156.25% */
-text-decoration: none;
-}
-.deals__view-all{
-    display: flex;
-justify-content: center;
-align-items: center;
-gap: 13px;
+
+.icon_hero_9 {
+    width: 20px;
+    height: auto;
 }
 
 /*------------БЛОК 10-------------*/
-.hero_10{
-  display: flex;
-height: 600px;
-justify-content: center;
-align-items: center;
-align-self: stretch;
+.hero_10 {
+    padding: 60px 0;
+    overflow: hidden;
 }
-.carousel-container {
+
+.carousel-viewport {
+    position: relative;
+    max-width: 1440px;
+    margin: 0 auto;
+    overflow: hidden; /* Скрывает остальные карточки */
+}
+
+.carousel-track {
     display: flex;
-justify-content: center;
-align-items: center;
-gap: 50px;
-margin-top: -30px;
-    
-    /* Включаем горизонтальный скролл */
-    overflow-x: auto;
-    scroll-snap-type: x mandatory; /* Магнитный эффект */
-    
-    /* Прячем полосу прокрутки */
-    scrollbar-width: none; 
+    transition: transform 0.5s ease-in-out; /* Плавность листания */
 }
 
-.carousel-container::-webkit-scrollbar {
-    display: none; /* Для Chrome и Safari */
-}
-
-.carousel-item {
+.carousel-slide {
+    min-width: 100%; /* Одна карточка на всю ширину контейнера */
     display: flex;
-justify-content: center;
-align-items: center;
-gap: 50px;
-margin-top: 15px;
+    align-items: center;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 485px;
 }
 
+/* Цвета фонов как в макете */
+.slide-purple { background-color: #E7D6FD; }
+.slide-white { background-color: #F2F2F2; }
 
-
-.carousel-image-box img {
-    width: 437px;
-height: 546px;
+/* Левая часть - телефон */
+.slide-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
-.carousel-text {
-display: flex;
-width: 306px;
-flex-direction: column;
-justify-content: center;
-align-items: flex-start;
-gap: 40px;
-margin-top: 23px;
+.slide-image img {
+    height: 90%; /* Телефон почти во всю высоту */
+    width: auto;
 }
-.text_hero_10{
-    color: #000;
-font-family: Roboto;
-font-size: 20px;
-font-style: normal;
-font-weight: 400;
-line-height: 27px; /* 135% */
-align-self: stretch;
+
+/* Правая часть - текст */
+.slide-content {
+    flex: 1;
+    padding: 0 80px;
+    background-color: #fff; /* Правая часть всегда белая */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-.h3_hero_10{
-color: #000;
-font-family: Roboto;
-font-size: 32px;
-font-style: normal;
-font-weight: 400;
-line-height: 60px; /* 125% */
-align-self: stretch;
+
+.slide-content h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #171717;
 }
-.links_hero_10{
-display: flex;
-width: 120px;
-justify-content: center;
-align-items: center;
-gap: 18px;
+
+.slide-content p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #171717;
+    margin-bottom: 30px;
+    max-width: 400px;
 }
-.learn_more{
-    text-decoration: none;
+
+.learn-more {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     color: #487B94;
-font-family: Roboto;
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: 25px; /* 156.25% */
+    text-decoration: none;
+    font-weight: 500;
 }
-.text_hero_10{
+
+/* Кнопки */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.8);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
     display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: flex-start;
-align-self: stretch;
-gap:5px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 10;
 }
+
+.prev { left: 20px; }
+.next { right: 20px; }
 /*------------БЛОК 11-------------*/
 .background-color_11{
     display: flex;
@@ -929,32 +964,30 @@ margin-left: -3px;
     line-height: 20px; /* 125% */
 }
 
-/*------------БЛОК 12-------------*/
+/*------------ФУТЕР-------------*/
 .footer_12 {
     background-color: #000;
     color: #fff;
-    padding: 35px 80px 0px; /* Немного увеличим отступы сверху */
-    font-family: 'Roboto', sans-serif;
+    display: flex;
+padding: 34px 10px;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+align-self: stretch;
 }
 
 .footer__container {
-    display: grid;
-    /* Создаем 4 равные колонки */
-    grid-template-columns: repeat(4, 1fr);  
-    max-width: 1034px;
-    margin: 0 200px;
-    /* Выравниваем всё содержимое колонок по левому краю */
-    justify-items: start; 
-    align-items: start;
-    gap: 70px;
+display: flex;
+justify-content: center;
+align-items: flex-start;
+gap: 80px;
+align-self: stretch;
 }
 
 .footer__logo {
     font-size: 32px;
     font-weight: 100;
-    margin-bottom: -5px;
     color: #606060;
-    margin-top: -13px;
 }
 
 .footer__col h3 {
@@ -964,8 +997,7 @@ margin-left: -3px;
     font-style: normal;
     font-weight: 400;
     line-height: 16.8px; /* 105% */
-    letter-spacing: 0.048px; 
-    margin-bottom: 2px;
+    letter-spacing: 0.048px;
 }
 
 .footer__col ul {
@@ -974,30 +1006,25 @@ margin-left: -3px;
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 15px; 
-    margin-left: 15px;
-}
-
-.footer__col li {
-    margin-bottom: 0; /* Обнуляем старый отступ, если используем gap */
-    line-height: 1.2; /* Устанавливаем одинаковую высоту строки для всего текста */
+    gap: 15px;
 }
 
 .footer__col a {
     color: #FFF;
-    font-family: Roboto;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 16.8px; /* 105% */
-    letter-spacing: 0.048px;
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 16.8px;
+letter-spacing: 0.048px;
     text-decoration: none;
+    align-self: stretch;
 }
 
 .footer__socials {
     display: flex;
-    gap: 15px; /* Расстояние между иконками */
-    align-items: center; /* Центрируем по вертикали */
+    gap: 5px;
+    align-items: center;
 }
 
 /* Стили для белого дива вокруг иконки */
@@ -1006,11 +1033,11 @@ margin-left: -3px;
     justify-content: center; /* Центрируем иконку по горизонтали */
     align-items: center;      /* Центрируем иконку по вертикали */
     background-color: #FFF;  /* Белый фон */
-    border-radius: 4px;      /* Скругление углов (можно больше/меньше) */
+    border-radius: 5px;      /* Скругление углов (можно больше/меньше) */
     
     /* Задаем фиксированный размер белого блока, как на макете */
     width: 40px;
-    height: 20px;
+    height: 15px;
     
     /* Добавляем легкое свечение при наведении (опционально, но красиво) */
     transition: box-shadow 0.3s ease;
@@ -1023,9 +1050,16 @@ margin-left: -3px;
 
 /* Размер самой иконки внутри белого блока */
 .social-wrap img {
-    width: 40px;
+    width: 20px;
     height: 20px;
 }
+.footer__col{
+   display: flex;
+flex-direction: column;
+align-items: center;
+gap: 15px; 
+}
+
 
 .footer__bottom {
     margin-top: 60px;
@@ -1098,7 +1132,7 @@ margin-left: -3px;
     white-space: nowrap; /* Чтобы ссылки не переносились внутри маленького контейнера */
 }
 .footer__bottom {
-    margin-top: 10px;
+    margin-top: 20px;
     padding: 30px 0; /* Отступы сверху и снизу */
     display: flex;
     /* justify-content: center ставит дочерние элементы в центр по горизонтали */
