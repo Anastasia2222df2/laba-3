@@ -15,3 +15,34 @@
     background-color: #000;
 }
 
+/* В desktop.css или base.css (применится ко всем) */
+
+[class^="card_"] {
+    /* 1. УБИРАЕМ ПАДДИНГИ, чтобы картинка касалась краев */
+    padding: 0 !important; 
+    
+    background: #FFFFFF;
+    border: 1px solid rgba(2, 14, 15, 0.06);
+    border-radius: 16px;
+    overflow: hidden; /* Чтобы углы картинки скруглялись вместе с карточкой */
+    display: flex;
+    flex-direction: column;
+}
+
+[class^="card_"] img {
+    /* 2. РАСТЯГИВАЕМ КАРТИНКУ на всю ширину карточки */
+    width: 100% !important; 
+    
+    /* 3. УБИРАЕМ лишний зазор снизу (особенность тега img) */
+    display: block; 
+    
+    /* Сохраняем пропорции, чтобы картинка не была сплюснутой */
+    height: auto; 
+    object-fit: cover; 
+}
+
+/* Настраиваем заголовок под картинкой, чтобы он не прилипал к краю */
+.catalog__title {
+    padding: 15px 12px; /* Даем отступ только тексту, а не всему блоку */
+    margin: 0;
+}

@@ -597,16 +597,17 @@ height: 331px;
 }
 
 /*------------БЛОК 8-------------*/
-.hero_8{
+.hero_8 {
     display: flex;
-height: 460px;
-padding: 60px 250px;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-margin-top: 20px;
-flex: 1 0 0;
-background: #BDBDBD;
+    /* УДАЛЯЕМ height: 460px; */
+    height: auto; 
+    /* Вместо 250px ставим гибкий отступ */
+    padding: 60px clamp(20px, 10%, 250px); 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    background: #BDBDBD;
 }
 
 
@@ -666,13 +667,12 @@ font-weight: 400;
 line-height: 16.8px; 
 width: 90px;
 }
-.countauner_hero_8{
+.countauner_hero_8 {
     display: flex;
-padding: 30px 0;
-flex-direction: column;
-align-items: center;
-gap: 10px;
-align-self: stretch;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Расстояние между заголовком и сеткой */
+    width: 100%;
 }
 
 /*------------БЛОК 9-------------*/
@@ -761,102 +761,53 @@ align-self: stretch;
 }
 
 /*------------БЛОК 10-------------*/
+/* desktop.css */
 .hero_10 {
-    padding: 60px 0;
-    overflow: hidden;
+    padding: 80px 0;
 }
 
 .carousel-viewport {
-    position: relative;
-    max-width: 1440px;
-    margin: 0 auto;
-    overflow: hidden; 
+    overflow: hidden; /* Прячем лишнее для работы кнопок */
+    max-width: 1200px;
+    border-radius: 24px;
 }
 
 .carousel-track {
     display: flex;
-    transition: transform 0.5s ease-in-out; 
+    transition: transform 0.5s ease-in-out;
 }
 
 .carousel-slide {
-    min-width: 100%; 
+    min-width: 100%;
     display: flex;
-    align-items: center;
-    border-radius: 20px;
+    flex-direction: row; /* Текст и картинка в ряд */
+    height: 500px;
     overflow: hidden;
-    height: 485px;
 }
 
-.slide-purple { background-color: #E7D6FD; }
-.slide-white { background-color: #F2F2F2; }
 .slide-image {
-    flex: 1;
+    flex: 1; /* 50% ширины */
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100%;
+    align-items: flex-end; /* Телефон "стоит" на дне */
+    padding-top: 40px;
 }
 
 .slide-image img {
     height: 90%;
     width: auto;
+    object-fit: contain;
 }
 
 .slide-content {
-    flex: 1;
-    padding: 0 80px;
-    background-color: #fff; 
-    height: 100%;
+    flex: 1; /* 50% ширины */
+    padding: 0 60px;
+    background-color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: left;
 }
-
-.slide-content h3 {
-    font-size: 32px;
-    margin-bottom: 20px;
-    color: #171717;
-}
-
-.slide-content p {
-    font-size: 18px;
-    line-height: 1.5;
-    color: #171717;
-    margin-bottom: 30px;
-    max-width: 400px;
-}
-
-.learn-more {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #487B94;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-/* Кнопки */
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255,255,255,0.8);
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    z-index: 10;
-}
-
-.prev { left: 20px; }
-.next { right: 20px; }
-
 /*------------БЛОК 11-------------*/
 
 .background-color_11{

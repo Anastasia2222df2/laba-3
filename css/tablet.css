@@ -1,4 +1,7 @@
-/*------------HEADER-------------*/
+/*-------------------------------------------*/
+/*------------      HEADER       ------------*/
+/*-------------------------------------------*/
+
 .header .container {
     display: flex;
     justify-content: space-between;
@@ -41,10 +44,15 @@
     gap: 20px;
 } 
 
+
+/*-------------------------------------------*/
+/*------------      БЛОК 1       ------------*/
+/*-------------------------------------------*/
+
 /*------------БЛОК 1-------------*/
 .hero_1 h1 {
     font-size: clamp(41px, 5vw, 41px);
-    flex-direction: column;
+    white-space: normal; /* Разрешаем перенос на планшете */
 }
 
 .search-box {
@@ -63,33 +71,39 @@
     object-fit: contain;
 }
 
-/*------------БЛОК 2-------------*/
+
+/*-------------------------------------------*/
+/*------------      БЛОК 2       ------------*/
+/*-------------------------------------------*/
+
 .benefits {
     padding: 65px clamp(10px, 5vw, 10px);
     gap: clamp(15px, 5vw, 400px); 
 }
 
-/*------------БЛОК 3-------------*/
+
+/*-------------------------------------------*/
+/*------------      БЛОК 3       ------------*/
+/*-------------------------------------------*/
+
 .columns_3_hero_3 {
-    display: none !important;
+    display: none !important; /* Скрыто на планшете по твоему желанию */
 }
 
-/*------------БЛОК 4-------------*/
-.columns_hero_4 {
-    flex-wrap: wrap;
-    max-width: 1440px;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
+
+/*-------------------------------------------*/
+/*------------      БЛОК 4       ------------*/
+/*-------------------------------------------*/
 
 .columns_hero_4 {
-    display: flex;
+    display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    
+    /* Центрирование и отступы */
+    scroll-padding-left: 40px; 
     padding: 40px 40px !important; 
     justify-content: flex-start !important; 
     gap: 20px !important;
@@ -108,17 +122,22 @@
     margin: 0 !important;
     height: auto !important;
     border-radius: 12px;
-}
-
-.pictire_1_hero_4 {
-    height: 280px !important; 
+    display: flex !important;
 }
 
 .columns_1_hero_4.is-duplicate {
     display: flex !important;
 }
 
-/*------------БЛОК 5-------------*/
+.pictire_1_hero_4 {
+    height: 280px !important; 
+}
+
+
+/*-------------------------------------------*/
+/*------------      БЛОК 5       ------------*/
+/*-------------------------------------------*/
+
 .background-color_5 {
     height: auto !important;
     padding: 60px 40px;
@@ -139,63 +158,180 @@
 }
 
 .button_background_hero_5 {
-    align-self: center;
+    align-self: center; /* Кнопка по центру */
 }
 
 .image_column_2_hero_5 {
     max-width: 450px;
+    height: auto;
 }
 
-/*------------БЛОК 6-------------*/
+
+/*-------------------------------------------*/
+/*------------      БЛОК 6       ------------*/
+/*-------------------------------------------*/
+
 .background-color_6 {
-    height: auto !important;   
-    padding: 40px 20px;        
+    height: auto !important;
+    padding: 40px 20px;
     display: flex;
     justify-content: center;
 }
 
 .hug_hero_6 {
-    flex-direction: column !important; 
-    width: 100% !important;            
-    height: auto !important;           
-    gap: 30px;                         
-    align-items: center;               
-    text-align: center;                
+    flex-direction: column !important;
+    width: 100% !important;
+    height: auto !important;
+    gap: 30px;
+    align-items: center;
+    text-align: center;
 }
 
 .column_1_hero_6 {
     width: 100% !important;
-    max-width: 425px;                  
-    height: auto !important;
+    max-width: 425px;
 }
 
 .image_column_1_hero_6 {
     width: clamp(270px, 6vw, 450px) !important;
     height: auto;
-    object-fit: contain;
 }
 
 .column_2_hero_6 {
     width: 100%;
-    max-width: 500px;                  
-    align-items: center !important;    
-    gap: 20px;                         
+    max-width: 500px;
+    align-items: center !important;
 }
 
 .text_1_column_2_hero_6 {
-    font-size: clamp(28px, 6vw, 46px) !important; 
+    font-size: clamp(28px, 6vw, 46px) !important;
     line-height: 1.2;
-    margin: 0;
 }
 
 .text_2_column_2_hero_6 {
-    font-size: 16px !important;        
-    line-height: 1.4;
-    margin-top: 0;
+    font-size: 16px !important;
 }
 
 .button_background_hero_6 {
-    width: 160px;                      
-    height: 40px;                      
+    width: 160px;
+    height: 40px;
     margin: 0 auto;
+}
+
+
+/*-------------------------------------------*/
+/*------------      БЛОК 7       ------------*/
+/*-------------------------------------------*/
+
+.catalog__grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 260px) !important;
+    justify-content: center !important;
+    column-gap: 40px !important;
+    row-gap: 30px !important;
+    padding: 40px 20px;
+}
+
+[class^="card_"] {
+    width: 260px !important;
+    padding: 0 !important;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+[class^="card_"] img {
+    width: 100% !important;
+    height: auto;
+    object-fit: cover;
+}
+
+.card_9_hero_7 {
+    display: none !important; /* Удалили 9-ю карточку для ровности 2х4 */
+}
+
+
+/*-------------------------------------------*/
+/*------------      БЛОК 8       ------------*/
+/*-------------------------------------------*/
+
+.hero_8 {
+    height: auto !important;
+    padding: 60px 40px !important;
+}
+
+
+/*-------------------------------------------*/
+/*------------      БЛОК 9       ------------*/
+/*-------------------------------------------*/
+
+.hero_9 {
+    padding: 60px 20px;
+}
+
+.deals__grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 40px 30px !important;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.deal-card {
+    width: 100% !important;
+    max-width: 320px;
+    justify-self: center;
+}
+
+.deals__view-all {
+    display: flex;
+    justify-content: center;
+    margin: 0 !important;
+}
+
+
+/*-------------------------------------------*/
+/*------------      БЛОК 10      ------------*/
+/*-------------------------------------------*/
+
+.hero_10 {
+    padding: 40px 0;
+}
+
+.carousel-viewport {
+    overflow-x: auto !important;
+    display: flex;
+    scroll-snap-type: x mandatory;
+    padding: 20px !important;
+    gap: 20px;
+    scrollbar-width: none;
+}
+
+.carousel-viewport::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-slide {
+    flex: 0 0 82% !important;
+    min-width: 82% !important;
+    scroll-snap-align: center;
+    flex-direction: column !important;
+    height: auto !important;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.slide-content {
+    padding: 30px 25px !important;
+    order: 1;
+}
+
+.slide-image {
+    height: 280px !important;
+    order: 2;
+}
+
+.carousel-btn {
+    display: none !important;
 }
