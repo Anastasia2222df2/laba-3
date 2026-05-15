@@ -1,0 +1,201 @@
+/*------------HEADER-------------*/
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+}
+
+.header__main-nav {
+    display: flex;
+    align-items: center;
+}
+
+.header__nav {
+    display: flex;
+    flex-direction: row;      
+    flex-wrap: nowrap;        
+    justify-content: center; 
+    align-items: center;
+    gap: 25px;               
+    flex: 1;               
+}
+
+.header__nav a {
+    text-decoration: none;
+    white-space: nowrap;  
+}
+
+.header__logo {
+    margin: 0;
+}
+
+.header__burger {
+    display: none;
+}
+
+.header__auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+} 
+
+/*------------БЛОК 1-------------*/
+.hero_1 h1 {
+    font-size: clamp(41px, 5vw, 41px);
+    flex-direction: column;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 30px;
+    width: clamp(390px, 100%, 390px);
+    height: 45px;
+    padding-right: 5px;
+}
+
+.hero__image {
+    width: clamp(390px, 50vw, 450px);
+    height: auto; 
+    object-fit: contain;
+}
+
+/*------------БЛОК 2-------------*/
+.benefits {
+    padding: 65px clamp(10px, 5vw, 10px);
+    gap: clamp(15px, 5vw, 400px); 
+}
+
+/*------------БЛОК 3-------------*/
+.columns_3_hero_3 {
+    display: none !important;
+}
+
+/*------------БЛОК 4-------------*/
+.columns_hero_4 {
+    flex-wrap: wrap;
+    max-width: 1440px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.columns_hero_4 {
+    display: flex;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 40px 40px !important; 
+    justify-content: flex-start !important; 
+    gap: 20px !important;
+    scrollbar-width: none;
+    width: 100%;
+}
+
+.columns_hero_4::-webkit-scrollbar {
+    display: none;
+}
+
+.columns_1_hero_4 {
+    flex: 0 0 45% !important; 
+    width: 45% !important;
+    scroll-snap-align: start !important; 
+    margin: 0 !important;
+    height: auto !important;
+    border-radius: 12px;
+}
+
+.pictire_1_hero_4 {
+    height: 280px !important; 
+}
+
+.columns_1_hero_4.is-duplicate {
+    display: flex !important;
+}
+
+/*------------БЛОК 5-------------*/
+.background-color_5 {
+    height: auto !important;
+    padding: 60px 40px;
+}
+
+.hug_hero_5 {
+    flex-direction: column !important;
+    align-items: center;
+    gap: 40px;
+}
+
+.column_1_hero_5 {
+    width: 100%;
+    max-width: 500px; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.button_background_hero_5 {
+    align-self: center;
+}
+
+.image_column_2_hero_5 {
+    max-width: 450px;
+}
+
+/*------------БЛОК 6-------------*/
+.background-color_6 {
+    height: auto !important;   
+    padding: 40px 20px;        
+    display: flex;
+    justify-content: center;
+}
+
+.hug_hero_6 {
+    flex-direction: column !important; 
+    width: 100% !important;            
+    height: auto !important;           
+    gap: 30px;                         
+    align-items: center;               
+    text-align: center;                
+}
+
+.column_1_hero_6 {
+    width: 100% !important;
+    max-width: 425px;                  
+    height: auto !important;
+}
+
+.image_column_1_hero_6 {
+    width: clamp(270px, 6vw, 450px) !important;
+    height: auto;
+    object-fit: contain;
+}
+
+.column_2_hero_6 {
+    width: 100%;
+    max-width: 500px;                  
+    align-items: center !important;    
+    gap: 20px;                         
+}
+
+.text_1_column_2_hero_6 {
+    font-size: clamp(28px, 6vw, 46px) !important; 
+    line-height: 1.2;
+    margin: 0;
+}
+
+.text_2_column_2_hero_6 {
+    font-size: 16px !important;        
+    line-height: 1.4;
+    margin-top: 0;
+}
+
+.button_background_hero_6 {
+    width: 160px;                      
+    height: 40px;                      
+    margin: 0 auto;
+}
