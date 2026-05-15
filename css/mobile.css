@@ -11,11 +11,11 @@
 }
 
 .header__nav {
-    display: none; /* Прячем обычное меню */
+    display: none; 
 }
 
 .header__auth {
-    display: none; /* Прячем кнопки входа */
+    display: none;
 }
 
 .header__burger {
@@ -34,7 +34,6 @@
     background-color: #000;
 }
 
-
 /*-------------------------------------------*/
 /*------------      БЛОК 1       ------------*/
 /*-------------------------------------------*/
@@ -43,7 +42,7 @@
     font-size: clamp(30px, 5vw, 41px);
     line-height: 1.2;
     flex-direction: column;
-    white-space: normal; /* Разрешаем перенос текста */
+    white-space: normal; 
 }
 
 .search-box {
@@ -62,7 +61,6 @@
     object-fit: contain;
 }
 
-
 /*-------------------------------------------*/
 /*------------      БЛОК 2       ------------*/
 /*-------------------------------------------*/
@@ -78,7 +76,6 @@
 .benefit-temple {
     width: 100%;
 }
-
 
 /*-------------------------------------------*/
 /*------------      БЛОК 3       ------------*/
@@ -141,14 +138,13 @@
     margin-top: 15px !important;
 }
 
-
 /*-------------------------------------------*/
 /*------------      БЛОК 4       ------------*/
 /*-------------------------------------------*/
 
 .columns_hero_4 {
     display: flex;
-    flex-direction: column !important; /* Колонкой */
+    flex-direction: column !important; 
     flex-wrap: wrap !important;
     overflow-x: visible !important;
     scroll-snap-type: none !important;
@@ -170,7 +166,7 @@
 }
 
 .columns_1_hero_4.is-duplicate {
-    display: none !important; /* Скрываем дубликаты на мобилке */
+    display: none !important; 
 }
 
 .pictire_1_hero_4 {
@@ -189,7 +185,6 @@
     font-size: 12px;
     z-index: 2;
 }
-
 
 /*-------------------------------------------*/
 /*------------      БЛОК 5       ------------*/
@@ -235,7 +230,7 @@
 .button_background_hero_5 {
     width: 100%;
     max-width: 280px;
-    align-self: center; /* Кнопка по центру */
+    align-self: center;
     margin-top: 20px;
     border-radius: 50px;
 }
@@ -245,7 +240,6 @@
     max-width: 250px;
     height: auto;
 }
-
 
 /*-------------------------------------------*/
 /*------------      БЛОК 6       ------------*/
@@ -293,7 +287,6 @@
     margin: 0 auto;
 }
 
-
 /*-------------------------------------------*/
 /*------------      БЛОК 7       ------------*/
 /*-------------------------------------------*/
@@ -329,7 +322,6 @@
     object-fit: cover;
 }
 
-
 /*-------------------------------------------*/
 /*------------      БЛОК 8       ------------*/
 /*-------------------------------------------*/
@@ -362,7 +354,6 @@
     font-size: 12px !important;
     width: 100% !important;
 }
-
 
 /*-------------------------------------------*/
 /*------------      БЛОК 10      ------------*/
@@ -400,5 +391,5 @@
 }
 
 .carousel-btn {
-    display: none !important; /* Убираем кнопки на мобилке */
+    display: none !important;
 }

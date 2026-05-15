@@ -49,10 +49,9 @@
 /*------------      БЛОК 1       ------------*/
 /*-------------------------------------------*/
 
-/*------------БЛОК 1-------------*/
 .hero_1 h1 {
     font-size: clamp(41px, 5vw, 41px);
-    white-space: normal; /* Разрешаем перенос на планшете */
+    white-space: normal;
 }
 
 .search-box {
@@ -87,7 +86,7 @@
 /*-------------------------------------------*/
 
 .columns_3_hero_3 {
-    display: none !important; /* Скрыто на планшете по твоему желанию */
+    display: none !important; 
 }
 
 
@@ -101,8 +100,6 @@
     flex-wrap: nowrap !important;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    
-    /* Центрирование и отступы */
     scroll-padding-left: 40px; 
     padding: 40px 40px !important; 
     justify-content: flex-start !important; 
@@ -158,7 +155,7 @@
 }
 
 .button_background_hero_5 {
-    align-self: center; /* Кнопка по центру */
+    align-self: center; 
 }
 
 .image_column_2_hero_5 {
@@ -218,7 +215,6 @@
     margin: 0 auto;
 }
 
-
 /*-------------------------------------------*/
 /*------------      БЛОК 7       ------------*/
 /*-------------------------------------------*/
@@ -248,9 +244,8 @@
 }
 
 .card_9_hero_7 {
-    display: none !important; /* Удалили 9-ю карточку для ровности 2х4 */
+    display: none !important; 
 }
-
 
 /*-------------------------------------------*/
 /*------------      БЛОК 8       ------------*/
