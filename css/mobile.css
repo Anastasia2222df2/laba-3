@@ -246,44 +246,65 @@
 /*-------------------------------------------*/
 
 .background-color_6 {
+    width: 100%;
     height: auto !important;
-    padding: 40px 20px;
+    padding: 40px 15px;     
+    box-sizing: border-box;
+    overflow: hidden;     
 }
 
 .hug_hero_6 {
+    width: 100%;
+    max-width: 100%;
     flex-direction: column !important;
-    width: 100% !important;
     align-items: center;
     text-align: center;
+    gap: 20px;
 }
 
 .column_1_hero_6 {
-    width: 100% !important;
-    max-width: 425px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .image_column_1_hero_6 {
-    width: clamp(250px, 40vw, 425px) !important;
+    width: 100% !important;
+    max-width: 425px; 
+    
     height: auto;
+    object-fit: contain;
 }
 
 .column_2_hero_6 {
     width: 100%;
-    max-width: 500px;
-    align-items: center !important;
+    max-width: 100%;        /* Убираем 500px, чтобы не распирало узкие экраны */
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .text_1_column_2_hero_6 {
-    font-size: clamp(28px, 6vw, 36px) !important;
+    width: 100%;
+    /* Шрифт тоже делаем более гибким: от 20px до 36px */
+    font-size: clamp(20px, 8vw, 36px) !important;
+    line-height: 1.2;
+    margin: 0 0 15px 0;
+    word-wrap: break-word;   /* Чтобы длинные слова не резали экран */
 }
 
 .text_2_column_2_hero_6 {
-    font-size: 16px !important;
+    width: 100%;
+    font-size: 14px !important;
+    line-height: 1.4;
+    margin: 0 0 20px 0;
 }
 
 .button_background_hero_6 {
-    width: 160px;
-    height: 40px;
+    width: 100%;
+    max-width: 200px;        /* Кнопка не будет шире 200px */
+    height: 45px;
     margin: 0 auto;
 }
 
@@ -298,7 +319,7 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-padding-left: 20px;
-    padding: 20px !important;
+    padding: 50px !important;
     gap: 15px !important;
     scrollbar-width: none;
     margin-left: -20px;
@@ -354,42 +375,195 @@
     font-size: 12px !important;
     width: 100% !important;
 }
+/*-------------------------------------------*/
+/*------------      БЛОК 9       ------------*/
+/*-------------------------------------------*/
+.hero_9 {
+    padding: 40px 0;
+    overflow: hidden;
+}
+
+.deals__grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 20px;
+    
+    padding: 10px 20px !important;
+    gap: 15px !important;
+    scrollbar-width: none;
+    
+    margin-left: -20px;
+    width: 100vw;
+}
+
+.deals__grid::-webkit-scrollbar {
+    display: none;
+}
+
+.deal-card {
+    flex: 0 0 75% !important;
+    width: 75% !important;
+    scroll-snap-align: start;
+    background: #FFF;
+    border-radius: 16px;
+    border: 1px solid #F2F2F2;
+}
+
+.deal-card__image {
+    height: 200px !important;
+}
+
+.deals__view-all {
+    flex: 0 0 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 !important;
+    padding-right: 40px;
+}
 
 /*-------------------------------------------*/
 /*------------      БЛОК 10      ------------*/
 /*-------------------------------------------*/
 
+/*------------БЛОК 10-------------*/
 .hero_10 {
     padding: 40px 0;
 }
 
 .carousel-viewport {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-padding: 20px;
-    padding: 0 20px !important;
+    padding: 10px 30px !important;
     gap: 15px;
-    scrollbar-width: none;
 }
 
 .carousel-slide {
-    min-width: 82vw !important;
-    flex: 0 0 82% !important;
-    height: auto !important;
+    flex: 0 0 85vw !important; 
+    min-width: 85vw !important;
     flex-direction: column !important;
-    scroll-snap-align: center;
+    height: auto !important;
     border-radius: 24px;
 }
 
 .slide-content {
-    padding: 30px 20px !important;
+    padding: 0px 20px !important;
+}
+
+.slide-content h3 {
+    font-size: 24px !important;
+}
+
+.slide-content p {
+    font-size: 15px !important;
 }
 
 .slide-image {
     height: 250px !important;
+    padding: 0 15px 15px 15px;
 }
 
-.carousel-btn {
-    display: none !important;
+/*-------------------------------------------*/
+/*------------      БЛОК 11       ------------*/
+/*-------------------------------------------*/
+
+.background-color_11 {
+    padding: 40px 15px;
+}
+
+.hug_hero_5 {
+    flex-direction: column-reverse !important;
+    gap: 30px;
+}
+
+.column_1_hero_11 {
+    align-items: center !important;
+    width: 100%;
+}
+
+.text_1_column_1_hero_11 p {
+    font-size: 28px !important;
+}
+
+.text_2_column_1_hero_11 p {
+    font-size: 16px !important;
+}
+
+.buttons_hero_11 {
+    /* Кнопки встают друг под друга */
+    flex-direction: column !important; 
+    width: 100%;
+    gap: 10px;
+}
+
+.button_hero_11 {
+    /* Кнопки на всю ширину экрана */
+    width: 100% !important; 
+    max-width: 100%;
+}
+
+.column_2_hero_5 img {
+    max-width: 300px;
+}
+
+/*-------------------------------------------*/
+/*-----------      БЛОК 12 футер     --------*/
+/*-------------------------------------------*/
+
+.footer_12 {
+    width: 100%;
+    padding: 40px 15px;
+    box-sizing: border-box; 
+}
+
+.footer__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 40px;
+    width: 100%;
+}
+
+.footer__brand {
+    align-items: center; 
+}
+
+.footer__col:nth-child(3),
+.footer__col:nth-child(4) {
+    display: none;
+}
+
+.footer__col ul {
+    align-items: center;
+    text-align: center;
+}
+
+.footer__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #444;
+    width: 100%;
+}
+
+.footer__legal-text {
+    width: 100% !important;     
+    max-width: 100% !important;   
+    text-align: center;          
+    font-size: 11px;
+    line-height: 1.5;
+    word-wrap: break-word;      
+}
+
+.footer__extra-links {
+    display: flex;
+    flex-wrap: wrap;             
+    justify-content: center;   
+    gap: 15px 25px;
+    width: auto !important;  
+    height: auto !important;
 }
