@@ -250,7 +250,8 @@
     height: auto !important;
     padding: 40px 15px;     
     box-sizing: border-box;
-    overflow: hidden;     
+    overflow: hidden;
+     padding-bottom: 50px !important;
 }
 
 .hug_hero_6 {
@@ -271,14 +272,13 @@
 .image_column_1_hero_6 {
     width: 100% !important;
     max-width: 425px; 
-    
     height: auto;
     object-fit: contain;
 }
 
 .column_2_hero_6 {
     width: 100%;
-    max-width: 100%;        /* Убираем 500px, чтобы не распирало узкие экраны */
+    max-width: 100%;       
     padding: 0 10px;
     display: flex;
     flex-direction: column;
@@ -287,11 +287,10 @@
 
 .text_1_column_2_hero_6 {
     width: 100%;
-    /* Шрифт тоже делаем более гибким: от 20px до 36px */
     font-size: clamp(20px, 8vw, 36px) !important;
     line-height: 1.2;
     margin: 0 0 15px 0;
-    word-wrap: break-word;   /* Чтобы длинные слова не резали экран */
+    word-wrap: break-word;  
 }
 
 .text_2_column_2_hero_6 {
@@ -303,14 +302,23 @@
 
 .button_background_hero_6 {
     width: 100%;
-    max-width: 200px;        /* Кнопка не будет шире 200px */
+    max-width: 200px;        
     height: 45px;
     margin: 0 auto;
 }
 
+
+
 /*-------------------------------------------*/
 /*------------      БЛОК 7       ------------*/
 /*-------------------------------------------*/
+.hero_7 {
+    display: block;
+    width: 100%;
+    margin-top: 50px !important; 
+    padding: 0;
+    overflow: hidden; 
+}
 
 .catalog__grid {
     display: flex !important;
@@ -319,11 +327,11 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-padding-left: 20px;
-    padding: 50px !important;
+    padding: 20px !important; 
     gap: 15px !important;
-    scrollbar-width: none;
-    margin-left: -20px;
+    margin-left: -20px; 
     width: 100vw;
+    scrollbar-width: none;
 }
 
 .catalog__grid::-webkit-scrollbar {
