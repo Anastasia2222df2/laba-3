@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    
+    <!-- Выходим из папки catalog в папку css -->
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/desktop.css" />
+    <link
+      rel="stylesheet"
+      href="../css/tablet.css"
+      media="screen and (min-width: 769px) and (max-width: 1024px)"
+    />
+    <link
+      rel="stylesheet"
+      href="../css/mobile.css"
+      media="screen and (max-width: 768px)"
+    />
+    
+    <title>Catalog - Klarna</title>
+  </head>
+  <body>
+    <!-- Заглушка для динамической шапки -->
+    <div id="header-placeholder"></div>
+
+    <main style="padding-bottom: 60px;">
+      <!-- Заголовок страницы каталога -->
+      <h1 class="text_hero_8" style="text-align: center; margin: 40px 0; font-size: 32px;">Our Products</h1>
+      
+      <!-- Панель фильтров и поиска (ЭТАП 3) -->
+<div class="container" style="margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: center; background-color: #f9f9f9; padding: 25px; border-radius: 16px;">
+    
+    <!-- 1. Динамический Поиск -->
+    <div class="search-box" style="width: 320px; border: 1px solid #ccc;">
+        <input type="text" id="search-input" placeholder="Search by name or description..." class="text" style="padding: 10px; width: 100%;">
+    </div>
+
+    <!-- 2. Выпадающий список Сортировки -->
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <label for="sort-select" style="font-size: 14px; font-weight: 500;">Sort by:</label>
+        <select id="sort-select" style="padding: 10px 15px; border-radius: 30px; border: 1px solid #ccc; font-family: 'Roboto', sans-serif; cursor: pointer; background: #fff;">
+            <option value="default">Default</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="name-asc">Name: A-Z</option>
+            <option value="rating-desc">Rating: High to Low</option>
+        </select>
+    </div>
+
+    <!-- 3. Кнопки Категорий -->
+    <div id="category-filters" style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <button class="category-btn" data-category="all" style="padding: 8px 20px; border-radius: 20px; border: 1px solid #000; background: #000; color: #fff; cursor: pointer; font-weight: 500;">All</button>
+        <button class="category-btn" data-category="Fashion" style="padding: 8px 20px; border-radius: 20px; border: 1px solid #ccc; background: #fff; color: #000; cursor: pointer; font-weight: 500;">Fashion</button>
+        <button class="category-btn" data-category="Sports" style="padding: 8px 20px; border-radius: 20px; border: 1px solid #ccc; background: #fff; color: #000; cursor: pointer; font-weight: 500;">Sports</button>
+        <button class="category-btn" data-category="Pets" style="padding: 8px 20px; border-radius: 20px; border: 1px solid #ccc; background: #fff; color: #000; cursor: pointer; font-weight: 500;">Pets</button>
+        <button class="category-btn" data-category="Accessories" style="padding: 8px 20px; border-radius: 20px; border: 1px solid #ccc; background: #fff; color: #000; cursor: pointer; font-weight: 500;">Accessories</button>
+    </div>
+</div>
+
+<!-- 4. Сообщение "Ничего не найдено" (по умолчанию скрыто) -->
+<div id="no-products-message" class="container" style="display: none; text-align: center; margin: 40px auto; padding: 30px; background: #fff4f7; border-radius: 16px; border: 1px solid #ffb3c7; max-width: 500px;">
+    <p style="font-size: 20px; font-weight: bold; color: #ffb3c7; margin-bottom: 10px;">No Products Found</p>
+    <p style="color: #666; font-size: 14px;">We couldn't find anything matching your search criteria. Try adjusting your filters or search query!</p>
+</div>
+      <!-- Контейнер для 10 интерактивных кнопок -->
+<div class="container" style="margin-bottom: 30px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+    <button id="btn-reset" class="button_hero_11 button_black_11" style="border-radius: 8px; height: 40px; font-size: 13px;">Reset (Original)</button>
+    <button id="btn-filter" class="button_hero_11 button_white_11" style="border-radius: 8px; height: 40px; font-size: 13px; border: 1px solid #ccc;">Filter: Fashion (filter)</button>
+    <button id="btn-sort" class="button_hero_11 button_white_11" style="border-radius: 8px; height: 40px; font-size: 13px; border: 1px solid #ccc;">Sort: Price Low-High (sort)</button>
+    <button id="btn-map" class="button_hero_11 button_white_11" style="border-radius: 8px; height: 40px; font-size: 13px; border: 1px solid #ccc;">10% Discount (map)</button>
+    <button id="btn-reduce" class="button_hero_11 button_white_11" style="border-radius: 8px; height: 40px; font-size: 13px; border: 1px solid #ccc;">Total Sum (reduce)</button>
+    <button id="btn-find" class="button_hero_11 button_white_11" style="border-radius: 8px; height: 40px; font-size: 13px; border: 1px solid #ccc;">Find: Best Rating (find)</button>
+    <button id="btn-some" class="button_hero_11 button_white_11" style="border-radius: 8px; height: 40px; font-size: 13px; border: 1px solid #ccc;">Are there cheap? (some)</button>
+    <button id="btn-every" class="button_hero_11 button_white_11" style="border-radius: 8px; height: 40px; font-size: 13px; border: 1px solid #ccc;">All luxury? (every)</button>
+    <button id="btn-slice" class="button_hero_11 button_white_11" style="border-radius: 8px; height: 40px; font-size: 13px; border: 1px solid #ccc;">Show Top 5 (slice)</button>
+    <button id="btn-reverse" class="button_hero_11 button_white_11" style="border-radius: 8px; height: 40px; font-size: 13px; border: 1px solid #ccc;">Reverse (reverse)</button>
+    <button id="btn-concat" class="button_hero_11 button_white_11" style="border-radius: 8px; height: 40px; font-size: 13px; border: 1px solid #ccc;">Add Gift Card (concat)</button>
+</div>
+      <div class="hero_7">
+        <!-- Пустой контейнер для вывода карточек товаров -->
+        <div id="product-grid" class="catalog__grid">
+          <!-- Сюда JavaScript вставит карточки -->
+        </div>
+      </div>
+    </main>
+
+    <!-- Заглушка для динамического футера -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Подключаем скрипты: сначала общий компонентов, потом сам каталог -->
+    <script src="../components.js"></script>
+    <script src="catalog.js"></script>
+  </body>
+</html>

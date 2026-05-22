@@ -35,13 +35,13 @@
 }
 
 .text:focus {
-    background-color: #fff4f7;
-    outline: 2px solid #ffb3c7;
+    outline: none !important; 
+    background-color: transparent !important;
 }
 
-.text:focus::placeholder {
-    transform: translateX(10px);
-    opacity: 0.5;
+.search-box:focus-within {
+    border-color: #000000 !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); 
 }
 
 .benefit-backet:hover img {
