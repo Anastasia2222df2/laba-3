@@ -1,16 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Умная проверка пути: мы в подпапке (catalog) или в корне?
     const isSubfolder = window.location.pathname.includes('/catalog/');
     const pathPrefix = isSubfolder ? '../' : '';
 
-    // 2. Генерация ТВОЕГО Хедера
     const headerPlaceholder = document.getElementById('header-placeholder');
     if (headerPlaceholder) {
         headerPlaceholder.innerHTML = `
             <header class="header">
               <div class="container">
                 <div class="header__logo">
-                  <!-- ОБЕРНУЛИ ЛОГОТИП В ССЫЛКУ НА ГЛАВНУЮ -->
                   <a href="${pathPrefix}index.html" style="display: block;">
                     <img src="${pathPrefix}public/header/logo_header.svg" alt="Klarna Logo" />
                   </a>
@@ -37,7 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
     }
 
-    // 3. Генерация ТВОЕГО Футера
     const footerPlaceholder = document.getElementById('footer-placeholder');
     if (footerPlaceholder) {
         footerPlaceholder.innerHTML = `

@@ -1,250 +1,233 @@
-// 1. Массив из 15 товаров (у каждого ровно 6 полей)
-// Все пути к картинкам ведут на уровень выше (../public)
 const products = [
     {
         id: 1,
-        name: "Shop Dresses",
-        price: 89,
+        name: "Nike Air Max 270",
+        price: 150,
         category: "Fashion",
         rating: 4.8,
-        image: "../public/section_7/img_1_hero_7.svg",
-        description: "Elegant dresses for any occasion."
+        image: "/catalog/image/a.jpeg",
+        description: "Classic running sneakers with maximum comfort."
     },
     {
         id: 2,
-        name: "Lift and Tone Shoes",
-        price: 120,
-        category: "Fashion",
-        rating: 4.5,
-        image: "../public/section_7/img_2_hero_7.svg",
-        description: "Comfortable training shoes."
+        name: "Apple Watch Series 8",
+        price: 399,
+        category: "Electronics",
+        rating: 4.9,
+        image: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500&q=80",
+        description: "Advanced health tracking and elegant design."
     },
     {
         id: 3,
-        name: "Roses are Red Jacket",
-        price: 150,
-        category: "Fashion",
-        rating: 4.9,
-        image: "../public/section_7/img_3_hero_7.svg",
-        description: "Bright red spring jacket."
+        name: "Minimalist Leather Tote",
+        price: 85,
+        category: "Accessories",
+        rating: 4.5,
+        image: "/catalog/image/orig.webp",
+        description: "Handcrafted genuine leather bag for daily use."
     },
     {
         id: 4,
-        name: "Shop Outerwear",
-        price: 199,
-        category: "Fashion",
-        rating: 4.2,
-        image: "../public/section_7/img_4_hero_7.svg",
-        description: "Warm coats and winter jackets."
+        name: "Sony WH-1000XM5",
+        price: 348,
+        category: "Electronics",
+        rating: 4.7,
+        image: "/catalog/image/457aervt0m5b7l5_bdb5d67e.jpg.webp",
+        description: "Industry-leading noise canceling headphones."
     },
     {
         id: 5,
-        name: "Go the Distance",
-        price: 95,
-        category: "Sports",
-        rating: 4.7,
-        image: "../public/section_7/img_5_hero_7.svg",
-        description: "Running gear for professionals."
+        name: "Ray-Ban Aviator Classic",
+        price: 160,
+        category: "Accessories",
+        rating: 4.6,
+        image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500&q=80",
+        description: "Timeless sunglasses with gold frames."
     },
     {
         id: 6,
-        name: "Shop Activewear",
-        price: 75,
+        name: "Lululemon Yoga Mat",
+        price: 58,
         category: "Sports",
         rating: 4.3,
-        image: "../public/section_7/img_6_hero_7.svg",
-        description: "Breathable and stretchable clothes."
+        image: "/catalog/image/orig (1).webp",
+        description: "Reversible non-slip mat for yoga and pilates."
     },
     {
         id: 7,
-        name: "Furry Friend Faves",
-        price: 45,
-        category: "Pets",
-        rating: 4.6,
-        image: "../public/section_7/img_7_hero_7.svg",
-        description: "Best toys and accessories for pets."
+        name: "Organic Cotton T-Shirt",
+        price: 25,
+        category: "Fashion",
+        rating: 4.2,
+        image: "/catalog/image/6272903617.jpg",
+        description: "Premium basic tee made from 100% organic cotton."
     },
     {
         id: 8,
-        name: "Shop Jewelry",
-        price: 250,
-        category: "Accessories",
-        rating: 5.0,
-        image: "../public/section_7/img_8_hero_7.svg",
-        description: "Gold plated chains and accessories."
+        name: "Nintendo Switch OLED",
+        price: 349,
+        category: "Electronics",
+        rating: 4.9,
+        image: "/catalog/image/orig (2).webp",
+        description: "Play at home or on the go with a vibrant OLED screen."
     },
     {
         id: 9,
-        name: "Affordable Tech",
-        price: 320,
-        category: "Electronics",
-        rating: 4.4,
-        image: "../public/section_7/img_9_hero_7.svg",
-        description: "Gadgets and tech for daily life."
+        name: "Smart Ceramic Mug",
+        price: 45,
+        category: "Home",
+        rating: 4.0,
+        image: "/catalog/image/i.webp",
+        description: "Keeps your coffee hot at the exact temperature."
     },
     {
         id: 10,
-        name: "Eco-Friendly Sneakers",
-        price: 110,
-        category: "Fashion",
-        rating: 4.1,
-        image: "../public/section_7/img_2_hero_7.svg",
-        description: "Recycled material light sneakers."
+        name: "Asics Running Shoes",
+        price: 130,
+        category: "Sports",
+        rating: 4.4,
+        image: "/catalog/image/orig (3).webp",
+        description: "Professional running shoes with gel cushioning."
     },
     {
         id: 11,
-        name: "Smart Watch S5",
-        price: 299,
-        category: "Electronics",
+        name: "Plush Dog Bed",
+        price: 40,
+        category: "Pets",
         rating: 4.8,
-        image: "../public/section_7/img_9_hero_7.svg",
-        description: "Smartwatches with custom bands."
+        image: "/catalog/image/orig (4).webp",
+        description: "Ultra-soft and calming bed for dogs and cats."
     },
     {
         id: 12,
-        name: "Designer Leather Bag",
-        price: 180,
+        name: "Fossil Gold Watch",
+        price: 145,
         category: "Accessories",
-        rating: 4.7,
-        image: "../public/section_7/img_8_hero_7.svg",
-        description: "Premium leather hand bags."
+        rating: 4.5,
+        image: "/catalog/image/FO619DWHUW05_1_v1.webp",
+        description: "Elegant stainless steel watch for everyday wear."
     },
     {
         id: 13,
-        name: "Winter Warm Coat",
-        price: 220,
-        category: "Fashion",
-        rating: 4.6,
-        image: "../public/section_7/img_4_hero_7.svg",
-        description: "Cozy coat for sub-zero temperatures."
+        name: "Adjustable Dumbbells",
+        price: 199,
+        category: "Sports",
+        rating: 4.7,
+        image: "/catalog/image/Strengthl.avif",
+        description: "Space-saving dumbbells for home workouts."
     },
     {
         id: 14,
-        name: "Professional Runners",
-        price: 130,
-        category: "Sports",
-        rating: 4.9,
-        image: "../public/section_7/img_5_hero_7.svg",
-        description: "Shoes engineered for long distance running."
+        name: "Gourmet Cat Food",
+        price: 35,
+        category: "Pets",
+        rating: 4.1,
+        image: "/catalog/image/orig (5).webp",
+        description: "High-protein dry food for adult cats."
     },
     {
         id: 15,
-        name: "Pet Sleeping Bed",
-        price: 60,
-        category: "Pets",
-        rating: 4.2,
-        image: "../public/section_7/img_7_hero_7.svg",
-        description: "Soft bed for cats and dogs."
+        name: "Levis Denim Jacket",
+        price: 90,
+        category: "Fashion",
+        rating: 4.6,
+        image: "/catalog/image/s-l1600.jpg",
+        description: "Classic blue denim jacket with a relaxed fit."
     }
 ];
 
-// 2. Функция для динамической отрисовки карточек
 function renderProducts(productsArray) {
     const container = document.getElementById('product-grid');
     if (!container) return;
     
-    container.innerHTML = ''; // Очищаем контейнер перед отрисовкой
+    container.innerHTML = ''; 
 
     productsArray.forEach(product => {
-        // Создаем контейнер карточки
         const card = document.createElement('div');
-        card.className = `card_1_hero_7`; // Используем твои базовые стили карточки
-
-        // Наполняем карточку HTML-кодом
+        card.className = `card_1_hero_7`; 
         card.innerHTML = `
-            <img src="${product.image}" alt="${product.name}" />
-            <p class="catalog__title" style="font-weight: bold; margin-bottom: 5px;">${product.name}</p>
-            <p style="font-size: 13px; color: #606060; padding: 0 12px;">Category: ${product.category}</p>
-            <p style="font-size: 13px; color: #606060; padding: 0 12px; margin-top: 5px;">${product.description}</p>
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px 12px 0 12px; margin-top: auto;">
-                <span style="font-size: 18px; font-weight: bold; color: #000;">$${product.price}</span>
-                <span style="font-size: 14px; color: #ffb3c7; font-weight: bold;">★ ${product.rating}</span>
+            <img src="${product.image}" alt="${product.name}" style="width: 100%; height: 250px; object-fit: cover; border-top-left-radius: 16px; border-top-right-radius: 16px;" />
+            <div style="padding: 20px; display: flex; flex-direction: column; flex-grow: 1;">
+                <p class="catalog__title" style="font-weight: bold; margin: 0 0 5px 0; font-size: 16px; padding: 0;">${product.name}</p>
+                <p style="font-size: 13px; color: #606060; margin: 0 0 10px 0;">Category: ${product.category}</p>
+                <p style="font-size: 13px; color: #606060; margin: 0; line-height: 1.4;">${product.description}</p>
+                
+                <!-- Этот блок с ценой всегда будет прижат к самому низу -->
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 20px;">
+                    <span style="font-size: 18px; font-weight: bold; color: #000;">$${product.price}</span>
+                    <span style="font-size: 14px; color: #ffb3c7; font-weight: bold;">★ ${product.rating}</span>
+                </div>
             </div>
         `;
 
-        // Добавляем готовую карточку в сетку
         container.appendChild(card);
     });
 }
 
-// 3. Запуск генерации при открытии страницы
 renderProducts(products);
 
 // ==========================================
 // ЭТАП 2: РАБОТА С МЕТОДАМИ МАССИВОВ (10 КНОПОК)
 // ==========================================
 
-// Кнопка 0: Сброс (Reset) — возвращает исходный массив
 document.getElementById('btn-reset').addEventListener('click', () => {
     renderProducts(products);
 });
 
-// Кнопка 1: filter() — оставляет только категорию Fashion
 document.getElementById('btn-filter').addEventListener('click', () => {
     const fashionProducts = products.filter(product => product.category === "Fashion");
     renderProducts(fashionProducts);
 });
 
-// Кнопка 2: sort() — сортирует цены по возрастанию
 document.getElementById('btn-sort').addEventListener('click', () => {
-    // Делаем копию массива [...products], чтобы не сломать оригинальный порядок
     const sortedProducts = [...products].sort((a, b) => a.price - b.price);
     renderProducts(sortedProducts);
 });
 
-// Кнопка 3: map() — делает скидку 10% (уменьшает каждую цену на 10%)
 document.getElementById('btn-map').addEventListener('click', () => {
     const discountedProducts = products.map(product => {
         return {
             ...product,
-            price: Math.round(product.price * 0.9) // Округляем цену
+            price: Math.round(product.price * 0.9)
         };
     });
     renderProducts(discountedProducts);
 });
 
-// Кнопка 4: reduce() — считает общую стоимость всех товаров на складе и выводит алертом
 document.getElementById('btn-reduce').addEventListener('click', () => {
     const totalPrice = products.reduce((sum, product) => sum + product.price, 0);
     alert(`Total price of all products: $${totalPrice}`);
 });
 
-// Кнопка 5: find() — находит первый товар с идеальным рейтингом 5.0
 document.getElementById('btn-find').addEventListener('click', () => {
     const perfectProduct = products.find(product => product.rating === 5.0);
     if (perfectProduct) {
-        // Отрендерим его одного в массиве
         renderProducts([perfectProduct]);
     } else {
         alert("Product with 5.0 rating not found.");
     }
 });
 
-// Кнопка 6: some() — проверяет, есть ли в магазине товары дешевле $50
 document.getElementById('btn-some').addEventListener('click', () => {
     const hasCheapProducts = products.some(product => product.price < 50);
     alert(hasCheapProducts ? "Yes, we have products under $50!" : "No, all products are more expensive than $50.");
 });
 
-// Кнопка 7: every() — проверяет, все ли товары в магазине стоят меньше $500
 document.getElementById('btn-every').addEventListener('click', () => {
     const allUnder500 = products.every(product => product.price < 500);
     alert(allUnder500 ? "Yes, all our products are under $500." : "No, some products are more expensive than $500.");
 });
 
-// Кнопка 8: slice() — показывает только первые 5 "избранных" товаров
 document.getElementById('btn-slice').addEventListener('click', () => {
     const topFive = products.slice(0, 5);
     renderProducts(topFive);
 });
 
-// Кнопка 9: reverse() — разворачивает текущий массив задом наперед
 document.getElementById('btn-reverse').addEventListener('click', () => {
     const reversedProducts = [...products].reverse();
     renderProducts(reversedProducts);
 });
 
-// Кнопка 10: concat() — добавляет в конец нашего каталога подарочную карту Klarna Gift Card
 document.getElementById('btn-concat').addEventListener('click', () => {
     const giftCard = {
         id: 99,
@@ -252,7 +235,7 @@ document.getElementById('btn-concat').addEventListener('click', () => {
         price: 50,
         category: "Gift Cards",
         rating: 5.0,
-        image: "../public/footer/logo.svg", // Логотип как картинка
+        image: "../public/footer/logo.svg",
         description: "Perfect gift for your friends and family."
     };
     const expandedProducts = products.concat(giftCard);
@@ -263,22 +246,17 @@ document.getElementById('btn-concat').addEventListener('click', () => {
 // ЭТАП 3: ФИЛЬТРАЦИЯ, ПОИСК И СОРТИРОВКА
 // ==========================================
 
-// Переменные состояния (хранят текущий выбор пользователя)
 let currentSearchQuery = "";
 let currentSortCriterion = "default";
 let currentCategory = "all";
 
-// Главная функция-контроллер: собирает все фильтры и обновляет экран
 function filterAndSortProducts() {
-    // Шаг 1: Копируем исходный массив
     let result = [...products];
 
-    // Шаг 2: Фильтрация по категориям
     if (currentCategory !== "all") {
         result = result.filter(product => product.category === currentCategory);
     }
 
-    // Шаг 3: Динамический поиск (по названию или описанию)
     if (currentSearchQuery.trim() !== "") {
         const query = currentSearchQuery.toLowerCase();
         result = result.filter(product => 
@@ -287,7 +265,6 @@ function filterAndSortProducts() {
         );
     }
 
-    // Шаг 4: Сортировка по выбранному критерию
     if (currentSortCriterion === "price-asc") {
         result.sort((a, b) => a.price - b.price);
     } else if (currentSortCriterion === "price-desc") {
@@ -298,50 +275,60 @@ function filterAndSortProducts() {
         result.sort((a, b) => b.rating - a.rating);
     }
 
-    // Шаг 5: Проверка на пустой результат (Обработка ошибки)
     const noProductsMsg = document.getElementById('no-products-message');
     if (result.length === 0) {
-        noProductsMsg.style.display = 'block'; // Показываем ошибку
+        noProductsMsg.style.display = 'block';
     } else {
-        noProductsMsg.style.display = 'none';  // Скрываем ошибку
+        noProductsMsg.style.display = 'none';
     }
 
-    // Отрисовываем полученный результат
     renderProducts(result);
 }
 
 // --- НАВЕШИВАЕМ СЛУШАТЕЛИ СОБЫТИЙ ---
 
-// 1. Поиск (событие 'input' срабатывает при каждом вводе буквы)
 document.getElementById('search-input').addEventListener('input', (event) => {
     currentSearchQuery = event.target.value;
-    filterAndSortProducts(); // Пересчитываем фильтры
+    filterAndSortProducts();
 });
 
-// 2. Сортировка (селект)
 document.getElementById('sort-select').addEventListener('change', (event) => {
     currentSortCriterion = event.target.value;
-    filterAndSortProducts(); // Пересчитываем фильтры
+    filterAndSortProducts();
 });
 
-// 3. Категории (кнопки)
 const categoryButtons = document.querySelectorAll('.category-btn');
 categoryButtons.forEach(button => {
     button.addEventListener('click', (event) => {
-        // Снимаем статус "активной" со всех кнопок категорий
         categoryButtons.forEach(btn => {
             btn.style.background = '#fff';
             btn.style.color = '#000';
             btn.style.border = '1px solid #ccc';
         });
 
-        // Делаем активной только ту кнопку, на которую кликнули
         event.target.style.background = '#000';
         event.target.style.color = '#fff';
         event.target.style.border = '1px solid #000';
 
-        // Запоминаем выбранную категорию и обновляем список
         currentCategory = event.target.getAttribute('data-category');
         filterAndSortProducts();
+    });
+});
+// ==========================================
+// ЛОГИКА ОКРАШИВАНИЯ КНОПОК МЕТОДОВ (10 ШТУК)
+// ==========================================
+const arrayButtons = document.querySelectorAll('#btn-reset, #btn-filter, #btn-sort, #btn-map, #btn-reduce, #btn-find, #btn-some, #btn-every, #btn-slice, #btn-reverse, #btn-concat');
+
+arrayButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+        arrayButtons.forEach(btn => {
+            btn.style.background = '#fff';
+            btn.style.color = '#000';
+            btn.style.border = '1px solid #ccc';
+        });
+
+        event.target.style.background = '#000';
+        event.target.style.color = '#fff';
+        event.target.style.border = '1px solid #000';
     });
 });
