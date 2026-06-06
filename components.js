@@ -1,7 +1,14 @@
+// components.js
+
 document.addEventListener("DOMContentLoaded", () => {
-    const isSubfolder = window.location.pathname.includes('/catalog/');
+    // 1. Умная проверка пути: мы в catalog, authorization, admin или в корне?
+    const isSubfolder = window.location.pathname.includes('/catalog/') || 
+                        window.location.pathname.includes('/authorization/') ||
+                        window.location.pathname.includes('/admin/');
+                        
     const pathPrefix = isSubfolder ? '../' : '';
 
+    // 2. Генерация ТВОЕГО Хедера
     const headerPlaceholder = document.getElementById('header-placeholder');
     if (headerPlaceholder) {
         headerPlaceholder.innerHTML = `
@@ -15,14 +22,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 <nav class="header__nav">
                   <a href="${pathPrefix}catalog/catalog.html">Catalog</a>
-                  <a href="#">Deals and rewards</a>
+                  <a href="${pathPrefix}catalog/favorites.html">Favorites ❤️</a>
+                  <a href="${pathPrefix}catalog/cart.html">Cart 🛒</a>
                   <a href="#">How Klarna works</a>
                   <a href="#">Help</a>
                 </nav>
 
                 <div class="header__auth">
-                  <a href="#" class="login-link">Log in</a>
-                  <button class="btn-black">Sign up</button>
+                  <a href="${pathPrefix}authorization/login.html" class="login-link" style="text-decoration: none;">Log in</a>
+                  <a href="${pathPrefix}authorization/register.html" style="text-decoration: none;">
+                    <button class="btn-black" style="cursor: pointer;">Sign up</button>
+                  </a>
                 </div>
                 <div class="header__burger">
                   <span></span>
@@ -34,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
     }
 
+    // 3. Генерация ТВОЕГО Футера
     const footerPlaceholder = document.getElementById('footer-placeholder');
     if (footerPlaceholder) {
         footerPlaceholder.innerHTML = `
@@ -41,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
               <div class="footer__content-wrapper">
                 <div class="footer__container">
                   <div class="footer__brand">
-                    <!-- ТАКЖЕ ОБЕРНУЛИ ЛОГОТИП В ФУТЕРЕ -->
                     <a href="${pathPrefix}index.html" style="display: block;">
                       <img
                         src="${pathPrefix}public/footer/logo.svg"
@@ -146,4 +156,28 @@ document.addEventListener("DOMContentLoaded", () => {
             </footer>
         `;
     }
-});
+
+    // 4. ДИНАМИЧЕСКИЙ ИНТЕРФЕЙС (Проверка авторизации в самом низу файла) [2]
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser) {
+        const authBlock = document.querySelector('.header__auth');
+        if (authBlock) {
+            authBlock.innerHTML = `
+                <span style="font-weight: 500; font-size: 14px; margin-right: 15px;">Hi, ${currentUser.name}!</span>
+                <button id="btn-logout" class="btn-black" style="cursor: pointer;">Log out</button>
+            `;
+            document.getElementById('btn-logout').addEventListener('click', () => {
+                localStorage.removeItem('currentUser');
+                window.location.reload(); // Перезагружаем для сброса состояния
+            });
+        }
+
+        // Если это администратор - добавляем ссылку на панель управления
+        if (currentUser.role === 'administrator') {
+            const navBlock = document.querySelector('.header__nav');
+            if (navBlock) {
+                navBlock.innerHTML += `<a href="${pathPrefix}admin/admin.html" style="color: #d32f2f; font-weight: bold;">Admin Panel</a>`;
+            }
+        }
+    }
+}); // Конец DOMContentLoaded

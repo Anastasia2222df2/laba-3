@@ -1,334 +1,220 @@
-const products = [
-    {
-        id: 1,
-        name: "Nike Air Max 270",
-        price: 150,
-        category: "Fashion",
-        rating: 4.8,
-        image: "/catalog/image/a.jpeg",
-        description: "Classic running sneakers with maximum comfort."
-    },
-    {
-        id: 2,
-        name: "Apple Watch Series 8",
-        price: 399,
-        category: "Electronics",
-        rating: 4.9,
-        image: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500&q=80",
-        description: "Advanced health tracking and elegant design."
-    },
-    {
-        id: 3,
-        name: "Minimalist Leather Tote",
-        price: 85,
-        category: "Accessories",
-        rating: 4.5,
-        image: "/catalog/image/orig.webp",
-        description: "Handcrafted genuine leather bag for daily use."
-    },
-    {
-        id: 4,
-        name: "Sony WH-1000XM5",
-        price: 348,
-        category: "Electronics",
-        rating: 4.7,
-        image: "/catalog/image/457aervt0m5b7l5_bdb5d67e.jpg.webp",
-        description: "Industry-leading noise canceling headphones."
-    },
-    {
-        id: 5,
-        name: "Ray-Ban Aviator Classic",
-        price: 160,
-        category: "Accessories",
-        rating: 4.6,
-        image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500&q=80",
-        description: "Timeless sunglasses with gold frames."
-    },
-    {
-        id: 6,
-        name: "Lululemon Yoga Mat",
-        price: 58,
-        category: "Sports",
-        rating: 4.3,
-        image: "/catalog/image/orig (1).webp",
-        description: "Reversible non-slip mat for yoga and pilates."
-    },
-    {
-        id: 7,
-        name: "Organic Cotton T-Shirt",
-        price: 25,
-        category: "Fashion",
-        rating: 4.2,
-        image: "/catalog/image/6272903617.jpg",
-        description: "Premium basic tee made from 100% organic cotton."
-    },
-    {
-        id: 8,
-        name: "Nintendo Switch OLED",
-        price: 349,
-        category: "Electronics",
-        rating: 4.9,
-        image: "/catalog/image/orig (2).webp",
-        description: "Play at home or on the go with a vibrant OLED screen."
-    },
-    {
-        id: 9,
-        name: "Smart Ceramic Mug",
-        price: 45,
-        category: "Home",
-        rating: 4.0,
-        image: "/catalog/image/i.webp",
-        description: "Keeps your coffee hot at the exact temperature."
-    },
-    {
-        id: 10,
-        name: "Asics Running Shoes",
-        price: 130,
-        category: "Sports",
-        rating: 4.4,
-        image: "/catalog/image/orig (3).webp",
-        description: "Professional running shoes with gel cushioning."
-    },
-    {
-        id: 11,
-        name: "Plush Dog Bed",
-        price: 40,
-        category: "Pets",
-        rating: 4.8,
-        image: "/catalog/image/orig (4).webp",
-        description: "Ultra-soft and calming bed for dogs and cats."
-    },
-    {
-        id: 12,
-        name: "Fossil Gold Watch",
-        price: 145,
-        category: "Accessories",
-        rating: 4.5,
-        image: "/catalog/image/FO619DWHUW05_1_v1.webp",
-        description: "Elegant stainless steel watch for everyday wear."
-    },
-    {
-        id: 13,
-        name: "Adjustable Dumbbells",
-        price: 199,
-        category: "Sports",
-        rating: 4.7,
-        image: "/catalog/image/Strengthl.avif",
-        description: "Space-saving dumbbells for home workouts."
-    },
-    {
-        id: 14,
-        name: "Gourmet Cat Food",
-        price: 35,
-        category: "Pets",
-        rating: 4.1,
-        image: "/catalog/image/orig (5).webp",
-        description: "High-protein dry food for adult cats."
-    },
-    {
-        id: 15,
-        name: "Levis Denim Jacket",
-        price: 90,
-        category: "Fashion",
-        rating: 4.6,
-        image: "/catalog/image/s-l1600.jpg",
-        description: "Classic blue denim jacket with a relaxed fit."
+// catalog/catalog.js
+
+document.addEventListener("DOMContentLoaded", () => {
+    const API_URL = "http://localhost:3000/products";
+    let loadedProducts = [];
+
+    let currentSearchQuery = "";
+    let currentSortCriterion = "default";
+    let currentCategory = "all";
+    let currentGender = "all";     
+    let currentMinRating = "";     
+    let currentMaxPrice = "";      
+    let currentPage = 1;
+    const limitPerPage = 6; 
+
+    async function fetchProducts(queryParams = "") {
+        try {
+            await window.fetchFavoritesList(); 
+            await window.fetchCartList(); 
+
+            const url = `${API_URL}${queryParams}`;
+            const response = await fetch(url);
+            if (!response.ok) throw new Error(`Ошибка: ${response.status}`);
+
+            const data = await response.json();
+            loadedProducts = data; 
+
+            const noProductsMsg = document.getElementById('no-products-message');
+            noProductsMsg.style.display = data.length === 0 ? 'block' : 'none';
+
+            renderProducts(data);
+
+            if (queryParams === "" || queryParams.startsWith("?_page")) {
+                generateCategoryFilters(data);
+            }
+        } catch (error) {
+            console.error("Ошибка загрузки:", error);
+        }
     }
-];
 
-function renderProducts(productsArray) {
-    const container = document.getElementById('product-grid');
-    if (!container) return;
-    
-    container.innerHTML = ''; 
+    // ==========================================
+    // ИСПРАВЛЕННАЯ ФУНКЦИЯ ОТРИСОВКИ (RENDER) [2]
+    // ==========================================
+    function renderProducts(productsArray) {
+        const container = document.getElementById('product-grid');
+        if (!container) return;
+        container.innerHTML = ''; 
 
-    productsArray.forEach(product => {
-        const card = document.createElement('div');
-        card.className = `card_1_hero_7`; 
-        card.innerHTML = `
-            <img src="${product.image}" alt="${product.name}" style="width: 100%; height: 250px; object-fit: cover; border-top-left-radius: 16px; border-top-right-radius: 16px;" />
-            <div style="padding: 20px; display: flex; flex-direction: column; flex-grow: 1;">
-                <p class="catalog__title" style="font-weight: bold; margin: 0 0 5px 0; font-size: 16px; padding: 0;">${product.name}</p>
-                <p style="font-size: 13px; color: #606060; margin: 0 0 10px 0;">Category: ${product.category}</p>
-                <p style="font-size: 13px; color: #606060; margin: 0; line-height: 1.4;">${product.description}</p>
-                
-                <!-- Этот блок с ценой всегда будет прижат к самому низу -->
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 20px;">
-                    <span style="font-size: 18px; font-weight: bold; color: #000;">$${product.price}</span>
-                    <span style="font-size: 14px; color: #ffb3c7; font-weight: bold;">★ ${product.rating}</span>
+        productsArray.forEach(product => {
+            const card = document.createElement('div');
+            card.className = `card_1_hero_7`; 
+            card.style.position = 'relative'; 
+
+            // Считываем состояние избранного и корзины для окрашивания [2, 3]
+            const isFavorite = window.favoriteIds.includes(String(product.id));
+            const heartColor = isFavorite ? "#ffb3c7" : "#ccc"; 
+
+            const isInCart = window.cartIds.includes(String(product.id));
+            const cartBtnBg = isInCart ? "#000" : "#f0f0f0";
+            const cartBtnColor = isInCart ? "#fff" : "#000";
+            const cartBtnBorder = isInCart ? "1px solid #000" : "1px solid #ccc";
+            const cartBtnText = isInCart ? "In Cart 🛒" : "Add to Cart";
+
+            card.innerHTML = `
+                <div class="product-image-container" style="width: 100%; height: 250px; overflow: hidden; border-top-left-radius: 16px; border-top-right-radius: 16px; position: relative;">
+                    <!-- Картинка теперь ведет на страницу товара -->
+                    <a href="product.html?id=${product.id}" style="display: block; width: 100%; height: 100%;">
+                        <img src="${product.image}" alt="${product.name}" style="width: 100%; height: 100%; object-fit: cover;" />
+                    </a>
+                    <button type="button" class="heart-btn" data-id="${product.id}" style="position: absolute; top: 15px; right: 15px; background: rgba(255,255,255,0.85); border: none; border-radius: 50%; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; cursor: pointer; font-size: 24px; color: ${heartColor}; transition: color 0.3s; z-index: 10; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">♥</button>
                 </div>
-            </div>
-        `;
+                
+                <div style="padding: 20px; display: flex; flex-direction: column; flex-grow: 1;">
+                    <!-- Название теперь тоже ссылка -->
+                    <a href="product.html?id=${product.id}" style="text-decoration: none; color: inherit;">
+                        <p class="catalog__title" style="font-weight: bold; margin: 0 0 5px 0; font-size: 16px; padding: 0; cursor: pointer;">${product.name}</p>
+                    </a>
+                    <p style="font-size: 13px; color: #606060; margin: 0 0 10px 0;">Category: ${product.category}</p>
+                    <p style="font-size: 13px; color: #606060; margin: 0; line-height: 1.4;">${product.description}</p>
+                    
+                    <div style="display: flex; gap: 10px; margin-top: 15px;">
+                        <button type="button" class="add-to-cart-btn" data-id="${product.id}" style="height: 35px; font-size: 12px; padding: 0 15px; border-radius: 10px; width: 100%; cursor: pointer; background: ${cartBtnBg}; color: ${cartBtnColor}; border: ${cartBtnBorder}; font-weight: 500; transition: all 0.3s ease;">${cartBtnText}</button>
+                    </div>
 
-        container.appendChild(card);
-    });
-}
-
-renderProducts(products);
-
-// ==========================================
-// ЭТАП 2: РАБОТА С МЕТОДАМИ МАССИВОВ (10 КНОПОК)
-// ==========================================
-
-document.getElementById('btn-reset').addEventListener('click', () => {
-    renderProducts(products);
-});
-
-document.getElementById('btn-filter').addEventListener('click', () => {
-    const fashionProducts = products.filter(product => product.category === "Fashion");
-    renderProducts(fashionProducts);
-});
-
-document.getElementById('btn-sort').addEventListener('click', () => {
-    const sortedProducts = [...products].sort((a, b) => a.price - b.price);
-    renderProducts(sortedProducts);
-});
-
-document.getElementById('btn-map').addEventListener('click', () => {
-    const discountedProducts = products.map(product => {
-        return {
-            ...product,
-            price: Math.round(product.price * 0.9)
-        };
-    });
-    renderProducts(discountedProducts);
-});
-
-document.getElementById('btn-reduce').addEventListener('click', () => {
-    const totalPrice = products.reduce((sum, product) => sum + product.price, 0);
-    alert(`Total price of all products: $${totalPrice}`);
-});
-
-document.getElementById('btn-find').addEventListener('click', () => {
-    const perfectProduct = products.find(product => product.rating === 5.0);
-    if (perfectProduct) {
-        renderProducts([perfectProduct]);
-    } else {
-        alert("Product with 5.0 rating not found.");
-    }
-});
-
-document.getElementById('btn-some').addEventListener('click', () => {
-    const hasCheapProducts = products.some(product => product.price < 50);
-    alert(hasCheapProducts ? "Yes, we have products under $50!" : "No, all products are more expensive than $50.");
-});
-
-document.getElementById('btn-every').addEventListener('click', () => {
-    const allUnder500 = products.every(product => product.price < 500);
-    alert(allUnder500 ? "Yes, all our products are under $500." : "No, some products are more expensive than $500.");
-});
-
-document.getElementById('btn-slice').addEventListener('click', () => {
-    const topFive = products.slice(0, 5);
-    renderProducts(topFive);
-});
-
-document.getElementById('btn-reverse').addEventListener('click', () => {
-    const reversedProducts = [...products].reverse();
-    renderProducts(reversedProducts);
-});
-
-document.getElementById('btn-concat').addEventListener('click', () => {
-    const giftCard = {
-        id: 99,
-        name: "Klarna Gift Card",
-        price: 50,
-        category: "Gift Cards",
-        rating: 5.0,
-        image: "../public/footer/logo.svg",
-        description: "Perfect gift for your friends and family."
-    };
-    const expandedProducts = products.concat(giftCard);
-    renderProducts(expandedProducts);
-});
-
-// ==========================================
-// ЭТАП 3: ФИЛЬТРАЦИЯ, ПОИСК И СОРТИРОВКА
-// ==========================================
-
-let currentSearchQuery = "";
-let currentSortCriterion = "default";
-let currentCategory = "all";
-
-function filterAndSortProducts() {
-    let result = [...products];
-
-    if (currentCategory !== "all") {
-        result = result.filter(product => product.category === currentCategory);
-    }
-
-    if (currentSearchQuery.trim() !== "") {
-        const query = currentSearchQuery.toLowerCase();
-        result = result.filter(product => 
-            product.name.toLowerCase().includes(query) || 
-            product.description.toLowerCase().includes(query)
-        );
-    }
-
-    if (currentSortCriterion === "price-asc") {
-        result.sort((a, b) => a.price - b.price);
-    } else if (currentSortCriterion === "price-desc") {
-        result.sort((a, b) => b.price - a.price);
-    } else if (currentSortCriterion === "name-asc") {
-        result.sort((a, b) => a.name.localeCompare(b.name));
-    } else if (currentSortCriterion === "rating-desc") {
-        result.sort((a, b) => b.rating - a.rating);
-    }
-
-    const noProductsMsg = document.getElementById('no-products-message');
-    if (result.length === 0) {
-        noProductsMsg.style.display = 'block';
-    } else {
-        noProductsMsg.style.display = 'none';
-    }
-
-    renderProducts(result);
-}
-
-// --- НАВЕШИВАЕМ СЛУШАТЕЛИ СОБЫТИЙ ---
-
-document.getElementById('search-input').addEventListener('input', (event) => {
-    currentSearchQuery = event.target.value;
-    filterAndSortProducts();
-});
-
-document.getElementById('sort-select').addEventListener('change', (event) => {
-    currentSortCriterion = event.target.value;
-    filterAndSortProducts();
-});
-
-const categoryButtons = document.querySelectorAll('.category-btn');
-categoryButtons.forEach(button => {
-    button.addEventListener('click', (event) => {
-        categoryButtons.forEach(btn => {
-            btn.style.background = '#fff';
-            btn.style.color = '#000';
-            btn.style.border = '1px solid #ccc';
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 20px;">
+                        <span style="font-size: 18px; font-weight: bold; color: #000;">$${product.price}</span>
+                        <span style="font-size: 14px; color: #ffb3c7; font-weight: bold;">★ ${product.rating}</span>
+                    </div>
+                </div>
+            `;
+            container.appendChild(card); // Возвращаем добавление карточки в HTML [1]
         });
 
-        event.target.style.background = '#000';
-        event.target.style.color = '#fff';
-        event.target.style.border = '1px solid #000';
+        // Навешиваем клики из services.js после рендеринга [2]
+        document.querySelectorAll('.heart-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault(); e.stopPropagation();
+                window.toggleFavorite(e.currentTarget.getAttribute('data-id'), e);
+            });
+        });
+        document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+            btn.addEventListener('click', async (e) => {
+                e.preventDefault(); e.stopPropagation();
+                const button = e.currentTarget;
+                const productId = button.getAttribute('data-id');
 
-        currentCategory = event.target.getAttribute('data-category');
+                button.style.background = '#000';
+                button.style.color = '#fff';
+                button.style.borderColor = '#000';
+                button.innerText = 'In Cart 🛒';
+
+                await window.addToCart(productId, button);
+            });
+        });
+    }
+
+    // ==========================================
+    // ОСТАВШАЯСЯ ЛОГИКА ФИЛЬТРОВ И КНОПОК МЕТОДОВ
+    // ==========================================
+
+    function filterAndSortProducts() {
+        let params = [];
+        if (currentSearchQuery.trim() !== "") params.push(`q=${encodeURIComponent(currentSearchQuery)}`);
+        if (currentCategory !== "all") params.push(`category=${encodeURIComponent(currentCategory)}`);
+        if (currentGender !== "all") params.push(`gender=${encodeURIComponent(currentGender)}`);
+        if (currentMaxPrice !== "") params.push(`price_lte=${currentMaxPrice}`);
+        if (currentMinRating !== "") params.push(`rating_gte=${currentMinRating}`);
+        
+        if (currentSortCriterion !== "default") {
+            if (currentSortCriterion === "price-asc") params.push("_sort=price&_order=asc");
+            else if (currentSortCriterion === "price-desc") params.push("_sort=price&_order=desc");
+            else if (currentSortCriterion === "rating-desc") params.push("_sort=rating&_order=desc");
+        }
+
+        params.push(`_page=${currentPage}`, `_limit=${limitPerPage}`);
+
+        const queryString = params.length > 0 ? `?${params.join("&")}` : "";
+        fetchProducts(queryString);
+
+        const pageInfo = document.getElementById('page-info');
+        if (pageInfo) pageInfo.innerText = `Page ${currentPage}`;
+    }
+
+    document.getElementById('search-input')?.addEventListener('input', (e) => { currentSearchQuery = e.target.value; currentPage = 1; filterAndSortProducts(); });
+    document.getElementById('sort-select')?.addEventListener('change', (e) => { currentSortCriterion = e.target.value; currentPage = 1; filterAndSortProducts(); });
+
+    const priceSlider = document.getElementById('price-slider');
+    if (priceSlider) {
+        priceSlider.addEventListener('input', (e) => {
+            document.getElementById('price-val').innerText = e.target.value; 
+            currentMaxPrice = e.target.value; currentPage = 1; filterAndSortProducts();                 
+        });
+    }
+
+    document.getElementById('btn-prev')?.addEventListener('click', () => { if (currentPage > 1) { currentPage--; filterAndSortProducts(); } });
+    document.getElementById('btn-next')?.addEventListener('click', () => {
+        const currentCards = document.querySelectorAll('.card_1_hero_7');
+        if (currentCards.length === limitPerPage) { currentPage++; filterAndSortProducts(); }
+    });
+
+    function generateCategoryFilters(productsArray) {
+        const container = document.getElementById('category-filters');
+        if (!container) return;
+        const uniqueCategories = new Set(productsArray.map(p => p.category));
+        let buttonsHTML = `<button class="category-btn active" data-category="all" style="padding: 8px 20px; border-radius: 20px; border: 1px solid #000; background: #000; color: #fff; cursor: pointer; font-weight: 500;">All</button>`;
+        uniqueCategories.forEach(category => {
+            buttonsHTML += `<button class="category-btn" data-category="${category}" style="padding: 8px 20px; border-radius: 20px; border: 1px solid #ccc; background: #fff; color: #000; cursor: pointer; font-weight: 500;">${category}</button>`;
+        });
+        container.innerHTML = buttonsHTML;
+
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', (event) => {
+                document.querySelectorAll('.category-btn').forEach(btn => { btn.style.background = '#fff'; btn.style.color = '#000'; btn.style.border = '1px solid #ccc'; });
+                event.target.style.background = '#000'; event.target.style.color = '#fff'; event.target.style.border = '1px solid #000';
+                currentCategory = event.target.getAttribute('data-category');
+                currentPage = 1; filterAndSortProducts();
+            });
+        });
+    }
+
+    document.getElementById('btn-reset')?.addEventListener('click', async () => {
+        currentSearchQuery = ""; currentSortCriterion = "default"; currentCategory = "all"; currentGender = "all"; currentMinRating = ""; currentMaxPrice = ""; currentPage = 1;
+        if(document.getElementById('search-input')) document.getElementById('search-input').value = "";
+        if(document.getElementById('sort-select')) document.getElementById('sort-select').value = "default";
+        if (priceSlider) { priceSlider.value = 500; document.getElementById('price-val').innerText = "500"; }
+        
+        await window.fetchCartList(); 
         filterAndSortProducts();
     });
-});
-// ==========================================
-// ЛОГИКА ОКРАШИВАНИЯ КНОПОК МЕТОДОВ (10 ШТУК)
-// ==========================================
-const arrayButtons = document.querySelectorAll('#btn-reset, #btn-filter, #btn-sort, #btn-map, #btn-reduce, #btn-find, #btn-some, #btn-every, #btn-slice, #btn-reverse, #btn-concat');
 
-arrayButtons.forEach(button => {
-    button.addEventListener('click', (event) => {
-        arrayButtons.forEach(btn => {
-            btn.style.background = '#fff';
-            btn.style.color = '#000';
-            btn.style.border = '1px solid #ccc';
-        });
+    document.getElementById('btn-male')?.addEventListener('click', () => { currentGender = "male"; currentPage = 1; filterAndSortProducts(); });
+    document.getElementById('btn-female')?.addEventListener('click', () => { currentGender = "female"; currentPage = 1; filterAndSortProducts(); });
+    document.getElementById('btn-unisex')?.addEventListener('click', () => { currentGender = "unisex"; currentPage = 1; filterAndSortProducts(); });
 
-        event.target.style.background = '#000';
-        event.target.style.color = '#fff';
-        event.target.style.border = '1px solid #000';
+    document.getElementById('btn-price-asc')?.addEventListener('click', () => { currentSortCriterion = "price-asc"; document.getElementById('sort-select').value = "price-asc"; currentPage = 1; filterAndSortProducts(); });
+    document.getElementById('btn-price-desc')?.addEventListener('click', () => { currentSortCriterion = "price-desc"; document.getElementById('sort-select').value = "price-desc"; currentPage = 1; filterAndSortProducts(); });
+    document.getElementById('btn-top-rated')?.addEventListener('click', () => { currentMinRating = "4.5"; currentPage = 1; filterAndSortProducts(); });
+
+    document.getElementById('btn-reduce')?.addEventListener('click', () => {
+        const total = loadedProducts.reduce((sum, p) => sum + p.price, 0);
+        const avg = total / (loadedProducts.length || 1);
+        alert(`Average price of current items: $${avg.toFixed(2)}`);
     });
+    document.getElementById('btn-slice')?.addEventListener('click', () => { renderProducts(loadedProducts.slice(0, 3)); });
+    document.getElementById('btn-concat')?.addEventListener('click', () => {
+        const giftCard = { id: 99, name: "Klarna Gift Card", price: 50, category: "Gift", rating: 5.0, image: "../public/footer/logo.svg", description: "Gift card." };
+        renderProducts(loadedProducts.concat(giftCard));
+    });
+
+    const arrayButtons = document.querySelectorAll('#btn-reset, #btn-male, #btn-female, #btn-unisex, #btn-price-asc, #btn-price-desc, #btn-top-rated, #btn-reduce, #btn-slice, #btn-concat');
+    arrayButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            arrayButtons.forEach(btn => { btn.style.background = '#fff'; btn.style.color = '#000'; btn.style.border = '1px solid #ccc'; });
+            event.target.style.background = '#000'; event.target.style.color = '#fff'; event.target.style.border = '1px solid #000';
+        });
+    });
+
+    // ЗАПУСК ПРИ СТАРТЕ
+    filterAndSortProducts();
 });

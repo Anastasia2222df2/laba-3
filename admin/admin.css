@@ -1,0 +1,141 @@
+/* admin/admin.css */
+
+/* Главный контейнер дашборда */
+.admin-dashboard {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Сетка: Делим экран на две ровные части */
+.admin-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Форма поуже, таблица пошире */
+    gap: 30px;
+    width: 100%;
+}
+
+@media (max-width: 900px) {
+    .admin-grid {
+        grid-template-columns: 1fr; /* На планшетах и телефонах в одну колонку */
+    }
+}
+
+/* Карточки-контейнеры для блоков */
+.admin-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f0f0f0;
+}
+
+.admin-card h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #171717;
+}
+
+/* Красивые поля ввода */
+.form-group { 
+    margin-bottom: 20px; 
+    display: flex; 
+    flex-direction: column; 
+    text-align: left; 
+}
+
+.form-group label { 
+    font-size: 13px; 
+    font-weight: 500; 
+    margin-bottom: 6px; 
+    color: #666;
+}
+
+.form-group input, 
+.form-group select { 
+    padding: 12px 15px; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    font-family: 'Roboto', sans-serif; 
+    font-size: 15px;
+    outline: none; 
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+    border-color: #000;
+}
+
+/* Ошибки валидации */
+.error-message { 
+    color: #d32f2f; 
+    font-size: 12px; 
+    margin-top: 5px; 
+    display: none; 
+}
+
+.form-group.error input { 
+    border-color: #d32f2f; 
+    background-color: #fff4f4; 
+}
+
+.form-group.error .error-message { 
+    display: block; 
+}
+
+/* Стили для таблицы */
+.admin-table-container {
+    overflow-x: auto;
+}
+
+.admin-table { 
+    width: 100%; 
+    border-collapse: collapse; 
+}
+
+.admin-table th, 
+.admin-table td { 
+    padding: 15px; 
+    border-bottom: 1px solid #f0f0f0; 
+    text-align: left; 
+    vertical-align: middle;
+}
+
+.admin-table th {
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+/* ЖЕСТКИЙ ФИКС РАЗМЕРА КАРТИНКИ В ТАБЛИЦЕ */
+.admin-table img { 
+    width: 50px !important; 
+    height: 50px !important; 
+    object-fit: cover !important; 
+    border-radius: 8px; 
+    border: 1px solid #eee;
+}
+
+/* Кнопки действий в таблице */
+.btn-action {
+    cursor: pointer;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: transform 0.2s;
+}
+
+.btn-action:hover {
+    transform: scale(1.05);
+}
+
+.btn-edit { background: #e7d6fd; color: #6236ff; }
+.btn-delete { background: #ffb3c7; color: #d32f2f; }

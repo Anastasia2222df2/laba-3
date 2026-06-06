@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/desktop.css" />
+    <link rel="stylesheet" href="../css/tablet.css" media="screen and (min-width: 769px) and (max-width: 1024px)" />
+    <link rel="stylesheet" href="../css/mobile.css" media="screen and (max-width: 768px)" />
+    <title>Product Details - Klarna</title>
+    
+    <style>
+        .product-container { display: flex; gap: 50px; max-width: 1000px; margin: 40px auto; padding: 0 20px; flex-wrap: wrap; }
+        .product-image-large { flex: 1; min-width: 300px; max-width: 500px; position: relative; }
+        .product-image-large img { width: 100%; height: 450px; object-fit: cover; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .product-info-large { flex: 1.2; min-width: 300px; display: flex; flex-direction: column; text-align: left; }
+        
+        /* Блок отзывов */
+        .reviews-section { max-width: 1000px; margin: 60px auto 0; padding: 0 20px; text-align: left; }
+        .review-card { background: #fff; padding: 20px; border-radius: 12px; border: 1px solid #f0f0f0; margin-bottom: 15px; }
+        .review-author { font-weight: bold; font-size: 15px; margin-bottom: 5px; display: flex; justify-content: space-between; }
+        
+        /* Форма добавления отзыва */
+        .feedback-form-box { background: #fdfdfd; border: 1px dashed #ccc; padding: 25px; border-radius: 16px; margin-top: 30px; display: none; }
+        .form-group { margin-bottom: 15px; display: flex; flex-direction: column; }
+        .form-group label { font-size: 14px; font-weight: 500; margin-bottom: 5px; }
+        .form-group textarea { padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-family: 'Roboto', sans-serif; font-size: 15px; outline: none; }
+        .form-group textarea:focus { border-color: #ffb3c7; }
+    </style>
+  </head>
+  <body style="font-family: 'Roboto', sans-serif; background-color: #f9f9f9;">
+    <div id="header-placeholder"></div>
+
+    <!-- Детальная карточка товара -->
+    <div class="product-container" id="product-details-container">
+        <!-- Сюда JS загрузит фото и описание -->
+    </div>
+
+    <!-- Секция отзывов -->
+    <div class="reviews-section">
+        <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 15px;">Customer Reviews 💬</h2>
+        
+        <!-- Список отзывов именно на этот товар -->
+        <div id="reviews-list"></div>
+
+        <!-- Скрытая форма отзыва (покажется только если товар куплен!) -->
+        <div id="add-review-box" class="feedback-form-box">
+            <h3 style="font-size: 18px; margin-bottom: 15px;">Write a Review</h3>
+            <form id="product-review-form">
+                <div class="form-group">
+                    <label>Your Feedback (minimum 10 characters) *</label>
+                    <!-- Поставить этот блок внутрь формы перед полем textarea -->
+<div class="form-group">
+    <label>Your Rating *</label>
+    <!-- Интерактивные звезды -->
+    <div class="star-rating" style="display: flex; gap: 8px; font-size: 28px; cursor: pointer; user-select: none;">
+        <span class="star" data-value="1" style="color: #ccc; transition: 0.2s;">★</span>
+        <span class="star" data-value="2" style="color: #ccc; transition: 0.2s;">★</span>
+        <span class="star" data-value="3" style="color: #ccc; transition: 0.2s;">★</span>
+        <span class="star" data-value="4" style="color: #ccc; transition: 0.2s;">★</span>
+        <span class="star" data-value="5" style="color: #ccc; transition: 0.2s;">★</span>
+    </div>
+    <!-- Скрытое поле, куда запишется выбранная оценка -->
+    <input type="hidden" id="review-rating" value="0">
+    <div class="error-message" id="rating-error" style="color: #d32f2f; font-size: 12px; margin-top: 5px; display: none;">Please select a rating</div>
+</div>
+                    <textarea id="review-text" rows="4" required placeholder="Tell others about your experience..."></textarea>
+                </div>
+                <button type="submit" class="button_hero_11 button_black_11" style="border-radius: 20px; height: 40px; padding: 0 20px;">Submit Review</button>
+            </form>
+        </div>
+        
+        <p id="review-restricted-message" style="color: #666; font-size: 14px; margin-top: 20px; font-style: italic; display: none;">
+            You can write a review only after purchasing this product. ❤️
+        </p>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../components.js"></script>
+    <script src="services.js"></script>
+    <script src="product.js"></script>
+  </body>
+</html>

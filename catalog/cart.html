@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/desktop.css" />
+    <link rel="stylesheet" href="../css/tablet.css" media="screen and (min-width: 769px) and (max-width: 1024px)" />
+    <link rel="stylesheet" href="../css/mobile.css" media="screen and (max-width: 768px)" />
+    
+    <title>Cart - Klarna</title>
+  </head>
+  <body style="font-family: 'Roboto', sans-serif;">
+    <div id="header-placeholder"></div>
+    <!-- catalog/cart.html -->
+<main style="padding-bottom: 60px">
+  <h1 class="text_hero_8" style="text-align: center; margin: 40px 0; font-size: 32px; color: #487B94; display: flex; align-items: center; justify-content: center; gap: 10px; font-family: 'Roboto', sans-serif;">
+    Shopping Cart 
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#487B94" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="9" cy="21" r="1"></circle>
+        <circle cx="20" cy="21" r="1"></circle>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+    </svg>
+  </h1>
+
+  <!-- Кнопка возврата -->
+  <div class="container" style="display: flex; justify-content: center; margin-bottom: 30px;">
+    <a href="catalog.html" class="button_hero_11 button_black_11" style="border-radius: 20px; height: 40px; padding: 0 20px; text-decoration: none; display: inline-flex; align-items: center; font-family: 'Roboto', sans-serif;">&lt; Back to Catalog</a>
+  </div>
+
+  <!-- ДВУХКОЛОНОЧНЫЙ МАКЕТ (стиль Wildberries) -->
+  <div class="container cart-layout" style="display: grid; grid-template-columns: 1.8fr 1fr; gap: 30px; max-width: 1100px; margin: 0 auto; padding: 0 20px;">
+    
+    <!-- Левая колонка: товары в корзине -->
+    <div id="cart-grid" style="width: 100%;"></div>
+
+    <!-- Правая колонка: плавающий блок оформления заказа -->
+    <div id="cart-summary" style="display: none; background: #fff; padding: 30px; border-radius: 24px; box-shadow: 0 10px 35px rgba(0,0,0,0.04); border: 1px solid #f0f0f0; height: max-content; position: sticky; top: 100px; font-family: 'Roboto', sans-serif; box-sizing: border-box;">
+        <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; text-align: left;">Order Summary</h3>
+        
+        <div style="display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 15px; color: #666;">
+            <span>Total items:</span>
+            <!-- Сюда JS будет выводить количество штук -->
+            <span id="cart-count" style="font-weight: 500; color: #171717;">0 item(s)</span>
+        </div>
+        
+        <div style="display: flex; justify-content: space-between; margin-bottom: 25px; font-size: 22px; font-weight: bold; color: #000;">
+            <span>Total:</span>
+            <span>$<span id="cart-total">0</span></span>
+        </div>
+        
+        <button id="btn-checkout" class="button_hero_11 button_black_11" style="width: 100%; border-radius: 50px; height: 45px; cursor: pointer; font-size: 16px; font-weight: bold;">Checkout 💳</button>
+    </div>
+  </div>
+</main>
+
+<!-- Добавим медиа-запрос, чтобы на мобилках колонки складывались вертикально -->
+<style>
+    @media (max-width: 768px) {
+        .cart-layout {
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+        }
+    }
+</style>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../components.js"></script>
+    <script src="cart.js"></script>
+  </body>
+</html>

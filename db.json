@@ -1,0 +1,432 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Nike Air Max 270",
+      "price": 150,
+      "category": "Fashion",
+      "gender": "male",
+      "rating": 4.8,
+      "image": "image/a.jpeg",
+      "description": "Classic running sneakers with maximum comfort."
+    },
+    {
+      "id": "2",
+      "name": "Apple Watch Series 8",
+      "price": 399,
+      "category": "Electronics",
+      "gender": "unisex",
+      "rating": 4.9,
+      "image": "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500&q=80",
+      "description": "Advanced health tracking and elegant design."
+    },
+    {
+      "id": "3",
+      "name": "Minimalist Leather Tote",
+      "price": 85,
+      "category": "Accessories",
+      "gender": "female",
+      "rating": 4.5,
+      "image": "image/orig.webp",
+      "description": "Handcrafted genuine leather bag for daily use."
+    },
+    {
+      "id": "4",
+      "name": "Sony WH-1000XM5",
+      "price": 348,
+      "category": "Electronics",
+      "gender": "unisex",
+      "rating": 4.7,
+      "image": "image/457aervt0m5b7l5_bdb5d67e.jpg.webp",
+      "description": "Industry-leading noise canceling headphones."
+    },
+    {
+      "id": "5",
+      "name": "Ray-Ban Aviator Classic",
+      "price": 160,
+      "category": "Accessories",
+      "gender": "unisex",
+      "rating": 4.6,
+      "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500&q=80",
+      "description": "Timeless sunglasses with gold frames."
+    },
+    {
+      "id": "6",
+      "name": "Lululemon Yoga Mat",
+      "price": 58,
+      "category": "Sports",
+      "gender": "unisex",
+      "rating": 4.3,
+      "image": "image/orig (1).webp",
+      "description": "Reversible non-slip mat for yoga and pilates."
+    },
+    {
+      "id": "7",
+      "name": "Organic Cotton T-Shirt",
+      "price": 25,
+      "category": "Fashion",
+      "gender": "unisex",
+      "rating": 4.2,
+      "image": "image/6272903617.jpg",
+      "description": "Premium basic tee made from 100% organic cotton."
+    },
+    {
+      "id": "8",
+      "name": "Nintendo Switch OLED",
+      "price": 349,
+      "category": "Electronics",
+      "gender": "unisex",
+      "rating": 4.9,
+      "image": "image/orig (2).webp",
+      "description": "Play at home or on the go with a vibrant OLED screen."
+    },
+    {
+      "id": "9",
+      "name": "Smart Ceramic Mug",
+      "price": 45,
+      "category": "Home",
+      "gender": "unisex",
+      "rating": 4,
+      "image": "image/i.webp",
+      "description": "Keeps your coffee hot at the exact temperature."
+    },
+    {
+      "id": "10",
+      "name": "Asics Running Shoes",
+      "price": 130,
+      "category": "Sports",
+      "gender": "male",
+      "rating": 4.4,
+      "image": "image/orig (3).webp",
+      "description": "Professional running shoes with gel cushioning."
+    },
+    {
+      "id": "11",
+      "name": "Plush Dog Bed",
+      "price": 40,
+      "category": "Pets",
+      "gender": "unisex",
+      "rating": 4.8,
+      "image": "image/orig (4).webp",
+      "description": "Ultra-soft and calming bed for dogs and cats."
+    },
+    {
+      "id": "12",
+      "name": "Fossil Gold Watch",
+      "price": 145,
+      "category": "Accessories",
+      "gender": "female",
+      "rating": 4.5,
+      "image": "image/FO619DWHUW05_1_v1.webp",
+      "description": "Elegant stainless steel watch for everyday wear."
+    },
+    {
+      "id": "13",
+      "name": "Adjustable Dumbbells",
+      "price": 199,
+      "category": "Sports",
+      "gender": "unisex",
+      "rating": 4.7,
+      "image": "image/Strengthl.avif",
+      "description": "Space-saving dumbbells for home workouts."
+    },
+    {
+      "id": "14",
+      "name": "Gourmet Cat Food",
+      "price": 35,
+      "category": "Pets",
+      "gender": "unisex",
+      "rating": 4.1,
+      "image": "image/orig (5).webp",
+      "description": "High-protein dry food for adult cats."
+    },
+    {
+      "id": "15",
+      "name": "Levis Denim Jacket",
+      "price": 90,
+      "category": "Fashion",
+      "gender": "male",
+      "rating": 4.6,
+      "image": "image/s-l1600.jpg",
+      "description": "Classic blue denim jacket with a relaxed fit."
+    }
+  ],
+  "favorites": [
+    {
+      "id": "1",
+      "name": "Nike Air Max 270",
+      "price": 150,
+      "category": "Fashion",
+      "gender": "male",
+      "rating": 4.8,
+      "image": "image/a.jpeg",
+      "description": "Classic running sneakers with maximum comfort."
+    },
+    {
+      "id": "2",
+      "name": "Apple Watch Series 8",
+      "price": 399,
+      "category": "Electronics",
+      "gender": "unisex",
+      "rating": 4.9,
+      "image": "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500&q=80",
+      "description": "Advanced health tracking and elegant design."
+    },
+    {
+      "id": "3",
+      "name": "Minimalist Leather Tote",
+      "price": 85,
+      "category": "Accessories",
+      "gender": "female",
+      "rating": 4.5,
+      "image": "image/orig.webp",
+      "description": "Handcrafted genuine leather bag for daily use."
+    }
+  ],
+  "cart": [
+    {
+      "id": "1",
+      "name": "Nike Air Max 270",
+      "price": 150,
+      "category": "Fashion",
+      "gender": "male",
+      "rating": 4.8,
+      "image": "image/a.jpeg",
+      "description": "Classic running sneakers with maximum comfort.",
+      "quantity": 1
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "phone": "+375291111111",
+      "email": "admin@klarna.by",
+      "password": "Admin1234!",
+      "birthdate": "1990-01-01",
+      "nickname": "AdminKlarna",
+      "fullName": {
+        "lastName": "Админов",
+        "firstName": "Админ",
+        "middleName": "Админович"
+      },
+      "role": "administrator"
+    },
+    {
+      "id": "1780614715396",
+      "phone": "+375255037408",
+      "email": "nlisenko117@gmail.com",
+      "birthdate": "2006-01-20",
+      "nickname": "АнЛ865",
+      "fullName": {
+        "firstName": "Анастасия",
+        "lastName": "Листратенко",
+        "middleName": "Сергеевна"
+      },
+      "role": "customer"
+    },
+    {
+      "id": "1780761427929",
+      "phone": "+375255037408",
+      "email": "nlisenko117@gmail.com",
+      "birthdate": "2006-01-20",
+      "nickname": "АнаЛис227",
+      "fullName": {
+        "firstName": "Анастасия",
+        "lastName": "Листратенко",
+        "middleName": "Сергеевна"
+      },
+      "role": "customer"
+    },
+    {
+      "id": "1780761523238",
+      "phone": "+375447368390",
+      "email": "nlisenko117@gmail.com",
+      "birthdate": "2006-06-06",
+      "nickname": "АлСк823",
+      "fullName": {
+        "firstName": "Александр",
+        "lastName": "Скуратович",
+        "middleName": "Андреевич"
+      },
+      "role": "customer"
+    },
+    {
+      "id": "1780761662864",
+      "phone": "+375447368390",
+      "email": "123name@gmail.com",
+      "birthdate": "2005-02-27",
+      "nickname": "Нд499",
+      "fullName": {
+        "firstName": "Настюшенька",
+        "lastName": "душенька",
+        "middleName": "Андреевич"
+      },
+      "role": "customer"
+    },
+    {
+      "id": "1780764524970",
+      "phone": "+375447368390",
+      "email": "123name@gmail.com",
+      "password": "Admin1234!",
+      "birthdate": "2005-06-08",
+      "nickname": "Над457",
+      "fullName": {
+        "firstName": "Настюшенька",
+        "lastName": "душенька",
+        "middleName": "Андреевич"
+      },
+      "role": "customer"
+    }
+  ],
+  "feedback": [
+    {
+      "id": "1780768329899",
+      "userId": "1780764524970",
+      "productId": "1",
+      "text": "товар очень понравился, рекомендую!",
+      "date": "2026-06-06"
+    },
+    {
+      "id": "1780768780528",
+      "userId": "1780764524970",
+      "productId": "1",
+      "text": "Советую данный товар!",
+      "rating": 5,
+      "date": "2026-06-06"
+    }
+  ],
+  "orders": [
+    {
+      "id": "1780613627628",
+      "userId": "1",
+      "date": "2026-06-04",
+      "items": [
+        {
+          "productId": "1",
+          "name": "Nike Air Max 270",
+          "price": 150,
+          "quantity": 1
+        }
+      ],
+      "totalCost": 150
+    },
+    {
+      "id": "1780759671627",
+      "userId": "1",
+      "date": "2026-06-06",
+      "items": [
+        {
+          "productId": "1",
+          "name": "Nike Air Max 270",
+          "price": 150,
+          "quantity": 1
+        }
+      ],
+      "totalCost": 150
+    },
+    {
+      "id": "1780761349810",
+      "userId": "1",
+      "date": "2026-06-06",
+      "items": [
+        {
+          "productId": "1",
+          "name": "Nike Air Max 270",
+          "price": 150,
+          "quantity": 1
+        }
+      ],
+      "totalCost": 150
+    },
+    {
+      "id": "1780764548546",
+      "userId": "1",
+      "date": "2026-06-06",
+      "items": [
+        {
+          "productId": "1",
+          "name": "Nike Air Max 270",
+          "price": 150,
+          "quantity": 1
+        }
+      ],
+      "totalCost": 150
+    },
+    {
+      "id": "1780764577097",
+      "userId": "1",
+      "date": "2026-06-06",
+      "items": [
+        {
+          "productId": "1",
+          "name": "Nike Air Max 270",
+          "price": 150,
+          "quantity": 1
+        }
+      ],
+      "totalCost": 150
+    },
+    {
+      "id": "1780768157891",
+      "userId": "1",
+      "date": "2026-06-06",
+      "items": [
+        {
+          "productId": "1",
+          "name": "Nike Air Max 270",
+          "price": 150,
+          "quantity": 1
+        },
+        {
+          "productId": "2",
+          "name": "Apple Watch Series 8",
+          "price": 399,
+          "quantity": 1
+        }
+      ],
+      "totalCost": 549
+    },
+    {
+      "id": "1780768307147",
+      "userId": "1780764524970",
+      "date": "2026-06-06",
+      "items": [
+        {
+          "productId": "1",
+          "name": "Nike Air Max 270",
+          "price": 150,
+          "quantity": 1
+        }
+      ],
+      "totalCost": 150
+    },
+    {
+      "id": "1780769101338",
+      "userId": "1780764524970",
+      "date": "2026-06-06",
+      "items": [
+        {
+          "productId": "1",
+          "name": "Nike Air Max 270",
+          "price": 150,
+          "quantity": 1
+        }
+      ],
+      "totalCost": 150
+    },
+    {
+      "id": "1780769129997",
+      "userId": "1780764524970",
+      "date": "2026-06-06",
+      "items": [
+        {
+          "productId": "1",
+          "name": "Nike Air Max 270",
+          "price": 150,
+          "quantity": 1
+        }
+      ],
+      "totalCost": 150
+    }
+  ]
+}

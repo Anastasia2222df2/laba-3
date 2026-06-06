@@ -36,132 +36,51 @@
         Our Products
       </h1>
 
-      <div
-        class="container"
-        style="
-          margin-bottom: 20px;
-          display: flex;
-          flex-wrap: wrap;
-          gap: 20px;
-          justify-content: center;
-          align-items: center;
-          background-color: #f9f9f9;
-          padding: 25px;
-          border-radius: 16px;
-        "
-      >
-        <div class="search-box" style="width: 320px; border: 1px solid #ccc">
-          <input
-            type="text"
-            id="search-input"
-            placeholder="Search by name or description..."
-            class="text"
-            style="padding: 10px; width: 100%"
-          />
-        </div>
+<div class="container" style="margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: center; background-color: #f9f9f9; padding: 25px; border-radius: 16px;">
+    
+    <div class="search-box" style="width: 250px; border: 1px solid #ccc;">
+        <input type="text" id="search-input" placeholder="Search..." class="text" style="padding: 10px; width: 100%;">
+    </div>
 
-        <div style="display: flex; align-items: center; gap: 10px">
-          <label for="sort-select" style="font-size: 14px; font-weight: 500"
-            >Sort by:</label
-          >
-          <select
-            id="sort-select"
-            style="
-              padding: 10px 15px;
-              border-radius: 30px;
-              border: 1px solid #ccc;
-              font-family: &quot;Roboto&quot;, sans-serif;
-              cursor: pointer;
-              background: #fff;
-            "
-          >
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <label for="sort-select" style="font-size: 14px; font-weight: 500;">Sort by:</label>
+        <select id="sort-select" style="padding: 10px 15px; border-radius: 30px; border: 1px solid #ccc; font-family: 'Roboto', sans-serif; cursor: pointer; background: #fff;">
             <option value="default">Default</option>
             <option value="price-asc">Price: Low to High</option>
             <option value="price-desc">Price: High to Low</option>
-            <option value="name-asc">Name: A-Z</option>
             <option value="rating-desc">Rating: High to Low</option>
-          </select>
-        </div>
+        </select>
+    </div>
+
+    <!-- ПОЛЗУНОК ЦЕНЫ -->
+    <div style="display: flex; align-items: center; gap: 10px; font-family: 'Roboto', sans-serif;">
+        <span style="font-size: 14px; font-weight: 500;">Up to: $<span id="price-val">500</span></span>
+        <input type="range" id="price-slider" min="0" max="500" value="500" step="10" class="black-slider">
+    </div>
+
+<div style="display: flex; gap: 10px; align-items: center; margin-left: 10px;">
+    
+    <a href="favorites.html" class="nav-icon-btn" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: #fff; border: 1px solid #ccc; text-decoration: none; cursor: pointer; transition: 0.3s; box-shadow: 0 2px 5px rgba(0,0,0,0.05);" title="Go to Favorites">
+        <span style="font-size: 24px; color: #ffb3c7; -webkit-text-stroke: 1px #000; line-height: 1;">♥</span>
+    </a>
+    
+    <a href="cart.html" class="nav-icon-btn" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: #fff; border: 1px solid #ccc; text-decoration: none; cursor: pointer; transition: 0.3s; box-shadow: 0 2px 5px rgba(0,0,0,0.05);" title="Go to Cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+    </a>
+</div>
+
+    <div id="category-filters" style="display: flex; flex-wrap: wrap; gap: 10px;">
+    </div>
+
+</div>
 
         <div
           id="category-filters"
-          style="display: flex; flex-wrap: wrap; gap: 10px"
-        >
-          <button
-            class="category-btn"
-            data-category="all"
-            style="
-              padding: 8px 20px;
-              border-radius: 20px;
-              border: 1px solid #000;
-              background: #000;
-              color: #fff;
-              cursor: pointer;
-              font-weight: 500;
-            "
-          >
-            All
-          </button>
-          <button
-            class="category-btn"
-            data-category="Fashion"
-            style="
-              padding: 8px 20px;
-              border-radius: 20px;
-              border: 1px solid #ccc;
-              background: #fff;
-              color: #000;
-              cursor: pointer;
-              font-weight: 500;
-            "
-          >
-            Fashion
-          </button>
-          <button
-            class="category-btn"
-            data-category="Sports"
-            style="
-              padding: 8px 20px;
-              border-radius: 20px;
-              border: 1px solid #ccc;
-              background: #fff;
-              color: #000;
-              cursor: pointer;
-              font-weight: 500;
-            "
-          >
-            Sports
-          </button>
-          <button
-            class="category-btn"
-            data-category="Pets"
-            style="
-              padding: 8px 20px;
-              border-radius: 20px;
-              border: 1px solid #ccc;
-              background: #fff;
-              color: #000;
-              cursor: pointer;
-              font-weight: 500;
-            "
-          >
-            Pets
-          </button>
-          <button
-            class="category-btn"
-            data-category="Accessories"
-            style="
-              padding: 8px 20px;
-              border-radius: 20px;
-              border: 1px solid #ccc;
-              background: #fff;
-              color: #000;
-              cursor: pointer;
-              font-weight: 500;
-            "
-          >
-            Accessories
-          </button>
+          style="display: flex; flex-wrap: wrap; gap: 10px">
         </div>
       </div>
 
@@ -340,6 +259,10 @@
     <div id="footer-placeholder"></div>
 
     <script src="../components.js"></script>
-    <script src="catalog.js"></script>
+    <script src="services.js"></script>
+    <script src="api.js"></script>     
+    <script src="catalog.js"></script> 
+  </body>
+</html>
   </body>
 </html>
