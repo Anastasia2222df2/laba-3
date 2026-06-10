@@ -1,4 +1,3 @@
-// catalog/services.js
 const FAV_URL = "http://localhost:3000/favorites";
 const CART_URL = "http://localhost:3000/cart";
 
@@ -43,6 +42,13 @@ window.toggleFavorite = async function(productId, event) {
             if (response.ok) {
                 window.favoriteIds = window.favoriteIds.filter(id => id !== String(productId));
                 button.style.color = "#ccc";
+            
+                if (window.showToast) {
+                    window.showToast("Removed from Favorites! 💔", "error");
+                }
+                if (window.updateHeaderCounters) {
+                    window.updateHeaderCounters();
+                }
             }
         } else {
             const prodResponse = await fetch(`${API_URL}/${productId}`);
@@ -56,12 +62,20 @@ window.toggleFavorite = async function(productId, event) {
             if (response.ok) {
                 window.favoriteIds.push(String(productId));
                 button.style.color = "#ffb3c7"; 
+                
+                if (window.showToast) {
+                    window.showToast("Added to Favorites! ❤️", "info");
+                }
+                if (window.updateHeaderCounters) {
+                    window.updateHeaderCounters();
+                }
             }
         }
     } catch (error) {
         console.error("Ошибка при переключении избранного:", error);
     }
 };
+
 window.addToCart = async function(productId, buttonElement) {
     const API_URL = "http://localhost:3000/products";
     const isAlreadyInCart = window.cartIds.includes(String(productId));
@@ -79,7 +93,12 @@ window.addToCart = async function(productId, buttonElement) {
                 buttonElement.style.borderColor = '#ccc';
                 buttonElement.innerText = 'Add to Cart';
                 
-                alert("Товар удален из корзины! ❌");
+                if (window.showToast) {
+                    window.showToast("Removed from Cart! ❌", "error");
+                }
+                if (window.updateHeaderCounters) {
+                    window.updateHeaderCounters();
+                }
             }
         } else {
             const prodResponse = await fetch(`${API_URL}/${productId}`);
@@ -99,7 +118,12 @@ window.addToCart = async function(productId, buttonElement) {
                 buttonElement.style.borderColor = '#000';
                 buttonElement.innerText = 'In Cart 🛒';
                 
-                alert("Товар добавлен в корзину! 🛒");
+                if (window.showToast) {
+                    window.showToast("Added to Cart! 🛒", "cart");
+                }
+                if (window.updateHeaderCounters) {
+                    window.updateHeaderCounters();
+                }
             }
         }
     } catch (error) {

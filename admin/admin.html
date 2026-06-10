@@ -9,25 +9,92 @@
     <link rel="stylesheet" href="../css/desktop.css" />
     <link rel="stylesheet" href="../css/tablet.css" media="screen and (min-width: 769px) and (max-width: 1024px)" />
     <link rel="stylesheet" href="../css/mobile.css" media="screen and (max-width: 768px)" />
-    
-    <!-- Подключаем новый файл со стилями админки -->
     <link rel="stylesheet" href="admin.css" />
     
     <title>Admin Dashboard - Klarna</title>
   </head>
   <body style="font-family: 'Roboto', sans-serif; background-color: #f9f9f9;">
-    <!-- Динамическая шапка -->
     <div id="header-placeholder"></div>
 
-    <main class="admin-dashboard">
+    <main style="padding: 40px 20px; display: flex; flex-direction: column; align-items: center; max-width: 1000px; margin: 0 auto;">
       <h1 style="font-size: 32px; margin: 40px 0; font-weight: 700; color: #171717; text-align: center;">Admin Dashboard</h1>
       
-      <!-- Сетка Дашборда -->
-      <div class="admin-grid">
+      <!-- СЕКЦИЯ 1: УПРАВЛЕНИЕ ТОВАРАМИ -->
+      <div class="admin-card" style="width: 100%;">
           
-          <!-- Левая колонка: Форма добавления/редактирования товара -->
-          <div class="admin-card">
-              <h2 id="form-title">Add New Product</h2>
+          <!-- Шапка таблицы с кнопкой вызова модальной формы добавления -->
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px;">
+              <h2 style="margin: 0; font-size: 22px;">Product List</h2>
+              <!-- КНОПКА ОТКРЫТИЯ МОДАЛЬНОЙ ФОРМЫ [5] -->
+              <button id="btn-open-form" class="button_hero_11 button_black_11" style="border-radius: 20px; height: 40px; padding: 0 20px; cursor: pointer; font-size: 13px; font-weight: bold;">Add New Product ➕</button>
+          </div>
+
+          <!-- Таблица товаров -->
+          <div class="admin-table-container">
+              <table class="admin-table">
+                  <thead>
+                      <tr>
+                          <th>Img</th>
+                          <th>Name</th>
+                          <th>Price</th>
+                          <th>Actions</th>
+                      </tr>
+                  </thead>
+                  <tbody id="admin-product-list">
+                      <!-- Товары загрузятся сюда -->
+                  </tbody>
+              </table>
+          </div>
+      </div>
+
+      <!-- СЕКЦИЯ 2: УПРАВЛЕНИЕ ОТЗЫВАМИ -->
+      <div class="admin-card" style="width: 100%; margin-top: 30px;">
+          <h2 style="color: #d32f2f;">Manage Feedbacks 💬</h2>
+          
+          <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 25px; align-items: center;">
+              <div>
+                  <label for="filter-fb-product" style="font-size: 14px; font-weight: 500; margin-right: 5px; color: #666;">Filter by Product:</label>
+                  <select id="filter-fb-product" style="padding: 10px; border-radius: 8px; border: 1px solid #ccc; cursor: pointer; background: #fff; font-family: 'Roboto', sans-serif; font-size: 14px;">
+                      <option value="all">-- All Products --</option>
+                  </select>
+              </div>
+              <div>
+                  <label for="filter-fb-user" style="font-size: 14px; font-weight: 500; margin-right: 5px; color: #666;">Filter by User:</label>
+                  <select id="filter-fb-user" style="padding: 10px; border-radius: 8px; border: 1px solid #ccc; cursor: pointer; background: #fff; font-family: 'Roboto', sans-serif; font-size: 14px;">
+                      <option value="all">-- All Users --</option>
+                  </select>
+              </div>
+          </div>
+
+          <div class="admin-table-container">
+              <table class="admin-table">
+                  <thead>
+                      <tr>
+                          <th>User</th>
+                          <th>Product</th>
+                          <th>Feedback Text</th>
+                          <th>Date</th>
+                          <th>Actions</th>
+                      </tr>
+                  </thead>
+                  <tbody id="admin-feedback-list">
+                      <!-- Отзывы загрузятся сюда -->
+                  </tbody>
+              </table>
+          </div>
+      </div>
+
+      <!-- ==================================================================== -->
+      <!-- НОВОЕ: МОДАЛЬНОЕ ОКНО С ФОРМОЙ ДОБАВЛЕНИЯ/РЕДАКТИРОВАНИЯ ТОВАРА [2] -->
+      <!-- ==================================================================== -->
+      <div id="admin-modal" class="modal-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 100000; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box; backdrop-filter: blur(5px);">
+          <div class="modal-content" style="background: #fff; border-radius: 24px; padding: 40px 30px 30px 30px; max-width: 500px; width: 100%; position: relative; box-shadow: 0 15px 50px rgba(0,0,0,0.15); max-height: 90vh; overflow-y: auto;">
+              
+              <!-- Крестик закрытия -->
+              <button id="modal-close-form" style="position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 32px; cursor: pointer; color: #888; transition: 0.3s;" onmouseover="this.style.color='#000'" onmouseout="this.style.color='#888'">&times;</button>
+              
+              <!-- Сама форма внутри модалки -->
+              <h2 id="form-title" style="font-size: 22px; font-weight: 700; margin-bottom: 25px; color: #171717; text-align: left;">Add New Product</h2>
               <form id="product-form" novalidate>
                   <input type="hidden" id="prod-id">
                   
@@ -82,69 +149,9 @@
                   <button type="button" id="btn-cancel-edit" class="button_hero_11 button_white_11" style="width: 100%; border-radius: 50px; margin-top: 10px; display: none; border: 1px solid #ccc;">Cancel Edit</button>
               </form>
           </div>
-
-          <!-- Правая колонка: Список товаров -->
-          <div class="admin-card">
-              <h2>Product List</h2>
-              <div class="admin-table-container">
-                  <table class="admin-table">
-                      <thead>
-                          <tr>
-                              <th>Img</th>
-                              <th>Name</th>
-                              <th>Price</th>
-                              <th>Actions</th>
-                          </tr>
-                      </thead>
-                      <tbody id="admin-product-list">
-                          <!-- Товары загрузятся сюда -->
-                      </tbody>
-                  </table>
-              </div>
-          </div>
-      </div>
-
-      <!-- СЕКЦИЯ 2: УПРАВЛЕНИЕ ОТЗЫВАМИ -->
-      <div class="admin-card" style="width: 100%; margin-top: 30px;">
-          <h2 style="color: #d32f2f;">Manage Feedbacks 💬</h2>
-          
-          <!-- Фильтры отзывов -->
-          <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 25px; align-items: center;">
-              <div>
-                  <label for="filter-fb-product" style="font-size: 14px; font-weight: 500; margin-right: 5px; color: #666;">Filter by Product:</label>
-                  <select id="filter-fb-product" style="padding: 10px; border-radius: 8px; border: 1px solid #ccc; cursor: pointer; background: #fff; font-family: 'Roboto', sans-serif; font-size: 14px;">
-                      <option value="all">-- All Products --</option>
-                  </select>
-              </div>
-              <div>
-                  <label for="filter-fb-user" style="font-size: 14px; font-weight: 500; margin-right: 5px; color: #666;">Filter by User:</label>
-                  <select id="filter-fb-user" style="padding: 10px; border-radius: 8px; border: 1px solid #ccc; cursor: pointer; background: #fff; font-family: 'Roboto', sans-serif; font-size: 14px;">
-                      <option value="all">-- All Users --</option>
-                  </select>
-              </div>
-          </div>
-
-          <!-- Таблица отзывов -->
-          <div class="admin-table-container">
-              <table class="admin-table">
-                  <thead>
-                      <tr>
-                          <th>User</th>
-                          <th>Product</th>
-                          <th>Feedback Text</th>
-                          <th>Date</th>
-                          <th>Actions</th>
-                      </tr>
-                  </thead>
-                  <tbody id="admin-feedback-list">
-                      <!-- Отзывы загрузятся сюда -->
-                  </tbody>
-              </table>
-          </div>
       </div>
     </main>
 
-    <!-- Динамический футер -->
     <div id="footer-placeholder"></div>
 
     <script src="../components.js"></script>

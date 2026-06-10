@@ -76,7 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
         setupCartListeners();
     }
 
-    // Навешиваем клики
     function setupCartListeners() {
         document.querySelectorAll('.qty-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
@@ -94,14 +93,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Подсчет общей суммы и количества товаров в корзине [2]
     function calculateTotal(cartItems) {
         const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
         // Считаем общее количество всех штук товаров
         const totalCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
         document.getElementById('cart-total').innerText = total;
-        document.getElementById('cart-count').innerText = `${totalCount} item(s)`; // Обновляем количество штук
+        document.getElementById('cart-count').innerText = `${totalCount} item(s)`; 
     }
 
     async function changeQuantity(id, action) {
@@ -133,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     async function removeFromCart(id) {
-        try {           // удаление товара
+        try {           
             const response = await fetch(`${CART_URL}/${id}`, { method: "DELETE" });
             if (response.ok) fetchCart();
         } catch (error) {
@@ -141,10 +139,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Оформление покупки (Очистка корзины и сохранение заказа в orders на реального юзера) [4, 5]
     document.getElementById('btn-checkout')?.addEventListener('click', async () => {
         try {
-            // 1. Получаем текущие товары из корзины
             const response = await fetch(CART_URL);
             const items = await response.json();
 
@@ -152,22 +148,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert("Your cart is empty!");
                 return;
             }
-
-            // ====================================================================
-            // Умная проверка: кто сейчас покупает?
             const currentUser = JSON.parse(localStorage.getItem('currentUser'));
             if (!currentUser) {
                 alert("Please log in to make a purchase! ❤️");
-                window.location.href = "../authorization/login.html"; // Отправляем на вход
+                window.location.href = "../authorization/login.html"; 
                 return;
             }
-            // ====================================================================
-
-            // 2. Формируем объект заказа (orders) [4]
+            
             const newOrder = {
-                id: String(Date.now()), // уникальный ID заказа на основе времени
-                userId: currentUser.id, // <--- ИСПРАВЛЕНО: Берем ID реального вошедшего юзера!
-                date: new Date().toISOString().split('T')[0], // Дата в формате YYYY-MM-DD
+                id: String(Date.now()),
+                userId: currentUser.id, 
+                date: new Date().toISOString().split('T')[0], 
                 items: items.map(item => ({
                     productId: item.id,
                     name: item.name,
@@ -177,7 +168,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 totalCost: items.reduce((sum, item) => sum + (item.price * item.quantity), 0)
             };
 
-            // 3. Отправляем заказ в коллекцию orders на сервер (POST) [4, 5]
             const orderResponse = await fetch("http://localhost:3000/orders", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -188,13 +178,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 throw new Error("Failed to save order on server");
             }
 
-            // 4. Очищаем корзину на сервере параллельно (DELETE-запросы) [5]
             await Promise.all(items.map(item => 
                 fetch(`${CART_URL}/${item.id}`, { method: "DELETE" })
             ));
 
             alert("Purchase successful! Order saved to history. 🛍️❤️");
-            fetchCart(); // Обновляем экран корзины (покажет, что она пуста)
+            fetchCart();
         } catch (error) {
             console.error("Ошибка при оформлении покупки:", error);
             alert("Something went wrong during checkout.");

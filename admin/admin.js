@@ -11,9 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const API_URL_USERS = "http://localhost:3000/users";
     const API_URL_FEEDBACK = "http://localhost:3000/feedback";
 
-    // Картотека для быстрого сопоставления ID с Именами на клиенте
     let usersMap = {};
     let productsMap = {};
+
+    // Элементы модального окна формы [2]
+    const adminModal = document.getElementById('admin-modal');
+    const btnOpenForm = document.getElementById('btn-open-form');
+    const btnCloseForm = document.getElementById('modal-close-form');
 
     // Элементы формы товаров
     const form = document.getElementById('product-form');
@@ -31,13 +35,34 @@ document.addEventListener("DOMContentLoaded", () => {
     const formTitle = document.getElementById('form-title');
     const tableBody = document.getElementById('admin-product-list');
 
-    // Элементы управления отзывами (ЭТАП 5)
+    // Элементы отзывов
     const fbProductSelect = document.getElementById('filter-fb-product');
     const fbUserSelect = document.getElementById('filter-fb-user');
     const fbTableBody = document.getElementById('admin-feedback-list');
 
     // ==========================================
-    // 2. ВАЛИДАЦИЯ ФОРМЫ ТОВАРОВ
+    // ЛОГИКА ОТКРЫТИЯ/ЗАКРЫТИЯ МОДАЛКИ С ФОРМОЙ [2]
+    // ==========================================
+    function openFormModal() {
+        adminModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeFormModal() {
+        adminModal.style.display = 'none';
+        document.body.style.overflow = '';
+        resetForm();
+    }
+
+    // Слушатели кнопок модалки
+    btnOpenForm?.addEventListener('click', openFormModal);
+    btnCloseForm?.addEventListener('click', closeFormModal);
+    adminModal?.addEventListener('click', (e) => {
+        if (e.target === adminModal) closeFormModal();
+    });
+
+    // ==========================================
+    // ВАЛИДАЦИЯ ФОРМЫ ТОВАРОВ
     // ==========================================
     function showError(input) { input.closest('.form-group').classList.add('error'); return false; }
     function removeError(input) { input.closest('.form-group').classList.remove('error'); return true; }
@@ -73,39 +98,32 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ==========================================
-    // 3. ИНИЦИАЛИЗАЦИЯ КАРТОТЕКИ (Для имен и названий)
+    // ИНИЦИАЛИЗАЦИЯ ДАШБОРДА
     // ==========================================
     async function initAdminDashboard() {
         try {
-            // 1. Получаем пользователей и строим карту имён
             const usersRes = await fetch(API_URL_USERS);
             const users = await usersRes.json();
             fbUserSelect.innerHTML = '<option value="all">-- All Users --</option>';
             users.forEach(u => {
                 usersMap[u.id] = u.nickname || u.email;
-                
-                // Наполняем выпадающий список фильтра пользователей [5]
                 const option = document.createElement('option');
                 option.value = u.id;
                 option.textContent = u.nickname || u.email;
                 fbUserSelect.appendChild(option);
             });
 
-            // 2. Получаем товары и строим карту названий
             const productsRes = await fetch(API_URL);
             const products = await productsRes.json();
             fbProductSelect.innerHTML = '<option value="all">-- All Products --</option>';
             products.forEach(p => {
                 productsMap[p.id] = p.name;
-
-                // Наполняем выпадающий список фильтра товаров [5]
                 const option = document.createElement('option');
                 option.value = p.id;
                 option.textContent = p.name;
                 fbProductSelect.appendChild(option);
             });
 
-            // 3. Загружаем таблицы
             loadAdminProducts();
             loadAdminFeedbacks();
 
@@ -115,11 +133,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // 4. УПРАВЛЕНИЕ ТОВАРАМИ (CRUD)
+    // УПРАВЛЕНИЕ ТОВАРАМИ (CRUD)
     // ==========================================
 
-    // GET: Таблица товаров
-    // GET: Таблица товаров (С ЖЕСТКИМ ОГРАНИЧЕНИЕМ КАРТИНОК И СТИЛЯМИ)
     async function loadAdminProducts() {
         try {
             const res = await fetch(API_URL);
@@ -129,7 +145,6 @@ document.addEventListener("DOMContentLoaded", () => {
             products.forEach(p => {
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
-                    <!-- Задаем инлайн-стили картинке, чтобы она точно была 50х50px -->
                     <td><img src="${p.image.startsWith('http') ? p.image : '../public/' + p.image}" alt="img" style="width: 50px !important; height: 50px !important; object-fit: cover; border-radius: 8px;"></td>
                     <td style="font-weight: 500; color: #171717;">${p.name}</td>
                     <td style="font-weight: bold; color: #171717;">$${p.price}</td>
@@ -148,7 +163,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // POST / PUT: Сохранение товара
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         if (!validateForm()) return;
@@ -179,8 +193,8 @@ document.addEventListener("DOMContentLoaded", () => {
             });
             
             alert(editId ? "Product updated!" : "Product added!");
-            resetForm();
-            initAdminDashboard(); // Перезапускаем дашборд для обновления списков
+            closeFormModal(); // Закрываем модальное окно после сохранения [2]
+            initAdminDashboard(); 
         } catch (error) {
             console.error(error);
         }
@@ -206,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
             btnCancel.style.display = "block";
             
             validateForm();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            openFormModal(); // Открываем модалку для редактирования [2]
         } catch (error) {
             console.error(error);
         }
@@ -224,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    btnCancel.addEventListener('click', resetForm);
+    btnCancel.addEventListener('click', closeFormModal);
 
     function resetForm() {
         form.reset();
@@ -235,20 +249,15 @@ document.addEventListener("DOMContentLoaded", () => {
         validateForm();
     }
 
-
     // ==========================================
-    // 5. УПРАВЛЕНИЕ ОТЗЫВАМИ (ЭТАП 5) [5]
+    // 5. УПРАВЛЕНИЕ ОТЗЫВАМИ [5]
     // ==========================================
-
-    // GET: Загрузка отзывов по фильтрам с сервера
-    // GET: Загрузка отзывов по фильтрам с сервера [5]
     async function loadAdminFeedbacks() {
         try {
             let params = [];
             const prodFilter = fbProductSelect.value;
             const userFilter = fbUserSelect.value;
 
-            // Серверная фильтрация отзывов [5]
             if (prodFilter !== 'all') params.push(`productId=${prodFilter}`);
             if (userFilter !== 'all') params.push(`userId=${userFilter}`);
 
@@ -266,20 +275,17 @@ document.addEventListener("DOMContentLoaded", () => {
             feedbacks.forEach(fb => {
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
-                    <!-- Сопоставляем ID с реальными именами из картотеки -->
                     <td style="font-weight: 500; color: #171717;">${usersMap[fb.userId] || 'Deleted User'}</td>
                     <td style="color: #171717;">${productsMap[fb.productId] || 'Deleted Product'}</td>
                     <td style="color: #444;">${fb.text}</td>
                     <td>${fb.date}</td>
                     <td>
-                        <!-- ИСПРАВЛЕННАЯ СТИЛЬНАЯ КНОПКА (Добавили классы btn-action и btn-delete) -->
-                        <button class="btn-action btn-delete btn-delete-fb" data-id="${fb.id}">Delete</button>
+                        <button class="btn-action btn-delete-fb" data-id="${fb.id}">Delete</button>
                     </td>
                 `;
                 fbTableBody.appendChild(tr);
             });
 
-            // Навешиваем клик на удаление отзыва [5]
             document.querySelectorAll('.btn-delete-fb').forEach(btn => {
                 btn.addEventListener('click', handleDeleteFeedback);
             });
@@ -289,14 +295,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // DELETE: Удаление отзыва на сервере [5]
     async function handleDeleteFeedback(e) {
         const id = e.target.getAttribute('data-id');
         if (confirm("Delete this feedback?")) {
             try {
                 const res = await fetch(`${API_URL_FEEDBACK}/${id}`, { method: "DELETE" });
                 if (res.ok) {
-                    loadAdminFeedbacks(); // Перерисовываем список отзывов
+                    loadAdminFeedbacks();
                 }
             } catch (error) {
                 console.error(error);
@@ -304,10 +309,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Навешиваем изменение фильтров
     fbProductSelect.addEventListener('change', loadAdminFeedbacks);
     fbUserSelect.addEventListener('change', loadAdminFeedbacks);
 
-    // Запуск всего дашборда на старте
     initAdminDashboard();
 });

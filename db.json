@@ -149,19 +149,20 @@
       "rating": 4.6,
       "image": "image/s-l1600.jpg",
       "description": "Classic blue denim jacket with a relaxed fit."
+    },
+    {
+      "name": "Dress",
+      "price": 120,
+      "rating": 4,
+      "category": "Fashion",
+      "gender": "female",
+      "image": "https://sc04.alicdn.com/kf/Hf34593bca944464db1ff7af10dc6cae6z/Women-Ruched-Side-Asymmetrical-V-Neck-Classy-Club-Night-Wedding-Woman-Party-Dresses-Sexy-Tight-Fitted-Bodycon-Slip-on-Dress.jpg",
+      "description": "beautiful dress",
+      "id": "1780836747192"
     }
   ],
-  "favorites": [
-    {
-      "id": "1",
-      "name": "Nike Air Max 270",
-      "price": 150,
-      "category": "Fashion",
-      "gender": "male",
-      "rating": 4.8,
-      "image": "image/a.jpeg",
-      "description": "Classic running sneakers with maximum comfort."
-    },
+  "favorites": [],
+  "cart": [
     {
       "id": "2",
       "name": "Apple Watch Series 8",
@@ -170,29 +171,7 @@
       "gender": "unisex",
       "rating": 4.9,
       "image": "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500&q=80",
-      "description": "Advanced health tracking and elegant design."
-    },
-    {
-      "id": "3",
-      "name": "Minimalist Leather Tote",
-      "price": 85,
-      "category": "Accessories",
-      "gender": "female",
-      "rating": 4.5,
-      "image": "image/orig.webp",
-      "description": "Handcrafted genuine leather bag for daily use."
-    }
-  ],
-  "cart": [
-    {
-      "id": "1",
-      "name": "Nike Air Max 270",
-      "price": 150,
-      "category": "Fashion",
-      "gender": "male",
-      "rating": 4.8,
-      "image": "image/a.jpeg",
-      "description": "Classic running sneakers with maximum comfort.",
+      "description": "Advanced health tracking and elegant design.",
       "quantity": 1
     }
   ],
@@ -427,6 +406,20 @@
         }
       ],
       "totalCost": 150
+    },
+    {
+      "id": "1780923097860",
+      "userId": "1780764524970",
+      "date": "2026-06-08",
+      "items": [
+        {
+          "productId": "2",
+          "name": "Apple Watch Series 8",
+          "price": 399,
+          "quantity": 10
+        }
+      ],
+      "totalCost": 3990
     }
   ]
 }

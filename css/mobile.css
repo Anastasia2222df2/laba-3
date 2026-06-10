@@ -575,3 +575,121 @@
     width: auto !important;  
     height: auto !important;
 }
+/*-------------------------------------------*/
+/*------------ АНИМАЦИЯ БУРГЕР-МЕНЮ ---------*/
+/*-------------------------------------------*/
+
+/* Сама кнопка бургера (позиционируем повыше, чтобы была видна поверх меню) */
+.header__burger {
+    position: relative;
+    z-index: 99999 !important;
+    transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+/* 1. Плавный поворот всей иконки на 90 градусов при активации */
+.header__burger.active {
+    transform: rotate(90deg);
+}
+
+.header__burger span {
+    transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+/* Превращаем полоски в крестик "Х" */
+/* Верхняя полоска поворачивается на 45 градусов вниз */
+.header__burger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+/* Средняя уходит влево и растворяется */
+.header__burger.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-15px);
+}
+/* Нижняя поворачивается на 45 градусов вверх */
+.header__burger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ВЫДВИЖНАЯ МЕНЮ-ПАНЕЛЬ */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px; /* Ширина выдвижного меню */
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 99998 !important; /* На один уровень ниже кнопки бургера */
+    padding: 100px 30px 40px 30px;
+    box-sizing: border-box;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+    
+    /* 2. Плавное выдвижение: сдвигаем панель вправо за экран на 100% */
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+/* Когда меню активно, возвращаем его в нормальное положение */
+.mobile-menu.active {
+    transform: translateX(0);
+}
+
+/* Ссылки внутри мобильного меню */
+.mobile-menu__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    text-align: left;
+}
+
+.mobile-menu__nav a {
+    color: #171717;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    transition: color 0.3s;
+}
+
+.mobile-menu__nav a:hover {
+    color: #ffb3c7;
+}
+
+/* ЗАТЕМНЕНИЕ ЗАДНЕГО ФОНА */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный */
+    z-index: 99997 !important; /* Самый нижний слой */
+    
+    /* Изначально скрыто */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* Плавное проявление затемнения */
+.mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* mobile.css */
+
+.mobile-menu {
+    display: block !important; /* Принудительно показываем только на мобилках */
+    position: fixed;
+    top: 0;
+    right: 0;
+    /* ... остальные твои стили без изменений ... */
+}
+
+.mobile-menu-overlay {
+    display: block !important; /* Принудительно показываем только на мобилках */
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* ... остальные твои стили без изменений ... */
+}

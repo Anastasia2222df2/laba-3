@@ -8,40 +8,33 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
     }
 
-    // --- ИНТЕРАКТИВНЫЕ ЗВЕЗДЫ РЕЙТИНГА ---
     const stars = document.querySelectorAll('.star');
     const ratingInput = document.getElementById('review-rating');
     const ratingError = document.getElementById('rating-error');
 
     stars.forEach(star => {
-        // Подсвечиваем звезды при наведении мышки
         star.addEventListener('mouseover', (e) => {
             const hoverValue = parseInt(e.target.getAttribute('data-value'));
             highlightStars(hoverValue);
         });
-
-        // Возвращаем сохраненную оценку, когда убираем мышку
         star.addEventListener('mouseout', () => {
             highlightStars(parseInt(ratingInput.value));
         });
 
-        // Сохраняем оценку при клике
         star.addEventListener('click', (e) => {
             const clickValue = parseInt(e.target.getAttribute('data-value'));
             ratingInput.value = clickValue;
             highlightStars(clickValue);
-            ratingError.style.display = 'none'; // Скрываем ошибку
+            ratingError.style.display = 'none'; 
         });
     });
-
-    // Функция закрашивания звезд (розовый/серый)
     function highlightStars(count) {
         stars.forEach((star, index) => {
             if (index < count) {
-                star.style.color = '#ffb3c7'; // Розовый
+                star.style.color = '#ffb3c7';
                 star.style.textShadow = '0 0 5px rgba(255,179,199,0.3)';
             } else {
-                star.style.color = '#ccc'; // Серый
+                star.style.color = '#ccc'; 
                 star.style.textShadow = 'none';
             }
         });
@@ -61,8 +54,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     const reviewText = document.getElementById('review-text');
 
     let usersMap = {};
-
-    // Загрузка карты пользователей (чтобы выводить реальные имена в отзывах)
     async function loadUsersMap() {
         try {
             const res = await fetch(API_URL_USERS || "http://localhost:3000/users");
@@ -73,7 +64,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         } catch (e) {}
     }
 
-    // 2. Загружаем данные товара
     async function loadProductDetails() {
         try {
             await window.fetchFavoritesList();
@@ -84,7 +74,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             if (!response.ok) throw new Error("Товар не найден");
             const product = await response.json();
 
-            // Проверяем состояние сердечка и кнопки корзины
             const isFavorite = window.favoriteIds.includes(String(product.id));
             const heartColor = isFavorite ? "#ffb3c7" : "#ccc";
 
@@ -93,8 +82,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             const cartBtnColor = isInCart ? "#fff" : "#000";
             const cartBtnText = isInCart ? "In Cart 🛒" : "Add to Cart";
 
-            // Отрисовываем большую детальную карточку
-            // Внутри catalog/product.js -> найди и замени блок кнопок:
 detailsContainer.innerHTML = `
     <div class="product-image-large">
         <img src="${product.image}" alt="${product.name}" />
@@ -116,7 +103,6 @@ detailsContainer.innerHTML = `
     </div>
 `;
 
-            // Вешаем клики
             document.querySelector('.heart-btn').addEventListener('click', (e) => {
                 window.toggleFavorite(product.id, e);
             });
@@ -129,7 +115,6 @@ detailsContainer.innerHTML = `
                 window.addToCart(product.id, button);
             });
 
-            // Проверяем, может ли текущий пользователь оставить отзыв
             checkReviewPermission();
 
         } catch (error) {
@@ -138,7 +123,6 @@ detailsContainer.innerHTML = `
         }
     }
 
-    // 3. Загружаем отзывы на этот товар
     async function loadReviews() {
         try {
             const response = await fetch(REVIEWS_URL);
@@ -154,8 +138,7 @@ detailsContainer.innerHTML = `
                 const div = document.createElement('div');
                 div.className = 'review-card';
 
-                // Генерируем строку со звездами на основе оценки (закрашенные и пустые)
-                const starsCount = r.rating || 5; // Если оценки в старых отзывах нет, ставим 5
+                const starsCount = r.rating || 5; 
                 const starsHtml = '★'.repeat(starsCount) + '☆'.repeat(5 - starsCount);
 
                 div.innerHTML = `
@@ -176,12 +159,9 @@ detailsContainer.innerHTML = `
         }
     }
 
-    // 4. Проверяем, купил ли пользователь этот товар
-    // 4. Проверяем лимиты: количество отзывов не должно превышать количество покупок [5]
     async function checkReviewPermission() {
         const currentUser = JSON.parse(localStorage.getItem('currentUser'));
         
-        // Администраторы и неавторизованные пользователи не могут оставлять отзывы
         if (!currentUser || currentUser.role === 'administrator') {
             restrictedMessage.style.display = 'block';
             restrictedMessage.innerText = !currentUser ? "Log in to leave a review. ❤️" : "Administrators cannot leave reviews.";
@@ -190,7 +170,6 @@ detailsContainer.innerHTML = `
         }
 
         try {
-            // А. Считаем, сколько раз пользователь купил данный товар (из его заказов) [5]
             const ordersResponse = await fetch(`${ORDERS_URL}?userId=${currentUser.id}`);
             const orders = await ordersResponse.json();
 
@@ -198,13 +177,11 @@ detailsContainer.innerHTML = `
             orders.forEach(order => {
                 order.items.forEach(item => {
                     if (String(item.productId) === String(productId)) {
-                        // Суммируем количество во всех заказах
                         totalPurchased += Number(item.quantity || 1);
                     }
                 });
             });
 
-            // Б. Считаем, сколько отзывов этот пользователь уже оставил на этот товар [5]
             const feedbackResponse = await fetch(`http://localhost:3000/feedback?userId=${currentUser.id}&productId=${productId}`);
             const feedbacks = await feedbackResponse.json();
             const totalReviewsLeft = feedbacks.length;
@@ -242,7 +219,6 @@ detailsContainer.innerHTML = `
         }
     }
 
-    // 5. Отправка отзыва (POST)
     // Отправка отзыва с оценкой
     reviewForm.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -250,7 +226,6 @@ detailsContainer.innerHTML = `
 
         const ratingValue = parseInt(ratingInput.value);
 
-        // Валидация: выбрана ли оценка?
         if (ratingValue === 0) {
             ratingError.style.display = 'block';
             return;
@@ -266,7 +241,7 @@ detailsContainer.innerHTML = `
             userId: currentUser.id,
             productId: productId,
             text: reviewText.value.trim(),
-            rating: ratingValue, // <-- СОХРАНЯЕМ ОЦЕНКУ НА СЕРВЕРЕ!
+            rating: ratingValue, 
             date: new Date().toISOString().split('T')[0]
         };
 
@@ -283,10 +258,8 @@ detailsContainer.innerHTML = `
             ratingInput.value = 0;
             highlightStars(0);
             
-            await loadReviews(); // Перерисовываем отзывы на экране
+            await loadReviews(); 
             
-            // ДОБАВЛЯЕМ ЭТУ СТРОЧКУ СЮДА:
-            // Мгновенно пересчитываем лимиты, чтобы спрятать форму, если лимит исчерпан
             await checkReviewPermission(); 
         }
         } catch (error) {

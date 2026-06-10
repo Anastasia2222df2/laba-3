@@ -1,4 +1,3 @@
-// catalog/api.js
 const API_URL = "http://localhost:3000/products";
 
 async function fetchProductsFromServer(queryParams = "") {

@@ -9,6 +9,8 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+    <!-- index.html -->
+    <link rel="icon" type="image/png" href="public/favicon.png" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/desktop.css" />
     <link
@@ -26,6 +28,64 @@
     <title>Klarna</title>
   </head>
   <body>
+    <!-- Прелоадер (Экран загрузки) -->
+    <div
+      id="preloader"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #171717;
+        z-index: 99999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition:
+          opacity 0.4s ease,
+          visibility 0.4s ease;
+      "
+    >
+      <!-- Крутящийся розовый спиннер -->
+      <div
+        class="loader-spinner"
+        style="
+          width: 50px;
+          height: 50px;
+          border: 3px solid #333;
+          border-top: 3px solid #ffb3c7;
+          border-radius: 50%;
+          animation: spin 1s linear infinite;
+          margin-bottom: 20px;
+        "
+      ></div>
+      <!-- Стильный текст загрузки -->
+      <span
+        style="
+          color: #fff;
+          font-family: &quot;Roboto&quot;, sans-serif;
+          font-size: 13px;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          font-weight: 500;
+        "
+        >Loading Klarna...</span
+      >
+    </div>
+
+    <!-- Стиль для вращения спиннера -->
+    <style>
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
     <div id="header-placeholder"></div>
     <main>
       <!------------БЛОК 1----------->
@@ -820,8 +880,459 @@
         </div>
       </div>
     </main>
+    <!--------------БЛОК INTERACTIVE MEDIA GALLERY------------->
+<section class="interactive-gallery">
+  <div class="gallery-header">
+    <div class="gallery-badge">✦ Experience</div>
+    <h2>Interactive Media Gallery</h2>
+    <p>Discover the harmony of visual and sound.</p>
+  </div>
+
+  <div class="gallery-card">
+    <!-- Зона отображения медиа -->
+    <div class="media-wrapper">
+      <img id="gallery-image" src="" alt="Gallery Image" style="transition: opacity 0.3s ease;" />
+      <!-- Здесь укажите ссылку на ваше видео. Для примера стоит тестовое -->
+      <video id="gallery-video" src="https://www.w3schools.com/html/mov_bbb.mp4" playsinline></video>
+    </div>
+
+    <!-- Панель управления -->
+    <div class="gallery-controls">
+      <!-- Левая кнопка -->
+      <button id="btn-shuffle-vibe" class="control-btn btn-light">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+        <span>Discover Magic</span>
+      </button>
+
+      <!-- Центральная кнопка -->
+      <button id="btn-launch-video" class="control-btn btn-purple">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        <span>Watch Video</span>
+      </button>
+
+      <!-- Правая панель громкости -->
+      <div class="volume-control">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #6c44c5;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+        <input type="range" id="volume-slider" class="pink-slider" min="0" max="1" step="0.01" value="0.5">
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Стили для галереи */
+  .interactive-gallery {
+    padding: 80px 20px;
+    background: #fff;
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gallery-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .gallery-badge {
+    display: inline-block;
+    background-color: #f1e8ff;
+    color: #171717;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+
+  .gallery-header h2 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #171717;
+  }
+
+  .gallery-header p {
+    color: #666;
+    font-size: 18px;
+  }
+
+  .gallery-card {
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 900px;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .media-wrapper {
+    width: 100%;
+    height: 500px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #000;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .media-wrapper img,
+  .media-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .media-wrapper video {
+    display: none;
+  }
+
+  .gallery-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+
+  .control-btn:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+  }
+
+  .btn-light {
+    background-color: #f1f1f1;
+    color: #171717;
+  }
+
+  .btn-purple {
+    background-color: #6c44c5;
+    color: #fff;
+  }
+
+  .volume-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 10px 20px;
+    border-radius: 30px;
+    height: 48px;
+    box-sizing: border-box;
+  }
+
+  /* Розовый ползунок */
+  .pink-slider {
+    -webkit-appearance: none;
+    width: 100px;
+    height: 4px;
+    background: #e0e0e0;
+    border-radius: 5px;
+    outline: none;
+  }
+
+  .pink-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #ffb3c7;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s ease;
+  }
+
+  .pink-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+  }
+
+  @media (max-width: 768px) {
+    .media-wrapper { height: 300px; }
+    .gallery-header h2 { font-size: 28px; }
+    .gallery-controls { flex-direction: column; width: 100%; }
+    .control-btn, .volume-control { width: 100%; justify-content: center; }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Массив: Картинка + Уникальный звук (добавил фото девушки в магазине из вашего скрина для начала)
+    const vibeGallery = [
+      { img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=900&q=80", sound: "https://www.soundjay.com/buttons/sounds/button-1.mp3" },
+      { img: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=900&q=80", sound: "https://www.soundjay.com/buttons/sounds/button-2.mp3" },
+      { img: "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?w=900&q=80", sound: "https://www.soundjay.com/buttons/sounds/button-3.mp3" },
+      { img: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=900&q=80", sound: "https://www.soundjay.com/buttons/sounds/button-4.mp3" },
+      { img: "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=900&q=80", sound: "https://www.soundjay.com/buttons/sounds/button-5.mp3" }
+    ];
+
+    let currentVibeIndex = 0;
+    const audioPlayer = new Audio();
+    audioPlayer.volume = 0.5;
+
+    const imgElement = document.getElementById('gallery-image');
+    const videoElement = document.getElementById('gallery-video');
+    const volumeSlider = document.getElementById('volume-slider');
+
+    // Устанавливаем первую картинку при загрузке
+    imgElement.src = vibeGallery[0].img;
+    videoElement.volume = 0.5;
+
+    // ЛЕВАЯ КНОПКА: Смена картинки и звук
+    document.getElementById('btn-shuffle-vibe').addEventListener('click', () => {
+      // Скрываем видео, показываем фото
+      videoElement.style.display = 'none';
+      videoElement.pause();
+      imgElement.style.display = 'block';
+
+      // Выбор случайной картинки
+      let randomIndex;
+      do {
+        randomIndex = Math.floor(Math.random() * vibeGallery.length);
+      } while (randomIndex === currentVibeIndex);
+      currentVibeIndex = randomIndex;
+
+      // Плавная анимация
+      imgElement.style.opacity = '0';
+      setTimeout(() => {
+        imgElement.src = vibeGallery[currentVibeIndex].img;
+        imgElement.style.opacity = '1';
+      }, 150);
+
+      // Воспроизведение звука
+      audioPlayer.src = vibeGallery[currentVibeIndex].sound;
+      audioPlayer.play().catch(e => console.log("Автовоспроизведение заблокировано"));
+    });
+
+    // ЦЕНТРАЛЬНАЯ КНОПКА: Включение видео
+    document.getElementById('btn-launch-video').addEventListener('click', () => {
+      imgElement.style.display = 'none';
+      audioPlayer.pause(); 
+      
+      videoElement.style.display = 'block';
+      videoElement.play(); 
+    });
+
+    // ПРАВЫЙ ПОЛЗУНОК: Громкость (и для эффектов, и для видео)
+    volumeSlider.addEventListener('input', (e) => {
+      const newVolume = e.target.value;
+      audioPlayer.volume = newVolume; 
+      videoElement.volume = newVolume;
+    });
+  });
+</script>
+<!--------------КОНЕЦ БЛОКА INTERACTIVE MEDIA GALLERY------------->
+
+    <style>
+        .pink-slider { -webkit-appearance: none; width: 100%; height: 4px; background: #e0e0e0; border-radius: 5px; outline: none; }
+        .pink-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: #ffb3c7; cursor: pointer; border: none; transition: transform 0.2s ease; }
+        .pink-slider::-webkit-slider-thumb:hover { transform: scale(1.2); }
+    </style>
+
+    <!-- Добавляем стили для розового ползунка в HTML для надежности -->
+    <style>
+      .pink-slider {
+        -webkit-appearance: none;
+        width: 80px;
+        height: 4px;
+        background: #e0e0e0;
+        border-radius: 5px;
+        outline: none;
+      }
+      .pink-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #ffb3c7; /* Розовый кругляшок */
+        cursor: pointer;
+        border: none;
+        transition: transform 0.2s ease;
+      }
+      .pink-slider::-webkit-slider-thumb:hover {
+        transform: scale(1.2);
+      }
+    </style>
+    <!-- Секция Контакты и Карта (Лаба 9) [2] -->
+    <section
+      id="contacts"
+      style="
+        background: #fff;
+        padding: 60px 20px;
+        text-align: center;
+        font-family: &quot;Roboto&quot;, sans-serif;
+      "
+    >
+      <h2
+        class="text_hero_8"
+        style="font-size: 28px; font-weight: 700; margin-bottom: 10px"
+      >
+        Our Office
+      </h2>
+      <p style="color: #666; margin-bottom: 30px; font-size: 15px">
+        Come visit us at our central office! 🛍️
+      </p>
+
+      <div
+        class="container"
+        style="
+          max-width: 1000px;
+          margin: 0 auto;
+          border-radius: 24px;
+          overflow: hidden;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+          border: 1px solid #eee;
+          min-height: 400px;
+        "
+      >
+        <!-- ИСПОЛЬЗУЕМ СКРИПТ ВМЕСТО IFRAME (Браузеры его не заблокируют!) [2] -->
+        <script
+          type="text/javascript"
+          charset="utf-8"
+          async
+          src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ad57c3e536bf3289063bc97a9f9bf8c83e207908b98ef75f2845a777d01861036&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"
+        ></script>
+      </div>
+    </section>
     <!--------------БЛОК 12 ФУТЕР------------->
     <div id="footer-placeholder"></div>
     <script src="components.js"></script>
+    <script>
+      // Ждем полной загрузки всех ресурсов страницы (картинок, шрифтов)
+      window.addEventListener("load", () => {
+        const preloader = document.getElementById("preloader");
+        if (preloader) {
+          preloader.style.opacity = "0";
+          preloader.style.visibility = "hidden";
+
+          // Полностью удаляем его из кода через 400мс, когда закончится плавная анимация исчезновения
+          setTimeout(() => {
+            preloader.remove();
+          }, 400);
+        }
+      });
+    </script>
+    <script>
+    // 10 уникальных картинок и 10 уникальных звуковых эффектов для них [2.2]
+    const vibeGallery = [
+      { 
+        img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=900&q=80", 
+        sound: "https://actions.google.com/sounds/v1/cartoon/pop.ogg" 
+      },
+      { 
+        img: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=900&q=80", 
+        sound: "https://actions.google.com/sounds/v1/foley/camera_shutter.ogg" 
+      },
+      { 
+        img: "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?w=900&q=80", 
+        sound: "https://actions.google.com/sounds/v1/water/water_drop.ogg" 
+      },
+      { 
+        img: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=900&q=80", 
+        sound: "https://actions.google.com/sounds/v1/ui/button_click.ogg" 
+      },
+      { 
+        img: "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=900&q=80", 
+        sound: "https://actions.google.com/sounds/v1/science_fiction/robot_blip.ogg" 
+      }
+    ];
+
+    let currentVibeIndex = 0;
+    let audioPlayer = new Audio();
+    audioPlayer.volume = 0.5; // Громкость по умолчанию
+
+    const imgElement = document.getElementById('gallery-image');
+    const videoElement = document.getElementById('gallery-video');
+    const volumeSlider = document.getElementById('volume-slider');
+
+    // КНОПКА 1: Показ случайного фото и воспроизведение его звука [2.2]
+    document.getElementById('btn-shuffle-vibe').addEventListener('click', () => {
+        // Останавливаем и прячем видео, если оно играло
+        videoElement.style.display = 'none';
+        videoElement.pause();
+        imgElement.style.display = 'block';
+
+        // Выбираем случайный индекс из 10 картинок
+        let randomIndex;
+        do {
+            randomIndex = Math.floor(Math.random() * vibeGallery.length);
+        } while (randomIndex === currentVibeIndex); // Избегаем повторения той же картинки
+
+        currentVibeIndex = randomIndex;
+
+        // Плавный переход opacity для изображения (Пункт 4 методички) [2.4]
+        imgElement.style.opacity = '0';
+        setTimeout(() => {
+            imgElement.src = vibeGallery[currentVibeIndex].img;
+            imgElement.style.opacity = '1';
+        }, 200);
+
+        // Воспроизводим уникальный звук для этой картинки [2.2]
+        audioPlayer.src = vibeGallery[currentVibeIndex].sound;
+        audioPlayer.play();
+    });
+
+    // КНОПКА 2: Запуск ВИДЕО (Пункт 8 методички)
+    document.getElementById('btn-launch-video').addEventListener('click', () => {
+        // Скрываем картинку, глушим звуковой эффект
+        imgElement.style.display = 'none';
+        audioPlayer.pause(); 
+        
+        // Показываем и запускаем видео
+        videoElement.style.display = 'block';
+        videoElement.play(); 
+    });
+
+    // ИНТЕРАКТИВ 3: Управление громкостью (Пункт 5 методички) [2.5]
+    volumeSlider.addEventListener('input', (e) => {
+        const newVolume = e.target.value;
+        audioPlayer.volume = newVolume; // Меняем громкость звуковых эффектов
+        videoElement.volume = newVolume; // Одновременно меняем громкость видео
+    });
+
+    // Инициализация первой картинки при загрузке страницы
+    imgElement.src = vibeGallery[0].img;
+</script>
+
+    <!-- Стили для красивого розового ползунка -->
+    <style>
+      .pink-slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 4px;
+        background: #e0e0e0;
+        border-radius: 5px;
+        outline: none;
+      }
+      .pink-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #ffb3c7; /* Розовый thumb */
+        cursor: pointer;
+        border: none;
+        transition: transform 0.2s ease;
+      }
+      .pink-slider::-webkit-slider-thumb:hover {
+        transform: scale(1.2);
+      }
+    </style>
   </body>
 </html>

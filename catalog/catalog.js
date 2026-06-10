@@ -1,9 +1,5 @@
-// catalog/catalog.js
-
 document.addEventListener("DOMContentLoaded", () => {
-    const API_URL = "http://localhost:3000/products";
     let loadedProducts = [];
-
     let currentSearchQuery = "";
     let currentSortCriterion = "default";
     let currentCategory = "all";
@@ -38,20 +34,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // ==========================================
-    // ИСПРАВЛЕННАЯ ФУНКЦИЯ ОТРИСОВКИ (RENDER) [2]
-    // ==========================================
+    //  Отрисовка карточек с вызовом мод. окна
     function renderProducts(productsArray) {
         const container = document.getElementById('product-grid');
         if (!container) return;
+        
         container.innerHTML = ''; 
 
         productsArray.forEach(product => {
             const card = document.createElement('div');
             card.className = `card_1_hero_7`; 
-            card.style.position = 'relative'; 
-
-            // Считываем состояние избранного и корзины для окрашивания [2, 3]
+            card.style.position = 'relative';
             const isFavorite = window.favoriteIds.includes(String(product.id));
             const heartColor = isFavorite ? "#ffb3c7" : "#ccc"; 
 
@@ -63,18 +56,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
             card.innerHTML = `
                 <div class="product-image-container" style="width: 100%; height: 250px; overflow: hidden; border-top-left-radius: 16px; border-top-right-radius: 16px; position: relative;">
-                    <!-- Картинка теперь ведет на страницу товара -->
-                    <a href="product.html?id=${product.id}" style="display: block; width: 100%; height: 100%;">
+                    
+                    <!-- Клик по картинке теперь вызывает модальное окно -->
+                    <div class="open-modal-trigger" data-id="${product.id}" style="width: 100%; height: 100%; cursor: pointer;">
                         <img src="${product.image}" alt="${product.name}" style="width: 100%; height: 100%; object-fit: cover;" />
-                    </a>
+                    </div>
+                    
                     <button type="button" class="heart-btn" data-id="${product.id}" style="position: absolute; top: 15px; right: 15px; background: rgba(255,255,255,0.85); border: none; border-radius: 50%; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; cursor: pointer; font-size: 24px; color: ${heartColor}; transition: color 0.3s; z-index: 10; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">♥</button>
                 </div>
                 
                 <div style="padding: 20px; display: flex; flex-direction: column; flex-grow: 1;">
-                    <!-- Название теперь тоже ссылка -->
-                    <a href="product.html?id=${product.id}" style="text-decoration: none; color: inherit;">
-                        <p class="catalog__title" style="font-weight: bold; margin: 0 0 5px 0; font-size: 16px; padding: 0; cursor: pointer;">${product.name}</p>
-                    </a>
+                    
+                    <!-- Клик по названию тоже вызывает модальное окно -->
+                    <p class="catalog__title open-modal-trigger" data-id="${product.id}" style="font-weight: bold; margin: 0 0 5px 0; font-size: 16px; padding: 0; cursor: pointer; text-decoration: none; color: inherit;">${product.name}</p>
+                    
                     <p style="font-size: 13px; color: #606060; margin: 0 0 10px 0;">Category: ${product.category}</p>
                     <p style="font-size: 13px; color: #606060; margin: 0; line-height: 1.4;">${product.description}</p>
                     
@@ -88,28 +83,32 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 </div>
             `;
-            container.appendChild(card); // Возвращаем добавление карточки в HTML [1]
+            container.appendChild(card);
         });
 
-        // Навешиваем клики из services.js после рендеринга [2]
+        // Навешиваем клики на сердечки и корзину
         document.querySelectorAll('.heart-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault(); e.stopPropagation();
                 window.toggleFavorite(e.currentTarget.getAttribute('data-id'), e);
             });
         });
+        
         document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
             btn.addEventListener('click', async (e) => {
                 e.preventDefault(); e.stopPropagation();
                 const button = e.currentTarget;
                 const productId = button.getAttribute('data-id');
-
-                button.style.background = '#000';
-                button.style.color = '#fff';
-                button.style.borderColor = '#000';
-                button.innerText = 'In Cart 🛒';
-
+                button.style.background = '#000'; button.style.color = '#fff'; button.style.borderColor = '#000'; button.innerText = 'In Cart 🛒';
                 await window.addToCart(productId, button);
+            });
+        });
+
+        // Навешиваем клики для открытия модалки [2]
+        document.querySelectorAll('.open-modal-trigger').forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                const productId = e.currentTarget.getAttribute('data-id');
+                openProductModal(productId);
             });
         });
     }
@@ -215,6 +214,113 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // ЗАПУСК ПРИ СТАРТЕ
+    // ====================================================================
+    // ЛОГИКА МОДАЛЬНОГО ОКНА ДЕТАЛЕЙ ТОВАРА [2]
+    // ====================================================================
+    const modal = document.getElementById('product-modal');
+    const modalBody = document.getElementById('modal-body');
+    const modalClose = document.getElementById('modal-close');
+
+    async function openProductModal(productId) {
+        try {
+            const prodResponse = await fetch(`${API_URL}/${productId}`);
+            if (!prodResponse.ok) throw new Error("Товар не найден");
+            const product = await prodResponse.json();
+
+            const feedbackResponse = await fetch(`http://localhost:3000/feedback?productId=${productId}`);
+            const feedbacks = await feedbackResponse.json();
+
+            const usersResponse = await fetch("http://localhost:3000/users");
+            const users = await usersResponse.json();
+            const usersMap = {};
+            users.forEach(u => {
+                usersMap[u.id] = u.nickname || u.fullName.firstName;
+            });
+
+            const isFavorite = window.favoriteIds.includes(String(product.id));
+            const heartColor = isFavorite ? "#ffb3c7" : "#ccc";
+
+            const isInCart = window.cartIds.includes(String(product.id));
+            const cartBtnBg = isInCart ? "#000" : "#f0f0f0";
+            const cartBtnColor = isInCart ? "#fff" : "#000";
+            const cartBtnBorder = isInCart ? "1px solid #000" : "1px solid #ccc";
+            const cartBtnText = isInCart ? "In Cart 🛒" : "Add to Cart";
+
+            let reviewsHtml = '';
+            if (feedbacks.length === 0) {
+                reviewsHtml = `<p style="color: #888; font-style: italic; font-size: 13px;">No reviews yet. Be the first to leave a review! ❤️</p>`;
+            } else {
+                feedbacks.forEach(fb => {
+                    const starsCount = fb.rating || 5;
+                    const starsHtml = '★'.repeat(starsCount) + '☆'.repeat(5 - starsCount);
+                    reviewsHtml += `
+                        <div style="border-bottom: 1px solid #eee; padding: 12px 0; font-size: 13px; text-align: left;">
+                            <div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 4px;">
+                                <span>${usersMap[fb.userId] || 'Anonymous'} <span style="color: #ffb3c7; margin-left: 5px;">${starsHtml}</span></span>
+                                <span style="color: #999; font-weight: normal; font-size: 11px;">${fb.date}</span>
+                            </div>
+                            <p style="margin: 0; color: #555; line-height: 1.4;">${fb.text}</p>
+                        </div>
+                    `;
+                });
+            }
+
+            modalBody.innerHTML = `
+                <div style="display: flex; gap: 30px; width: 100%; flex-wrap: wrap; text-align: left; font-family: 'Roboto', sans-serif;">
+                    <div style="flex: 1; min-width: 250px; position: relative; height: 300px; border-radius: 16px; overflow: hidden;">
+                        <img src="${product.image}" alt="${product.name}" style="width: 100%; height: 100%; object-fit: cover;" />
+                        <button id="modal-heart" data-id="${product.id}" style="position: absolute; top: 15px; right: 15px; background: rgba(255,255,255,0.85); border: none; border-radius: 50%; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; cursor: pointer; font-size: 24px; color: ${heartColor}; transition: 0.3s; z-index: 10; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">♥</button>
+                    </div>
+                    <div style="flex: 1.2; min-width: 250px; display: flex; flex-direction: column;">
+                        <span style="font-size: 12px; text-transform: uppercase; color: #888; font-weight: bold; margin-bottom: 5px;">${product.category}</span>
+                        <h3 style="font-size: 24px; font-weight: bold; margin: 0 0 10px 0; color: #171717;">${product.name}</h3>
+                        <p style="font-size: 20px; font-weight: bold; color: #000; margin-bottom: 15px;">$${product.price}</p>
+                        <p style="font-size: 14px; line-height: 1.5; color: #555; margin-bottom: 20px;">${product.description}</p>
+                        <button id="modal-add-to-cart" data-id="${product.id}" class="button_hero_11 button_black_11" style="height: 40px; font-size: 13px; border-radius: 20px; width: 100%; max-width: 200px; cursor: pointer; background: ${cartBtnBg}; color: ${cartBtnColor}; border: ${cartBtnBorder}; font-weight: bold; margin-bottom: 15px;">${cartBtnText}</button>
+                        <div style="font-size: 14px; color: #666; font-weight: bold; margin-top: auto;">Rating: <span style="color: #ffb3c7;">★ ${product.rating}</span></div>
+                    </div>
+                </div>
+                <div style="width: 100%; border-top: 1px solid #eee; margin-top: 25px; padding-top: 20px; text-align: left; font-family: 'Roboto', sans-serif;">
+                    <h4 style="font-size: 18px; font-weight: bold; margin: 0 0 15px 0;">Reviews 💬</h4>
+                    <div style="max-height: 180px; overflow-y: auto; padding-right: 5px;">
+                        ${reviewsHtml}
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('modal-heart').addEventListener('click', (e) => {
+                window.toggleFavorite(product.id, e);
+            });
+
+            document.getElementById('modal-add-to-cart').addEventListener('click', (e) => {
+                const button = e.currentTarget;
+                button.style.background = '#000';
+                button.style.color = '#fff';
+                button.style.borderColor = '#000';
+                button.innerText = 'In Cart 🛒';
+                window.addToCart(product.id, button);
+            });
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+
+        } catch (err) {
+            console.error("Ошибка при открытии модального окна:", err);
+        }
+    }
+
+    function closeProductModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = ''; 
+    }
+
+    modalClose?.addEventListener('click', closeProductModal);
+    modal?.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeProductModal();
+        }
+    });
+
+    // Запуск при старте
     filterAndSortProducts();
 });
