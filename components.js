@@ -102,6 +102,11 @@ document.addEventListener("DOMContentLoaded", () => {
   <a href="${pathPrefix}catalog/cart.html" style="display: inline-flex; align-items: center;">Cart <span id="cart-counter" class="nav-badge">0</span></a>
   <a href="#">How Klarna works</a>
   <a href="#">Help</a>
+
+   <button type="button" id="btn-theme-toggle" class="nav-icon-btn" style="display: inline-flex; align-items: center; justify-content: center; width: 35px; height: 35px; border-radius: 50%; border: 1px solid var(--btn-blk); background: var(--btn-white-text); cursor: pointer; margin-left: 10px; transition: 0.3s;" title="Toggle Theme">
+      <!-- Иконка луны/солнца сгенерируется через JS -->
+      <span id="theme-icon" style="display: flex;"></span>
+  </button>
 </nav>
 
                 <div class="header__auth">
@@ -314,4 +319,98 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     window.updateHeaderCounters();
+
+    // ====================================================================
+    // ЛОГИКА СМЕНЫ ТЕМЫ (Светлая / Темная) - Шаг 1, Лаба 10 [4]
+    // ====================================================================
+
+    // Цветовые схемы для переменных CSS [4]
+    const themes = {
+    light: {
+        '--bg-base': '#ffffff',
+        '--text-main': '#000000',
+        '--bg-hero1': '#bdd5ff',
+        '--bg-hero8': '#bdbdbd',
+        '--bg-hero11': '#ffe7d0',
+        '--bg-hero5': '#000000',
+        '--accent-pink': '#ffb3c7',
+        '--accent-blue-link': '#487b94',
+        '--shadow-soft': 'rgba(0, 0, 0, 0.05)',
+        '--shadow-card-active': 'rgba(0, 0, 0, 0.2)',
+        '--tag-bg': 'rgba(240, 238, 235, 0.9)',
+        '--btn-blk': '#000000',
+        '--btn-white-text': '#ffffff',
+        '--img-brightness': '1.0',
+        '--card-dim-filter': 'brightness(0.7) grayscale(0.2)',
+        '--card-bright-filter': 'brightness(1.1) grayscale(0)',
+        '--footer-bg': '#ffffff',
+        '--footer-text': '#171717',
+        '--footer-border': '#eaeaea',
+        '--social-bg': '#ffffff',
+        '--social-filter': 'none',
+        '--footer-logo-filter': 'none'
+    },
+    dark: {
+        '--bg-base': '#000000',
+        '--text-main': '#ffffff',
+        '--bg-hero1': '#968eca',
+        '--bg-hero8': '#181818',
+        '--bg-hero11': '#000000',
+        '--bg-hero5': '#121212',
+        '--accent-pink': '#ff9fb8',
+        '--accent-blue-link': '#66a1bd',
+        '--shadow-soft': 'rgba(255, 255, 255, 0.02)',
+        '--shadow-card-active': 'rgba(0, 0, 0, 0.8)',
+        '--tag-bg': 'rgba(40, 40, 40, 0.9)',
+        '--btn-blk': '#ffffff',
+        '--btn-white-text': '#000000',
+        '--img-brightness': '0.85',
+        '--card-dim-filter': 'brightness(0.5) grayscale(0.4)',
+        '--card-bright-filter': 'brightness(1.2) grayscale(0)',
+        '--footer-bg': '#0a0a0a',
+        '--footer-text': '#ffffff',
+        '--footer-border': '#222222',
+        '--social-bg': '#222222',
+        '--social-filter': 'invert(1)',
+        '--footer-logo-filter': 'brightness(0) invert(1)'
+    }
+};
+
+    // Векторные иконки для кнопки [1]
+    const sunSvg = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+    const moonSvg = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+
+    let currentTheme = localStorage.getItem('theme') || 'light'; // Читаем из LocalStorage или ставим светлую [4]
+
+    // Функция применения темы к CSS-переменным [4]
+    function applyTheme(themeName) {
+        const themeVariables = themes[themeName];
+        
+        // Перебираем объект с переменными и заменяем их в :root
+        for (const [key, value] of Object.entries(themeVariables)) {
+            document.documentElement.style.setProperty(key, value);
+        }
+
+        // Обновляем иконку на кнопке
+        const iconContainer = document.getElementById('theme-icon');
+        if (iconContainer) {
+            iconContainer.innerHTML = themeName === 'light' ? moonSvg : sunSvg; // Показываем Луну в светлой теме, Солнце в темной
+        }
+
+        // Сохраняем выбор в LocalStorage [4]
+        localStorage.setItem('theme', themeName);
+        currentTheme = themeName;
+    }
+
+    // Навешиваем клик на кнопку переключателя темы
+    const btnTheme = document.getElementById('btn-theme-toggle');
+    if (btnTheme) {
+        btnTheme.addEventListener('click', () => {
+            const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
+            applyTheme(nextTheme);
+        });
+    }
+
+    // Применяем сохраненную тему сразу при загрузке страницы [4, 5]
+    applyTheme(currentTheme);
 });

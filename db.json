@@ -161,7 +161,38 @@
       "id": "1780836747192"
     }
   ],
-  "favorites": [],
+  "favorites": [
+    {
+      "id": "1",
+      "name": "Nike Air Max 270",
+      "price": 150,
+      "category": "Fashion",
+      "gender": "male",
+      "rating": 4.8,
+      "image": "image/a.jpeg",
+      "description": "Classic running sneakers with maximum comfort."
+    },
+    {
+      "id": "2",
+      "name": "Apple Watch Series 8",
+      "price": 399,
+      "category": "Electronics",
+      "gender": "unisex",
+      "rating": 4.9,
+      "image": "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500&q=80",
+      "description": "Advanced health tracking and elegant design."
+    },
+    {
+      "id": "3",
+      "name": "Minimalist Leather Tote",
+      "price": 85,
+      "category": "Accessories",
+      "gender": "female",
+      "rating": 4.5,
+      "image": "image/orig.webp",
+      "description": "Handcrafted genuine leather bag for daily use."
+    }
+  ],
   "cart": [
     {
       "id": "2",
